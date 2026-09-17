@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { 
   ChevronLeft, 
@@ -154,19 +153,27 @@ export function MeetOurClients({
               {/* Left Column: Visual Banner Graphic */}
               <div className="lg:col-span-5 flex justify-center">
                 <div className="relative w-full max-w-md aspect-[16/9] rounded-2xl overflow-hidden shadow-lg border border-slate-200/60 bg-[#071739]">
-                  <Image
+                  <img
                     src={currentTestimonial.imageSrc}
                     alt={currentTestimonial.name}
-                    fill
-                    className="object-cover object-center"
-                    priority
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
                   />
                 </div>
               </div>
 
-              {/* Right Column: Name, Quote, LinkedIn */}
+              {/* Right Column: Name, Role, Quote, LinkedIn */}
               <div className="lg:col-span-7 flex flex-col justify-between">
                 <div>
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200/80">
+                      {currentTestimonial.badgeCompany || currentTestimonial.company}
+                    </span>
+                    <span className="text-xs font-semibold text-slate-500">
+                      {currentTestimonial.role}
+                    </span>
+                  </div>
+
                   <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#071739] tracking-tight mb-4">
                     {currentTestimonial.name}
                   </h3>
@@ -176,22 +183,45 @@ export function MeetOurClients({
                   </p>
                 </div>
 
-                {/* LinkedIn Icon */}
-                <div>
+                {/* LinkedIn Icon & Slide Counter */}
+                <div className="flex items-center justify-between pt-2 border-t border-slate-100">
                   <a
                     href={currentTestimonial.linkedinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center w-8 h-8 rounded-sm bg-[#0077b5] text-white hover:opacity-90 transition-opacity shadow-xs"
-                    title="Connect on LinkedIn"
+                    title={`Connect with ${currentTestimonial.name} on LinkedIn`}
                   >
                     <span className="font-bold text-sm tracking-tighter">in</span>
                   </a>
+
+                  <div className="text-xs font-semibold text-slate-400">
+                    Profile <span className="font-bold text-slate-700">{currentTestimonialIndex + 1}</span> of {testimonials.length}
+                  </div>
                 </div>
               </div>
 
             </div>
           </div>
+
+          {/* Testimonials Pagination Dots */}
+          {testimonials.length > 1 && (
+            <div className="flex items-center justify-center gap-2 mt-6">
+              {testimonials.map((t, idx) => (
+                <button
+                  key={t.id || idx}
+                  onClick={() => setCurrentTestimonialIndex(idx)}
+                  aria-label={`Jump to profile: ${t.name}`}
+                  title={t.name}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    idx === currentTestimonialIndex
+                      ? "w-8 bg-[#0066cc]"
+                      : "w-2.5 bg-slate-300 hover:bg-slate-400"
+                  }`}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
       </div>

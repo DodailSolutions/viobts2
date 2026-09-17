@@ -1,4 +1,4 @@
-﻿import { ClientLogoItem, ClientTestimonialItem } from "./types";
+import { ClientLogoItem, ClientTestimonialItem } from "./types";
 
 export const DEFAULT_CLIENT_LOGOS: ClientLogoItem[] = [
   {
@@ -148,6 +148,18 @@ export const DEFAULT_CLIENT_LOGOS: ClientLogoItem[] = [
     ]
   },
   {
+    id: "walmart",
+    name: "Walmart",
+    svgSrc: "/images/clients/walmart.svg",
+    category: "Retail & Marketplace Tech",
+    headline: "Omnichannel Marketplace Catalog & Assortment Expansion",
+    summary: "Partnered with Walmart Global Tech to enhance omnichannel catalog capabilities, accelerating marketplace seller assortment expansion and streamlining inventory operations.",
+    metrics: [
+      { label: "Catalog Scale", value: "Millions" },
+      { label: "Assortment Velocity", value: "3x Faster" }
+    ]
+  },
+  {
     id: "vcu-health",
     name: "VCU Health System",
     svgSrc: "/images/clients/vcu-health.svg",
@@ -163,36 +175,69 @@ export const DEFAULT_CLIENT_LOGOS: ClientLogoItem[] = [
 
 export const DEFAULT_CLIENT_TESTIMONIALS: ClientTestimonialItem[] = [
   {
-    id: "adithya",
+    id: "adithya-buddhavarapu",
     name: "Adithya Buddhavarapu",
     role: "Founder & CEO/CTO",
     company: "FocalCXM",
-    imageSrc: "/images/clients/founder-adithya-hq.png",
+    imageSrc: "/images/testimonials/adithya-buddhavarapu.png",
     badgeRole: "FOUNDER & CEO/CTO",
     badgeCompany: "FOCALCXM",
     quote: "VIO exceeds expectations as a strategic partner, empowering businesses with transformative data science and analytics solutions. Their expertise in delivering complex, enterprise-wide data transformations with precision, security, and innovation sets a new industry standard. VIO recently led a successful implementation with a large pharmaceutical client, modernizing their data ecosystem to drive advanced analytics, regulatory compliance, and operational efficiency. If you’re looking for a trusted partner to optimize your data strategy, VIO’s unique blend of agility, deep industry expertise, and personalized service ensures data-driven success.",
-    linkedinUrl: "https://www.linkedin.com/in/adithyab/"
+    linkedinUrl: "https://www.linkedin.com/in/theoracle/"
   },
   {
-    id: "state-lead",
-    name: "Executive Director of Technology",
-    role: "Digital Transformation Lead",
-    company: "Commonwealth of Virginia (ODGA)",
-    imageSrc: "/images/clients/founder-adithya-hq.png",
-    badgeRole: "EXECUTIVE DIRECTOR",
-    badgeCompany: "ODGA VIRGINIA",
-    quote: "VIO has been instrumental in modernizing our state digital infrastructure. Their woman-owned SWaM certification paired with world-class engineering execution makes them an invaluable partner. They unified disparate legacy portals into a secure, NIST-compliant microservices platform serving millions of Virginia residents.",
+    id: "vamsi-madabhushi",
+    name: "Vamsi Madabhushi",
+    role: "Product Manager",
+    company: "Walmart Global Tech",
+    imageSrc: "/images/testimonials/vamsi-madabhushi.png",
+    badgeRole: "PRODUCT MANAGER",
+    badgeCompany: "Walmart Global Tech",
+    quote: "VIO has been a strategic partner in enhancing our omnichannel catalog capabilities, which played a critical role in successfully launching our assortment expansion through marketplace sellers. Their expertise and innovative solutions helped us streamline our operations, improve customer experience, and drive business growth.",
+    linkedinUrl: "https://www.linkedin.com/in/vamsi-madabhushi-38257028/"
+  },
+  {
+    id: "prabhu-chandrasekhar",
+    name: "Prabhu Chandrasekhar",
+    role: "Technology Executive",
+    company: "Advance Auto Parts",
+    imageSrc: "/images/testimonials/prabhu-chandrasekhar.png",
+    badgeRole: "TECHNOLOGY EXECUTIVE",
+    badgeCompany: "ADVANCE AUTO PARTS",
+    quote: "VIO has consistently demonstrated exceptional leadership and strategic execution in large-scale data and analytics initiatives. Their focus on financial efficiency, robust data management, governance, and end-to-end digital transformation enables enterprises to innovate with confidence and agility.",
+    linkedinUrl: "https://www.linkedin.com/in/prabhuchandra2016/"
+  },
+  {
+    id: "holly-nicholson",
+    name: "Holly Nicholson",
+    role: "Founder",
+    company: "Lokmart",
+    imageSrc: "/images/testimonials/holly-nicholson.jpg",
+    badgeRole: "FOUNDER",
+    badgeCompany: "LOKMART",
+    quote: "VIO delivered high-performance scalable systems that streamlined our customer checkout and commerce workflows, accelerating our launch timeline by months.",
     linkedinUrl: "https://www.linkedin.com"
   },
   {
-    id: "fintech-lead",
-    name: "Head of Infrastructure Engineering",
-    role: "VP of Engineering",
-    company: "DriveWealth",
-    imageSrc: "/images/clients/founder-adithya-hq.png",
-    badgeRole: "VP ENGINEERING",
-    badgeCompany: "DRIVEWEALTH",
-    quote: "When retail market volatility spikes 10x, failure is not an option. VIO's cloud and API squads engineered a platform that handled our trading spikes with flawless precision. Their architecture consulting boosted customer retention by 15% and accelerated our platform expansion.",
+    id: "harrison-rogers",
+    name: "Harrison Rogers",
+    role: "Business Manager",
+    company: "Global Commerce",
+    imageSrc: "/images/testimonials/harrison-rogers.jpg",
+    badgeRole: "BUSINESS MANAGER",
+    badgeCompany: "COMMERCE OPS",
+    quote: "Partnering with VIO gave us the agility, technical caliber, and disciplined delivery required to scale our operations seamlessly.",
+    linkedinUrl: "https://www.linkedin.com"
+  },
+  {
+    id: "molly-gallagher",
+    name: "Molly Gallagher",
+    role: "CEO",
+    company: "Mokamoka",
+    imageSrc: "/images/testimonials/molly-gallagher.jpg",
+    badgeRole: "CEO",
+    badgeCompany: "MOKAMOKA",
+    quote: "The dedication, transparency, and deep engineering knowledge that VIO brings to every sprint has made them an essential partner in our technology ecosystem.",
     linkedinUrl: "https://www.linkedin.com"
   }
 ];
