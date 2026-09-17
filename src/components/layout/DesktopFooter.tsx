@@ -161,29 +161,37 @@ export function DesktopFooter() {
             </ul>
           </div>
 
-          {/* Column 5: Insights & Governance */}
+          {/* Column 5: Contact & Governance */}
           <div>
             <p className="text-xs font-bold text-white uppercase tracking-widest mb-4">
-              Insights & Admin
+              Get in Touch
             </p>
-            <ul className="space-y-2.5">
+            <ul className="space-y-2.5 text-xs text-slate-300">
               <li>
-                <Link href="/insights" className="text-xs text-slate-300 hover:text-cyan-400 transition-colors">
-                  Articles & Blogs
+                <a href="tel:+18048216588" className="hover:text-cyan-400 transition-colors font-medium">
+                  +1 804 821 6588
+                </a>
+              </li>
+              <li>
+                <a href="mailto:info@viobts.com" className="hover:text-cyan-400 transition-colors font-medium">
+                  info@viobts.com
+                </a>
+              </li>
+              <li className="text-slate-400">
+                Richmond, Virginia, USA
+              </li>
+              <li className="pt-2 border-t border-blue-950">
+                <Link href="/podcast" className="hover:text-cyan-400 transition-colors block">
+                  Voices of AI Leadership
                 </Link>
               </li>
               <li>
-                <Link href="/podcast" className="text-xs text-slate-300 hover:text-cyan-400 transition-colors">
-                  VIO Tech Podcasts
+                <Link href="/insights" className="hover:text-cyan-400 transition-colors block">
+                  Articles & Insights
                 </Link>
               </li>
               <li>
-                <Link href="/search" className="text-xs text-slate-300 hover:text-cyan-400 transition-colors">
-                  Global Search
-                </Link>
-              </li>
-              <li>
-                <Link href="/admin" className="text-xs text-cyan-400 font-semibold hover:underline">
+                <Link href="/admin" className="text-cyan-400 font-semibold hover:underline block">
                   Visual CMS Portal
                 </Link>
               </li>

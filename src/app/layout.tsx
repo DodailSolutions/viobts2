@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | VIO",
   },
   description:
-    "Richmond, Virginia-headquartered, woman-owned VA-SWaM certified technology consulting partner. Specializing in Technology Workforce, Big Data, Open-source, Cloud Enablement, APIs, and AI/ML.",
+    "Richmond, Virginia-headquartered, founder-led, woman-owned VA-SWaM certified technology consulting partner. Specializing in Technology Workforce, Big Data, Open-source, Cloud Enablement, APIs, and AI/ML.",
   keywords: [
     "Technology Accelerator",
     "VA-SWaM Certified",
@@ -29,10 +29,16 @@ export const metadata: Metadata = {
     "API Microservices",
     "AI and Machine Learning",
     "Technology Workforce",
+    "Malathi Vakkalanka",
+    "Voices of AI Leadership",
+    "Measure Analyse Improve",
   ],
-  authors: [{ name: "VIO LLC" }],
+  authors: [{ name: "VIO LLC", url: "https://viobts.com" }],
   creator: "VIO LLC",
   publisher: "VIO LLC",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -54,12 +60,19 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "VIO | The Technology Accelerator for Your Business",
     description:
-      "Richmond, VA founder-led, woman-owned VA-SWaM enterprise technology consulting partner.",
+      "Richmond, VA founder-led, woman-owned VA-SWaM enterprise technology consulting partner. Measure → Analyse → Improve.",
     images: ["/images/vio-logo.png"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -75,30 +88,54 @@ export default function RootLayout({
         "@type": "Organization",
         "@id": "https://viobts.com/#organization",
         "name": "VIO",
+        "legalName": "VIO LLC",
         "url": "https://viobts.com",
         "logo": "https://viobts.com/images/vio-logo.png",
-        "description": "The technology accelerator for your business. Richmond, Virginia woman-owned VA-SWaM certified consulting partner.",
+        "description": "The technology accelerator for your business. Richmond, Virginia founder-led woman-owned VA-SWaM certified consulting partner.",
+        "founder": {
+          "@type": "Person",
+          "name": "Malathi Vakkalanka",
+          "jobTitle": "Founder & CEO"
+        },
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Richmond",
           "addressRegion": "VA",
           "addressCountry": "US"
         },
+        "telephone": "+1-804-821-6588",
+        "email": "info@viobts.com",
         "slogan": "Think bigger, build Smarter, solve harder.",
         "knowsAbout": [
           "Technology Workforce",
           "Big Data & Analytics",
           "Open-source Integration",
-          "Cloud Enablement & CI/CD",
+          "Cloud Enablement & CI/CD Pipelines",
           "API & Microservices",
-          "RPA, ML & AI"
+          "RPA, Machine Learning & AI"
         ]
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://viobts.com/#localbusiness",
+        "name": "VIO",
+        "image": "https://viobts.com/images/vio-logo.png",
+        "telephone": "+1-804-821-6588",
+        "email": "info@viobts.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Richmond",
+          "addressRegion": "VA",
+          "addressCountry": "US"
+        },
+        "url": "https://viobts.com",
+        "priceRange": "$$$$"
       },
       {
         "@type": "WebSite",
         "@id": "https://viobts.com/#website",
         "url": "https://viobts.com",
-        "name": "VIO",
+        "name": "VIO - The Technology Accelerator",
         "publisher": {
           "@id": "https://viobts.com/#organization"
         }

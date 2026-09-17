@@ -2,41 +2,83 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
-import { ArrowRight, BookOpen, Mic, Clock, Calendar } from "lucide-react";
-import { cmsStore } from "@/lib/data"; import { formatDate } from "@/lib/utils";
+import { ArrowRight, BookOpen, Mic, Clock, Calendar, ShieldCheck, Sparkles } from "lucide-react";
+import { cmsStore } from "@/lib/data";
+import { CTABanner } from "@/components/sections/CTABanner";
 
 export const metadata: Metadata = {
-  title: "Insights, Perspectives & Podcasts | VIO",
-  description: "Enterprise thought leadership on cloud architecture, Lakehouse data governance, and AI automation.",
+  title: "Insights, Articles & Voices of AI Leadership | VIO",
+  description: "Enterprise thought leadership on cloud architecture, Lakehouse data governance, and AI automation. Richmond, VA.",
+  alternates: {
+    canonical: "/insights",
+  },
+  openGraph: {
+    title: "Insights & Podcasts | VIO Technology Accelerator",
+    description: "Deep technical blueprints and executive discussions on modernizing enterprise software ecosystems.",
+    url: "https://viobts.com/insights",
+    type: "website",
+    images: [
+      {
+        url: "/images/vio-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "VIO Insights",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Insights & Podcasts | VIO",
+    description: "Enterprise architecture and AI leadership perspectives.",
+    images: ["/images/vio-logo.png"],
+  },
 };
 
 export default function InsightsPage() {
   const blogs = cmsStore.getBlogs();
   const podcasts = cmsStore.getPodcasts();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "VIO Insights & Podcasts",
+    "description": "Enterprise engineering blueprints and leadership podcasts.",
+    "url": "https://viobts.com/insights"
+  };
+
   return (
-    <div className="pt-28 pb-20 bg-white min-h-screen">
+    <div className="pt-28 pb-20 bg-[#f8fafc]/50 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* Hero */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
-        <p className="text-xs font-bold tracking-[0.25em] text-brand-blue uppercase mb-3">
-          THOUGHT LEADERSHIP
-        </p>
-        <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
-          VIO <span className="text-gradient-cyan">Perspectives & Podcasts</span>
+      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 mb-4">
+          <ShieldCheck className="w-4 h-4 text-[#0066cc]" />
+          <span className="text-xs font-bold tracking-[0.2em] text-[#0066cc] uppercase">
+            THOUGHT LEADERSHIP & EXECUTIVE DIALOGUE
+          </span>
+        </div>
+
+        <h1 className="text-4xl sm:text-6xl font-black text-[#071739] tracking-tight leading-[1.12] mb-6">
+          VIO <span className="text-[#0066cc]">Perspectives & Podcasts</span>
         </h1>
-        <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-          Deep technical analyses, architecture blueprints, and executive discussions on modernizing enterprise software ecosystems.
+        
+        <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-normal">
+          Deep technical blueprints, architectural frameworks, and executive discussions on modernizing enterprise software ecosystems and operationalizing AI.
         </p>
       </section>
 
       {/* Articles Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-200">
           <div className="flex items-center gap-3">
-            <BookOpen className="w-5 h-5 text-brand-blue" />
-            <h2 className="text-2xl font-bold text-slate-900">Latest Technical Articles</h2>
+            <BookOpen className="w-5 h-5 text-[#0066cc]" />
+            <h2 className="text-2xl font-black text-[#071739] tracking-tight">Latest Technical Articles</h2>
           </div>
-          <Link href="/blogs" className="text-xs font-bold text-brand-blue hover:underline flex items-center gap-1">
+          <Link href="/blogs" className="text-xs font-bold text-[#0066cc] hover:text-[#0052a3] flex items-center gap-1">
             <span>View All Articles</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
@@ -47,10 +89,10 @@ export default function InsightsPage() {
             <Link
               key={b.id}
               href={`/blogs/${b.slug}`}
-              className="rounded-3xl bg-white overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg hover:border-blue-200 flex flex-col justify-between group transition-all"
+              className="rounded-3xl bg-white overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-400 flex flex-col justify-between group transition-all duration-300"
             >
               <div>
-                <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+                <div className="relative h-52 w-full overflow-hidden bg-slate-100">
                   <Image
                     src={b.featuredImage}
                     alt={b.title}
@@ -58,37 +100,37 @@ export default function InsightsPage() {
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/95 text-brand-blue shadow-sm border border-slate-100">
+                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/95 text-[#0066cc] shadow-xs">
                       {b.category}
                     </span>
                   </div>
                 </div>
 
-                <div className="p-6">
+                <div className="p-7">
                   <div className="flex items-center gap-4 text-[11px] text-slate-500 mb-3">
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-3 h-3 text-slate-400" />
+                    <span className="flex items-center gap-1 font-medium">
+                      <Calendar className="w-3.5 h-3.5 text-slate-400" />
                       {b.publishedAt}
                     </span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3 text-slate-400" />
+                    <span className="flex items-center gap-1 font-medium">
+                      <Clock className="w-3.5 h-3.5 text-slate-400" />
                       {b.readingTime}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-blue transition-colors mb-3 leading-snug">
+                  <h3 className="text-xl font-bold text-[#071739] group-hover:text-[#0066cc] transition-colors mb-3 leading-snug">
                     {b.title}
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed line-clamp-3 mb-4">
+                  <p className="text-xs text-slate-600 leading-relaxed line-clamp-3 mb-4 font-normal">
                     {b.excerpt}
                   </p>
                 </div>
               </div>
 
-              <div className="px-6 pb-6 pt-2 border-t border-slate-100 flex items-center justify-between">
-                <span className="text-xs font-medium text-slate-500">{b.authorName}</span>
-                <span className="text-xs font-bold text-brand-blue flex items-center gap-1">
-                  Read <ArrowRight className="w-3 h-3" />
+              <div className="px-7 pb-7 pt-2 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-xs font-semibold text-slate-500">{b.authorName}</span>
+                <span className="text-xs font-bold text-[#0066cc] flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                  Read Article <ArrowRight className="w-3 h-3" />
                 </span>
               </div>
             </Link>
@@ -98,57 +140,71 @@ export default function InsightsPage() {
         {/* Podcasts Section */}
         <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-200">
           <div className="flex items-center gap-3">
-            <Mic className="w-5 h-5 text-brand-blue" />
-            <h2 className="text-2xl font-bold text-slate-900">VIO Tech Podcasts</h2>
+            <Mic className="w-5 h-5 text-[#0066cc]" />
+            <div>
+              <h2 className="text-2xl font-black text-[#071739] tracking-tight">Voices of AI Leadership</h2>
+              <p className="text-xs text-slate-500 font-medium">Hosted by VIO CEO Malathi Vakkalanka</p>
+            </div>
           </div>
-          <Link href="/podcast" className="text-xs font-bold text-brand-blue hover:underline flex items-center gap-1">
-            <span>All Episodes</span>
+          <Link href="/podcast" className="text-xs font-bold text-[#0066cc] hover:text-[#0052a3] flex items-center gap-1">
+            <span>Explore All Episodes</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {podcasts.map((p) => (
+          {podcasts.slice(0, 2).map((p) => (
             <div
               key={p.id}
-              className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+              className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300"
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-bold text-brand-blue tracking-wider uppercase">
-                    Episode • {p.duration}
-                  </span>
-                  <span className="text-xs text-slate-500">{p.publishedAt}</span>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0066cc] flex items-center justify-center">
+                  <Mic className="w-5 h-5" />
                 </div>
-
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{p.title}</h3>
-                <p className="text-xs text-slate-600 leading-relaxed mb-6">
-                  {p.description}
-                </p>
-
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 mb-6 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-brand-blue font-bold">
-                    {p.guestName.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-slate-900">{p.guestName}</p>
-                    <p className="text-[11px] text-slate-500">{p.guestCompany}</p>
-                  </div>
+                <div>
+                  <span className="text-xs font-bold text-[#0066cc] uppercase tracking-wider block">
+                    Hosted by Malathi Vakkalanka
+                  </span>
+                  <span className="text-[11px] text-slate-400 font-medium">{p.duration}</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
+              <h3 className="text-xl font-bold text-[#071739] mb-3 leading-snug">
+                {p.title}
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed mb-6 font-normal">
+                {p.description}
+              </p>
+
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-bold text-[#071739]">{p.guestName}</p>
+                  <p className="text-[10px] text-slate-400 font-medium">{p.guestCompany}</p>
+                </div>
                 <Link
                   href="/podcast"
-                  className="px-4 py-2 rounded-lg bg-brand-blue text-white font-bold text-xs hover:bg-blue-700 transition-colors shadow-sm"
+                  className="text-xs font-bold text-[#0066cc] hover:underline flex items-center gap-1"
                 >
-                  Listen to Episode
+                  <span>Listen Now</span>
+                  <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             </div>
           ))}
         </div>
       </section>
+
+      {/* CTA */}
+      <CTABanner
+        eyebrow="STAY AT THE FOREFRONT"
+        heading="Subscribe to VIO executive perspectives."
+        subheading="Join our monthly architecture briefing on cloud native trends, regulatory data compliance, and enterprise AI."
+        primaryCtaText="Book a Call"
+        primaryCtaLink="/contact"
+        secondaryCtaText="Explore Capabilities"
+        secondaryCtaLink="/services"
+      />
     </div>
   );
 }
