@@ -58,14 +58,15 @@ export const INITIAL_HOMEPAGE_SECTIONS: PageSectionItem[] = [
     isVisible: true,
     props: {
       eyebrow: "WE ARE YOUR TECHNOLOGY PARTNER",
-      headline: "THE TECHNOLOGY ACCELERATOR FOR YOUR BUSINESS",
-      highlightText: "TECHNOLOGY ACCELERATOR",
-      subheading: "Measure → Analyse → Improve. We empower global enterprises and government agencies to accelerate digital velocity with elite technical workforce, modern cloud pipelines, and intelligent AI automation.",
+      headline: "The technology accelerator for your business",
+      highlightText: "business",
+      subheading: "Cutting-Edge Technology Solutions To Deliver Excellence Applying Best Practices, Scalable AI, Data Solutions And Expert Talent. Measure → Analyse → Improve.",
       badge: "VA-SWaM Certified • Richmond, Virginia • 10+ Years Track Record",
-      primaryCtaText: "Book a Consultation",
+      primaryCtaText: "Book a Call",
       primaryCtaLink: "/contact",
       secondaryCtaText: "Explore Capabilities",
-      secondaryCtaLink: "/services"
+      secondaryCtaLink: "/services",
+      imageSrc: "/images/hero-graphic.png"
     }
   },
   {
