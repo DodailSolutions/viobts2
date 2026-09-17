@@ -170,7 +170,7 @@ export default function AdminLeadsPage() {
                   </td>
 
                   <td className="p-4 text-slate-500">
-                    {new Date(lead.createdAt).toLocaleDateString()}
+                    {new Date(lead.createdAt).toLocaleDateString("en-US")}
                   </td>
 
                   <td className="p-4">
@@ -239,7 +239,7 @@ export default function AdminLeadsPage() {
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-brand-blue" />
                 <span className="text-slate-700">
-                  Received on {new Date(selectedLead.createdAt).toLocaleString()}
+                  Received on {new Date(selectedLead.createdAt).toLocaleString("en-US")}
                 </span>
               </div>
             </div>

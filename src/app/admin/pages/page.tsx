@@ -85,7 +85,7 @@ export default function AdminPagesPage() {
                     Slug: {liveUrl}
                   </p>
                   <p className="text-xs text-slate-500">
-                    {sections.length} Active Content Blocks • Updated {new Date(p.updatedAt).toLocaleDateString()}
+                    {sections.length} Active Content Blocks • Updated {new Date(p.updatedAt).toLocaleDateString("en-US")}
                   </p>
                 </div>
               </div>

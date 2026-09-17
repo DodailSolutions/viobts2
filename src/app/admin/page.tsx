@@ -138,7 +138,7 @@ export default function AdminDashboardPage() {
 
                 <div className="text-right shrink-0">
                   <p className="text-[11px] text-slate-500 mb-2">
-                    {new Date(lead.createdAt).toLocaleDateString()}
+                    {new Date(lead.createdAt).toLocaleDateString("en-US")}
                   </p>
                   <Link
                     href="/admin/leads"
