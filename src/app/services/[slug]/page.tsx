@@ -21,6 +21,7 @@ import { cmsStore } from "@/lib/data";
 import { AccordionFAQ } from "@/components/sections/AccordionFAQ";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { TechnologyWorkforcePageContent } from "@/components/sections/TechnologyWorkforcePageContent";
+import { BigDataAnalyticsPageContent } from "@/components/sections/BigDataAnalyticsPageContent";
 
 interface ServiceDetailPageProps {
   params: { slug: string };
@@ -138,6 +139,18 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <TechnologyWorkforcePageContent />
+      </>
+    );
+  }
+
+  if (srv.slug === "big-data-analytics") {
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <BigDataAnalyticsPageContent />
       </>
     );
   }

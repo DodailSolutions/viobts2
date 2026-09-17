@@ -43,22 +43,36 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     id: "srv-2",
     slug: "big-data-analytics",
     title: "Big Data & Analytics",
-    eyebrow: "Data Intelligence Engine",
-    subtitle: "Transforming raw multi-source telemetry into real-time decision intelligence.",
-    description: "Modernize legacy data silos into governed, real-time Lakehouse architectures. We engineer petabyte-scale pipelines, semantic layers, and predictive models that turn unstructured data into high-value strategic foresight.",
+    eyebrow: "Enterprise Data Intelligence Engine",
+    subtitle: "Transform raw multi-source telemetry into real-time decision intelligence and scalable lakehouse architectures.",
+    description: "Move beyond raw data silos. We architect governed, high-throughput modern lakehouse ecosystems, real-time streaming pipelines, and predictive business intelligence layers. From Fortune 500 financial platforms (DriveWealth) to public sector agencies (USAID), we engineer petabyte-scale data solutions that deliver actionable foresight, optimize cloud spend, and guarantee stringent regulatory compliance.",
     icon: "Database",
-    businessOutcome: "Unlocks real-time decision visibility and slashes ETL batch windows by over 70%.",
+    businessOutcome: "Accelerates analytical query speeds by 4.2x, cuts ETL batch windows by over 70%, and slashes data platform total cost of ownership (TCO) by up to 60%.",
     capabilities: [
-      "Modern Data Lakehouse Architecture",
-      "Real-Time Streaming & Batch Pipelines",
-      "Data Governance, Lineage & Quality",
-      "Predictive BI & Executive Dashboards"
+      "Modern Cloud Lakehouses & Data Warehouses (Snowflake, Databricks, BigQuery)",
+      "Real-Time Streaming Pipelines & Event-Driven Architecture (Apache Kafka, Flink)",
+      "Automated High-Performance ETL/ELT & Orchestration (dbt, Airflow, Prefect)",
+      "Business Intelligence & Interactive Executive Dashboards (Power BI, Tableau, Looker)",
+      "Predictive Modeling, Machine Learning & Feature Stores (Python, PyTorch, MLflow)",
+      "Enterprise Data Governance, Automated Quality & Lineage (Collibra, Great Expectations, SOC 2, HIPAA)"
     ],
-    technologies: ["Snowflake", "BigQuery", "Databricks", "Apache Kafka", "dbt", "Airflow", "PostgreSQL"],
+    technologies: ["Snowflake", "Databricks", "Google BigQuery", "AWS Redshift", "Apache Kafka", "Apache Spark", "dbt", "Apache Airflow", "Power BI", "Tableau", "Python", "Great Expectations"],
     faqs: [
       {
-        question: "Can VIO help migrate on-premise data warehouses to the cloud?",
-        answer: "Yes, we have proven migration frameworks for moving Teradata, Oracle, and SQL Server to modern cloud architectures like BigQuery and Snowflake."
+        question: "Can VIO migrate legacy on-premise data warehouses to modern cloud platforms?",
+        answer: "Yes. We have proven migration blueprints for migrating legacy Teradata, Oracle, Netezza, and SQL Server systems to modern cloud lakehouses including Snowflake, Databricks, and Google BigQuery with zero data loss and automated schema reconciliation."
+      },
+      {
+        question: "How do you handle real-time streaming vs. batch processing?",
+        answer: "We engineer unified Lambda and Kappa streaming architectures using Apache Kafka, Apache Flink, and Spark Streaming for sub-second event ingestion alongside dbt and Apache Airflow for scheduled batch aggregations."
+      },
+      {
+        question: "How does VIO optimize cloud data warehouse costs (FinOps)?",
+        answer: "We implement warehouse auto-suspend and auto-scaling policies, optimize partition keys and clustering algorithms, eliminate redundant transformations, and establish compute quota governance to slash total warehouse operational expenses by up to 60%."
+      },
+      {
+        question: "How do you guarantee data security, governance, and regulatory compliance?",
+        answer: "Our architectures integrate end-to-end encryption at rest and in transit, automated data cataloging (Collibra/Purview), automated data quality validation (Great Expectations), role-based access control (RBAC), and compliance alignment with HIPAA, GDPR, SOC 2, and BCBS 239."
       }
     ],
     orderIndex: 2
