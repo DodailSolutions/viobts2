@@ -25,6 +25,7 @@ import { BigDataAnalyticsPageContent } from "@/components/sections/BigDataAnalyt
 import { OpenSourceIntegrationPageContent } from "@/components/sections/OpenSourceIntegrationPageContent";
 import { CloudEnablementPageContent } from "@/components/sections/CloudEnablementPageContent";
 import { ApiMicroservicesPageContent } from "@/components/sections/ApiMicroservicesPageContent";
+import { RpaMlAiPageContent } from "@/components/sections/RpaMlAiPageContent";
 
 interface ServiceDetailPageProps {
   params: { slug: string };
@@ -190,6 +191,18 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <ApiMicroservicesPageContent />
+      </>
+    );
+  }
+
+  if (srv.slug === "rpa-ml-ai") {
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <RpaMlAiPageContent />
       </>
     );
   }

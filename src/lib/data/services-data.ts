@@ -195,22 +195,40 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     id: "srv-6",
     slug: "rpa-ml-ai",
     title: "RPA, ML & AI",
-    eyebrow: "Intelligent Automation",
-    subtitle: "Cognitive AI workflows, computer vision, and robotic process automation that compound ROI.",
-    description: "Infuse your operational core with predictive machine learning and agentic AI systems. We streamline repetitive manual processes, automate complex multi-system compliance checks, and deploy generative AI solutions with enterprise governance.",
+    eyebrow: "Cognitive Automation & Machine Intelligence",
+    subtitle: "Automate tasks and drive intelligence with Robotic Process Automation, Machine Learning, and Artificial Intelligence.",
+    description: "Streamline efficiency, eliminate manual toil, and unlock continuous operational agility. VIO delivers enterprise-grade Robotic Process Automation (UiPath, Automation Anywhere, Microsoft Power Automate), scalable Machine Learning architectures, and secure Generative AI agent workflows. We bridge human expertise and automated systems across industries—from financial services to high-precision manufacturing—enabling autonomous document extraction, predictive analytics, and self-optimizing operations with strict governance.",
     icon: "Sparkles",
-    businessOutcome: "Achieves up to 80% reduction in manual data handling time and eradicates human processing error.",
+    businessOutcome: "Reduces manual data processing hours by up to 85%, eliminates human operational errors, and accelerates task cycle times by 10x with verifiable ROI within 90 days.",
     capabilities: [
-      "Robotic Process Automation (RPA)",
-      "Large Language Models & Agentic Workflows",
-      "Predictive Machine Learning Pipelines",
-      "Intelligent Document Processing (IDP)"
+      "Enterprise Robotic Process Automation (UiPath, Automation Anywhere, Power Automate)",
+      "Intelligent Document Processing (IDP) & Cognitive OCR (AWS Textract, Azure Document Intelligence)",
+      "Predictive ML & Deep Learning Pipelines (TensorFlow, PyTorch, Scikit-Learn, XGBoost)",
+      "Generative AI, Autonomous Agents & Enterprise RAG (LangChain, LlamaIndex, OpenAI, Claude, Gemini)",
+      "Continuous MLOps, Model Governance & Drift Detection (MLflow, Kubeflow, Seldon Core)",
+      "Zero-Data-Leakage Private LLMs & Responsible AI Governance (NVIDIA NeMo, Local SLMs, Guardrails)"
     ],
-    technologies: ["Python", "TensorFlow", "PyTorch", "UiPath", "LangChain", "OpenAI", "Claude", "Gemini"],
+    technologies: ["UiPath", "Automation Anywhere", "Microsoft Power Automate", "Python", "PyTorch", "TensorFlow", "LangChain", "LlamaIndex", "Hugging Face", "MLflow", "AWS Bedrock", "Azure OpenAI"],
     faqs: [
       {
-        question: "How do you ensure data confidentiality when using generative AI?",
-        answer: "We utilize private tenant deployments and local LLM options to ensure proprietary IP never touches public model training sets."
+        question: "What is the difference between RPA and AI/Machine Learning in VIO's implementation?",
+        answer: "Robotic Process Automation (RPA) excels at deterministic, rules-based tasks—such as copying data across legacy ERPs, logging into portals, and triggering batch jobs. AI and Machine Learning handle non-deterministic, cognitive tasks—such as understanding unstructured text, categorizing invoices with OCR, predicting churn, and generating intelligent summaries. VIO integrates both into Intelligent Automation (IA), where AI acts as the brain and RPA acts as the hands."
+      },
+      {
+        question: "How does VIO safeguard proprietary enterprise data when deploying Generative AI?",
+        answer: "We mandate zero-data-retention architectures. All enterprise GenAI deployments utilize dedicated private cloud tenants (e.g. AWS Bedrock, Azure OpenAI) or self-hosted open-weight LLMs (Llama 3, Mistral) within your isolated VPC. Your internal data is never used for foundation model pre-training, and all prompt-response exchanges are governed by strict DLP (Data Loss Prevention) guardrails."
+      },
+      {
+        question: "Which enterprise RPA platforms do you support?",
+        answer: "We are platform-agnostic with specialized certified engineering capacity in UiPath, Microsoft Power Automate Desktop/Cloud, and Automation Anywhere, as well as open-source Python automation frameworks (Selenium, Playwright, Robot Framework)."
+      },
+      {
+        question: "How quickly can our organization achieve measurable ROI from an automation initiative?",
+        answer: "Our phased automation delivery blueprint targets high-frequency, manual bottlenecks first. Most enterprise clients deploy their initial production bot or Intelligent Document Processing (IDP) pipeline within 4 to 6 weeks, achieving positive net ROI within 90 days."
+      },
+      {
+        question: "How do you maintain and monitor ML models after production deployment (MLOps)?",
+        answer: "We deploy end-to-end MLOps pipelines using MLflow, Kubeflow, and Prometheus. Our monitoring frameworks track model prediction accuracy, feature distribution drift, data anomalies, and inference latency in real time, automatically triggering human review or retraining workflows when thresholds deviate."
       }
     ],
     orderIndex: 6
