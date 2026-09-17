@@ -100,6 +100,43 @@ const CLIENT_LOGOS: ClientLogoItem[] = [
     caseStudySlug: "advance-auto-parts-supply-chain"
   },
   {
+    id: "virginia-odga",
+    name: "Commonwealth of Virginia (ODGA)",
+    svgSrc: "/images/clients/virginia-odga.svg",
+    category: "Government & Public Sector",
+    headline: "Unified State Portal & NIST GovCloud Modernization",
+    summary: "Consolidated disparate legacy state agency portals into a secure, NIST-compliant microservices platform serving millions of Virginia residents.",
+    metrics: [
+      { label: "Citizens Served", value: "4M+" },
+      { label: "NIST Compliance", value: "100%" }
+    ],
+    caseStudySlug: "virginia-state-agencies-odga"
+  },
+  {
+    id: "drivewealth",
+    name: "DriveWealth",
+    svgSrc: "/images/clients/drivewealth.png",
+    category: "Banking & FinTech",
+    headline: "High-Velocity Embedded Investing & Data Architecture",
+    summary: "Provided data management, distributed streaming, and architecture consulting that boosted customer retention by 15% and accelerated revenue growth.",
+    metrics: [
+      { label: "Customer Retention", value: "+15%" },
+      { label: "Execution Speed", value: "Sub-second" }
+    ]
+  },
+  {
+    id: "focalcxm",
+    name: "FocalCXM",
+    svgSrc: "/images/clients/focalcxm-dark.svg",
+    category: "Enterprise Applications & CRM",
+    headline: "Life Sciences CX & Enterprise Data Modernization",
+    summary: "Partnered to implement modern data ecosystems, driving advanced analytics, regulatory compliance, and operational efficiency for global pharmaceutical leaders.",
+    metrics: [
+      { label: "Pharma Sales Growth", value: "+5%" },
+      { label: "Ecosystem Efficiency", value: "3x Faster" }
+    ]
+  },
+  {
     id: "dominion-energy",
     name: "Dominion Energy",
     svgSrc: "/images/clients/dominion-energy.svg",
@@ -133,6 +170,18 @@ const CLIENT_LOGOS: ClientLogoItem[] = [
     metrics: [
       { label: "Engineering Velocity", value: "+45%" },
       { label: "Sprint Completion", value: "98.5%" }
+    ]
+  },
+  {
+    id: "vcu-health",
+    name: "VCU Health System",
+    svgSrc: "/images/clients/vcu-health.svg",
+    category: "Healthcare & Life Sciences",
+    headline: "HIPAA-Compliant Patient Data Lake & Clinical Insights",
+    summary: "Engineered secure FHIR interoperability pipelines connecting EHR silos with advanced clinical research modeling.",
+    metrics: [
+      { label: "HIPAA Compliance", value: "100%" },
+      { label: "EHR Sync", value: "Near Real-Time" }
     ]
   }
 ];
@@ -214,8 +263,12 @@ export function MeetOurClients({
     );
   };
 
+  const handleScrollLogosLeft = () => {
+    setLogoScrollOffset((prev) => (prev <= 0 ? CLIENT_LOGOS.length - 1 : prev - 1));
+  };
+
   const handleScrollLogosRight = () => {
-    setLogoScrollOffset((prev) => (prev + 3 >= CLIENT_LOGOS.length ? 0 : prev + 2));
+    setLogoScrollOffset((prev) => (prev + 1 >= CLIENT_LOGOS.length ? 0 : prev + 1));
   };
 
   const visibleLogos = [
@@ -237,9 +290,20 @@ export function MeetOurClients({
           </h2>
         </div>
 
-        {/* Client Logos Row */}
-        <div className="relative mb-12 sm:mb-16">
-          <div className="flex items-center justify-center gap-3 sm:gap-4 overflow-x-auto no-scrollbar py-2 px-1">
+        {/* Client Logos Carousel Row */}
+        <div className="relative mb-12 sm:mb-16 flex items-center justify-center gap-2 sm:gap-4 max-w-6xl mx-auto">
+          {/* Left Arrow Button for Logos */}
+          <button
+            onClick={handleScrollLogosLeft}
+            aria-label="Previous client logos"
+            className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:text-red-500 hover:scale-110 transition-all focus:outline-none"
+            title="Previous clients"
+          >
+            <ChevronLeft className="w-6 h-6 stroke-[2.5]" />
+          </button>
+
+          {/* 6 Visible Logo Cards */}
+          <div className="flex items-center justify-center gap-3 sm:gap-4 overflow-hidden py-2 px-1 w-full">
             {visibleLogos.map((client) => (
               <button
                 key={client.id}
@@ -248,26 +312,26 @@ export function MeetOurClients({
                 title={`Click to view ${client.name} impact`}
               >
                 <div className="relative w-full h-full flex items-center justify-center">
-                  <Image
+                  <img
                     src={client.svgSrc}
                     alt={client.name}
-                    width={140}
-                    height={48}
-                    className="max-h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                    className="max-h-12 w-auto max-w-[135px] object-contain transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
                   />
                 </div>
               </button>
             ))}
-
-            {/* Red Chevron Scroll Button (as in original site) */}
-            <button
-              onClick={handleScrollLogosRight}
-              aria-label="Next client logos"
-              className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-red-500 hover:text-red-600 hover:scale-110 transition-transform focus:outline-none"
-            >
-              <ChevronRight className="w-6 h-6 stroke-[2.5]" />
-            </button>
           </div>
+
+          {/* Right Red Chevron Scroll Button (matching original site) */}
+          <button
+            onClick={handleScrollLogosRight}
+            aria-label="Next client logos"
+            className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-red-500 hover:text-red-600 hover:scale-110 transition-transform focus:outline-none"
+            title="Next clients"
+          >
+            <ChevronRight className="w-6 h-6 stroke-[2.5]" />
+          </button>
         </div>
 
         {/* Main Testimonial Card */}
@@ -352,12 +416,11 @@ export function MeetOurClients({
             <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
               <div className="flex items-center gap-3">
                 <div className="h-10 w-28 relative flex items-center justify-center p-1 bg-slate-50 rounded-lg border border-slate-100">
-                  <Image
+                  <img
                     src={selectedClientModal.svgSrc}
                     alt={selectedClientModal.name}
-                    width={100}
-                    height={36}
-                    className="max-h-8 w-auto object-contain"
+                    className="max-h-8 w-auto max-w-[100px] object-contain"
+                    loading="lazy"
                   />
                 </div>
                 <div>
