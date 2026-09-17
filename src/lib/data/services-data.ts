@@ -119,22 +119,36 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     id: "srv-4",
     slug: "cloud-enablement",
     title: "Cloud Enablement & CI/CD Pipelines",
-    eyebrow: "Cloud Native & DevOps",
-    subtitle: "Zero-downtime automated pipelines and resilient cloud infrastructure.",
-    description: "Accelerate your cloud transformation across AWS, GCP, and Azure. We design immutable Infrastructure-as-Code (IaC), automated GitOps deployment pipelines, and multi-region resilience that enable continuous, secure releases.",
+    eyebrow: "Enterprise Cloud-Native & DevOps Engine",
+    subtitle: "Streamline IT operations, automate zero-downtime releases, and scale resilient multi-cloud architectures.",
+    description: "Accelerate your digital transformation across AWS, Google Cloud, and Microsoft Azure. VIO integrates cloud-native technologies, automated GitOps CI/CD pipelines, and immutable Infrastructure-as-Code (IaC) to shorten release cycles from weeks to minutes. Our DevOps frameworks enforce continuous compliance, automate disaster recovery, and optimize cloud infrastructure spend (FinOps) by over 40%.",
     icon: "Cloud",
-    businessOutcome: "Shortens deployment cycles from weeks to minutes while enforcing continuous compliance.",
+    businessOutcome: "Accelerates deployment velocity by up to 85%, eliminates release downtime with canary rollouts, and cuts cloud operational overhead by 40%+.",
     capabilities: [
-      "Multi-Cloud & Hybrid Cloud Strategy",
-      "GitOps, CI/CD Pipeline Automation",
-      "Terraform & Pulumi Infrastructure-as-Code",
-      "FinOps & Cloud Cost Optimization"
+      "Multi-Cloud & Hybrid Cloud Strategy & Migration (AWS, Azure, GCP)",
+      "Automated GitOps & CI/CD Pipeline Engineering (GitHub Actions, ArgoCD, GitLab CI)",
+      "Immutable Infrastructure as Code (IaC) with Terraform, OpenTofu & Pulumi",
+      "Container Orchestration & Microservices (Kubernetes, EKS, GKE, AKS, Helm)",
+      "Continuous FinOps & Cloud Spend Rightsizing (Auto-scaling, Reserved Capacity)",
+      "DevSecOps, Secrets Management & Continuous Security Compliance (Vault, Snyk, SOC 2)"
     ],
-    technologies: ["AWS", "Google Cloud", "Microsoft Azure", "Terraform", "GitHub Actions", "Docker", "ArgoCD"],
+    technologies: ["AWS", "Google Cloud", "Microsoft Azure", "Kubernetes", "Docker", "Terraform", "GitHub Actions", "ArgoCD", "GitLab CI", "Prometheus", "Datadog", "HashiCorp Vault"],
     faqs: [
       {
-        question: "How does VIO approach cloud cost reduction (FinOps)?",
-        answer: "We conduct workload rightsizing, spot instance tiering, reserved capacity planning, and architectural optimization to eliminate waste."
+        question: "How does VIO achieve zero-downtime application deployments?",
+        answer: "We engineer progressive delivery pipelines utilizing Blue/Green deployments, Canary rollouts with automated metric validation, and Kubernetes rolling updates backed by instant automated rollbacks."
+      },
+      {
+        question: "What is VIO's methodology for cloud cost reduction (FinOps)?",
+        answer: "We perform automated workload rightsizing, idle resource purging, spot instance management, reservation/savings plans optimization, and architectural refactoring to slash overall cloud spend by 30% to 50% without degrading SLAs."
+      },
+      {
+        question: "Can VIO migrate on-premise legacy enterprise applications to the cloud?",
+        answer: "Yes. Following the AWS Well-Architected and Azure Cloud Adoption Frameworks, we plan and execute rehosting, replatforming, and refactoring strategies with zero business disruption and verified disaster recovery."
+      },
+      {
+        question: "How do you integrate security into the CI/CD pipeline (DevSecOps)?",
+        answer: "We embed automated SAST/DAST security scanning, dependency vulnerability checks (Snyk/Trivy), container image signing, and dynamic secrets injection via HashiCorp Vault into every pull request and build artifact."
       }
     ],
     orderIndex: 4

@@ -23,6 +23,7 @@ import { CTABanner } from "@/components/sections/CTABanner";
 import { TechnologyWorkforcePageContent } from "@/components/sections/TechnologyWorkforcePageContent";
 import { BigDataAnalyticsPageContent } from "@/components/sections/BigDataAnalyticsPageContent";
 import { OpenSourceIntegrationPageContent } from "@/components/sections/OpenSourceIntegrationPageContent";
+import { CloudEnablementPageContent } from "@/components/sections/CloudEnablementPageContent";
 
 interface ServiceDetailPageProps {
   params: { slug: string };
@@ -164,6 +165,18 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <OpenSourceIntegrationPageContent />
+      </>
+    );
+  }
+
+  if (srv.slug === "cloud-enablement") {
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <CloudEnablementPageContent />
       </>
     );
   }
