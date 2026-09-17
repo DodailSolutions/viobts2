@@ -1,4 +1,4 @@
-﻿import {
+import {
   ServiceItem,
   IndustryItem,
   CaseStudyItem,
@@ -28,6 +28,7 @@ export * from "./industries-data";
 export * from "./case-studies-data";
 export * from "./content-data";
 export * from "./pages-data";
+export * from "./client-logos-data";
 
 // In-Memory Singleton Store for fast SSR & Admin mutations
 class CMSStore {

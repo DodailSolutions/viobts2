@@ -1,4 +1,5 @@
 import { PageItem, PageSectionItem } from "./types";
+import { DEFAULT_CLIENT_LOGOS, DEFAULT_CLIENT_TESTIMONIALS } from "./client-logos-data";
 
 export const INITIAL_PAGES: PageItem[] = [
   {
@@ -93,7 +94,9 @@ export const INITIAL_HOMEPAGE_SECTIONS: PageSectionItem[] = [
     props: {
       eyebrow: "PROVEN ENTERPRISE PARTNERSHIPS",
       heading: "Meet Our Clients!",
-      subheading: "Powering mission-critical digital transformations for Virginia state agencies, USAID, tier-1 FinTech brokerages, and Fortune 500 enterprises."
+      subheading: "Powering mission-critical digital transformations for Virginia state agencies, USAID, tier-1 FinTech brokerages, and Fortune 500 enterprises.",
+      logos: DEFAULT_CLIENT_LOGOS,
+      testimonials: DEFAULT_CLIENT_TESTIMONIALS
     }
   },
   {

@@ -20,12 +20,21 @@ import {
   Sparkles,
   ExternalLink
 } from "lucide-react";
-import { cmsStore, PageItem, PageSectionItem } from "@/lib/data";
+import { 
+  cmsStore, 
+  PageItem, 
+  PageSectionItem,
+  ClientLogoItem,
+  ClientTestimonialItem,
+  DEFAULT_CLIENT_LOGOS,
+  DEFAULT_CLIENT_TESTIMONIALS
+} from "@/lib/data";
 import { SectionRenderer } from "@/components/sections/SectionRenderer";
 
 const AVAILABLE_BLOCKS = [
   { type: "HeroBanner", label: "Hero Banner", description: "Full-width editorial headline, eyebrow, badge & CTAs" },
   { type: "StatsCounter", label: "Stats Counter", description: "Animated enterprise numbers & metric proofs" },
+  { type: "MeetOurClients", label: "Meet Our Clients", description: "Official client logos carousel & founder testimonial card (VIO signature)" },
   { type: "BusinessProblems", label: "Business Pain Points", description: "Problem-solution matching cards (VIO signature)" },
   { type: "CapabilitiesGrid", label: "Capabilities Grid", description: "6 Core VIO pillars with hover interaction" },
   { type: "Methodology", label: "Methodology (Measure-Analyse-Improve)", description: "VIO's 3-stage visual architecture" },
@@ -136,6 +145,90 @@ export default function VisualPageBuilderPage() {
     cmsStore.saveSection(updated);
     setSections(cmsStore.getAllPageSections(pageId));
     notifySave();
+  };
+
+  // MeetOurClients specific handlers
+  const handleUpdateLogos = (updatedLogos: ClientLogoItem[]) => {
+    handlePropChange("logos", updatedLogos);
+  };
+
+  const handleUpdateLogoItem = (index: number, field: keyof ClientLogoItem, value: any) => {
+    const currentLogos: ClientLogoItem[] = [...(activeSection?.props.logos || DEFAULT_CLIENT_LOGOS)];
+    currentLogos[index] = { ...currentLogos[index], [field]: value };
+    handleUpdateLogos(currentLogos);
+  };
+
+  const handleAddLogo = () => {
+    const currentLogos: ClientLogoItem[] = [...(activeSection?.props.logos || DEFAULT_CLIENT_LOGOS)];
+    const newLogo: ClientLogoItem = {
+      id: "client-" + Date.now(),
+      name: "New Enterprise Client",
+      svgSrc: "/images/clients/usaid.svg",
+      category: "Enterprise & Retail",
+      headline: "Enterprise Cloud Modernization & Data Engineering",
+      summary: "Partnered to accelerate mission-critical velocity with modern microservices and real-time streaming architectures.",
+      metrics: [{ label: "Execution Speed", value: "3x Faster" }]
+    };
+    currentLogos.push(newLogo);
+    handleUpdateLogos(currentLogos);
+  };
+
+  const handleDeleteLogo = (index: number) => {
+    const currentLogos: ClientLogoItem[] = [...(activeSection?.props.logos || DEFAULT_CLIENT_LOGOS)];
+    currentLogos.splice(index, 1);
+    handleUpdateLogos(currentLogos);
+  };
+
+  const handleMoveLogo = (index: number, direction: "up" | "down") => {
+    const currentLogos: ClientLogoItem[] = [...(activeSection?.props.logos || DEFAULT_CLIENT_LOGOS)];
+    const targetIdx = direction === "up" ? index - 1 : index + 1;
+    if (targetIdx < 0 || targetIdx >= currentLogos.length) return;
+    const [moved] = currentLogos.splice(index, 1);
+    currentLogos.splice(targetIdx, 0, moved);
+    handleUpdateLogos(currentLogos);
+  };
+
+  // Testimonials handlers
+  const handleUpdateTestimonials = (updatedTestimonials: ClientTestimonialItem[]) => {
+    handlePropChange("testimonials", updatedTestimonials);
+  };
+
+  const handleUpdateTestimonialItem = (index: number, field: keyof ClientTestimonialItem, value: any) => {
+    const currentTestimonials: ClientTestimonialItem[] = [...(activeSection?.props.testimonials || DEFAULT_CLIENT_TESTIMONIALS)];
+    currentTestimonials[index] = { ...currentTestimonials[index], [field]: value };
+    handleUpdateTestimonials(currentTestimonials);
+  };
+
+  const handleAddTestimonial = () => {
+    const currentTestimonials: ClientTestimonialItem[] = [...(activeSection?.props.testimonials || DEFAULT_CLIENT_TESTIMONIALS)];
+    const newTestimonial: ClientTestimonialItem = {
+      id: "test-" + Date.now(),
+      name: "Executive Leader",
+      role: "Founder & CEO",
+      company: "Strategic Partner",
+      imageSrc: "/images/clients/founder-adithya-hq.png",
+      badgeRole: "FOUNDER & CEO",
+      badgeCompany: "STRATEGIC PARTNER",
+      quote: "VIO delivered exceptional engineering acceleration, helping us surpass our technical milestones ahead of schedule.",
+      linkedinUrl: "https://www.linkedin.com"
+    };
+    currentTestimonials.push(newTestimonial);
+    handleUpdateTestimonials(currentTestimonials);
+  };
+
+  const handleDeleteTestimonial = (index: number) => {
+    const currentTestimonials: ClientTestimonialItem[] = [...(activeSection?.props.testimonials || DEFAULT_CLIENT_TESTIMONIALS)];
+    currentTestimonials.splice(index, 1);
+    handleUpdateTestimonials(currentTestimonials);
+  };
+
+  const handleMoveTestimonial = (index: number, direction: "up" | "down") => {
+    const currentTestimonials: ClientTestimonialItem[] = [...(activeSection?.props.testimonials || DEFAULT_CLIENT_TESTIMONIALS)];
+    const targetIdx = direction === "up" ? index - 1 : index + 1;
+    if (targetIdx < 0 || targetIdx >= currentTestimonials.length) return;
+    const [moved] = currentTestimonials.splice(index, 1);
+    currentTestimonials.splice(targetIdx, 0, moved);
+    handleUpdateTestimonials(currentTestimonials);
   };
 
   const notifySave = () => {
@@ -449,6 +542,324 @@ export default function VisualPageBuilderPage() {
                   </div>
                 )}
               </div>
+
+              {/* Specialized Sub-Editors for MeetOurClients */}
+              {activeSection.componentType === "MeetOurClients" && (
+                <div className="pt-6 border-t border-slate-200 space-y-8">
+                  {/* 1. Client Logos Management */}
+                  <div className="space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                      <div>
+                        <h4 className="text-sm font-bold text-slate-900">
+                          Client Logos Roster ({(activeSection.props.logos || DEFAULT_CLIENT_LOGOS).length})
+                        </h4>
+                        <p className="text-[11px] text-slate-500">
+                          Add, reorder, or edit enterprise client logos and their impact metrics.
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={() => handleUpdateLogos(DEFAULT_CLIENT_LOGOS)}
+                          className="px-2.5 py-1.5 rounded-lg border border-slate-200 text-[11px] font-semibold text-slate-600 hover:bg-slate-100 transition-colors"
+                        >
+                          Reset 13 Defaults
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handleAddLogo}
+                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-brand-blue text-white text-xs font-bold hover:bg-blue-700 transition-colors shadow-xs"
+                        >
+                          <Plus className="w-3.5 h-3.5" />
+                          <span>Add Client Logo</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3 max-h-[600px] overflow-y-auto pr-1">
+                      {(activeSection.props.logos || DEFAULT_CLIENT_LOGOS).map((logo: ClientLogoItem, lIdx: number) => (
+                        <div
+                          key={logo.id || lIdx}
+                          className="p-3.5 rounded-xl border border-slate-200 bg-slate-50 space-y-3 shadow-2xs"
+                        >
+                          <div className="flex items-center justify-between pb-2 border-b border-slate-200/80">
+                            <div className="flex items-center gap-2.5">
+                              <div className="w-10 h-8 rounded bg-white border border-slate-200 p-1 flex items-center justify-center shrink-0">
+                                <img
+                                  src={logo.svgSrc}
+                                  alt={logo.name}
+                                  className="max-h-6 max-w-full object-contain"
+                                  onError={(e) => {
+                                    (e.target as HTMLElement).style.display = "none";
+                                  }}
+                                />
+                              </div>
+                              <span className="text-xs font-bold text-slate-900 truncate">
+                                #{lIdx + 1}: {logo.name}
+                              </span>
+                            </div>
+
+                            <div className="flex items-center gap-1 shrink-0">
+                              <button
+                                type="button"
+                                onClick={() => handleMoveLogo(lIdx, "up")}
+                                disabled={lIdx === 0}
+                                className="p-1 rounded hover:bg-slate-200 text-slate-500 disabled:opacity-30"
+                                title="Move Up"
+                              >
+                                <MoveUp className="w-3.5 h-3.5" />
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => handleMoveLogo(lIdx, "down")}
+                                disabled={lIdx === (activeSection.props.logos || DEFAULT_CLIENT_LOGOS).length - 1}
+                                className="p-1 rounded hover:bg-slate-200 text-slate-500 disabled:opacity-30"
+                                title="Move Down"
+                              >
+                                <MoveDown className="w-3.5 h-3.5" />
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => handleDeleteLogo(lIdx)}
+                                className="p-1 rounded hover:bg-red-100 text-slate-400 hover:text-red-600"
+                                title="Delete Client Logo"
+                              >
+                                <Trash2 className="w-3.5 h-3.5" />
+                              </button>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                            <div>
+                              <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                                Client Name
+                              </label>
+                              <input
+                                type="text"
+                                value={logo.name}
+                                onChange={(e) => handleUpdateLogoItem(lIdx, "name", e.target.value)}
+                                className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-900"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                                Logo SVG / Image Path
+                              </label>
+                              <input
+                                type="text"
+                                value={logo.svgSrc}
+                                onChange={(e) => handleUpdateLogoItem(lIdx, "svgSrc", e.target.value)}
+                                className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-900 font-mono"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                                Sector Category
+                              </label>
+                              <input
+                                type="text"
+                                value={logo.category}
+                                onChange={(e) => handleUpdateLogoItem(lIdx, "category", e.target.value)}
+                                className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-900"
+                              />
+                            </div>
+                            <div className="sm:col-span-2">
+                              <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                                Impact Headline (Modal)
+                              </label>
+                              <input
+                                type="text"
+                                value={logo.headline || ""}
+                                onChange={(e) => handleUpdateLogoItem(lIdx, "headline", e.target.value)}
+                                className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-900"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                                Case Study Slug (Optional)
+                              </label>
+                              <input
+                                type="text"
+                                value={logo.caseStudySlug || ""}
+                                onChange={(e) => handleUpdateLogoItem(lIdx, "caseStudySlug", e.target.value)}
+                                className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-900 font-mono"
+                                placeholder="e.g. advance-auto-parts-supply-chain"
+                              />
+                            </div>
+                            <div className="sm:col-span-3">
+                              <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                                Impact Summary (Modal)
+                              </label>
+                              <textarea
+                                rows={2}
+                                value={logo.summary || ""}
+                                onChange={(e) => handleUpdateLogoItem(lIdx, "summary", e.target.value)}
+                                className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-900"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 2. Featured Testimonials Management */}
+                  <div className="space-y-4 pt-6 border-t border-slate-200">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                      <div>
+                        <h4 className="text-sm font-bold text-slate-900">
+                          Testimonial Showcase Cards ({(activeSection.props.testimonials || DEFAULT_CLIENT_TESTIMONIALS).length})
+                        </h4>
+                        <p className="text-[11px] text-slate-500">
+                          Edit the featured testimonials in the card carousel beneath the logo strip.
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={handleAddTestimonial}
+                        className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-brand-blue text-white text-xs font-bold hover:bg-blue-700 transition-colors shadow-xs"
+                      >
+                        <Plus className="w-3.5 h-3.5" />
+                        <span>Add Testimonial</span>
+                      </button>
+                    </div>
+
+                    <div className="space-y-3 max-h-[600px] overflow-y-auto pr-1">
+                      {(activeSection.props.testimonials || DEFAULT_CLIENT_TESTIMONIALS).map((test: ClientTestimonialItem, tIdx: number) => (
+                        <div
+                          key={test.id || tIdx}
+                          className="p-3.5 rounded-xl border border-slate-200 bg-slate-50 space-y-3 shadow-2xs"
+                        >
+                          <div className="flex items-center justify-between pb-2 border-b border-slate-200/80">
+                            <span className="text-xs font-bold text-slate-900 truncate">
+                              Testimonial #{tIdx + 1}: {test.name} ({test.company})
+                            </span>
+                            <div className="flex items-center gap-1 shrink-0">
+                              <button
+                                type="button"
+                                onClick={() => handleMoveTestimonial(tIdx, "up")}
+                                disabled={tIdx === 0}
+                                className="p-1 rounded hover:bg-slate-200 text-slate-500 disabled:opacity-30"
+                                title="Move Up"
+                              >
+                                <MoveUp className="w-3.5 h-3.5" />
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => handleMoveTestimonial(tIdx, "down")}
+                                disabled={tIdx === (activeSection.props.testimonials || DEFAULT_CLIENT_TESTIMONIALS).length - 1}
+                                className="p-1 rounded hover:bg-slate-200 text-slate-500 disabled:opacity-30"
+                                title="Move Down"
+                              >
+                                <MoveDown className="w-3.5 h-3.5" />
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => handleDeleteTestimonial(tIdx)}
+                                className="p-1 rounded hover:bg-red-100 text-slate-400 hover:text-red-600"
+                                title="Delete Testimonial"
+                              >
+                                <Trash2 className="w-3.5 h-3.5" />
+                              </button>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                            <div>
+                              <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                                Author Name
+                              </label>
+                              <input
+                                type="text"
+                                value={test.name}
+                                onChange={(e) => handleUpdateTestimonialItem(tIdx, "name", e.target.value)}
+                                className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-900 font-medium"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                                Role / Title
+                              </label>
+                              <input
+                                type="text"
+                                value={test.role}
+                                onChange={(e) => handleUpdateTestimonialItem(tIdx, "role", e.target.value)}
+                                className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-900"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                                Company
+                              </label>
+                              <input
+                                type="text"
+                                value={test.company}
+                                onChange={(e) => handleUpdateTestimonialItem(tIdx, "company", e.target.value)}
+                                className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-900"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                                Banner Role Badge
+                              </label>
+                              <input
+                                type="text"
+                                value={test.badgeRole}
+                                onChange={(e) => handleUpdateTestimonialItem(tIdx, "badgeRole", e.target.value)}
+                                className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-900"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                                Banner Company Badge
+                              </label>
+                              <input
+                                type="text"
+                                value={test.badgeCompany}
+                                onChange={(e) => handleUpdateTestimonialItem(tIdx, "badgeCompany", e.target.value)}
+                                className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-900"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                                Banner Image Path / URL
+                              </label>
+                              <input
+                                type="text"
+                                value={test.imageSrc}
+                                onChange={(e) => handleUpdateTestimonialItem(tIdx, "imageSrc", e.target.value)}
+                                className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-900 font-mono"
+                              />
+                            </div>
+                            <div className="sm:col-span-2">
+                              <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                                Testimonial Quote
+                              </label>
+                              <textarea
+                                rows={3}
+                                value={test.quote}
+                                onChange={(e) => handleUpdateTestimonialItem(tIdx, "quote", e.target.value)}
+                                className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-900 leading-relaxed"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                                LinkedIn Profile URL
+                              </label>
+                              <input
+                                type="text"
+                                value={test.linkedinUrl}
+                                onChange={(e) => handleUpdateTestimonialItem(tIdx, "linkedinUrl", e.target.value)}
+                                className="w-full px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-900 font-mono"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           ) : (
             <div className="p-12 text-center rounded-2xl bg-white border border-slate-200 shadow-sm text-slate-500">

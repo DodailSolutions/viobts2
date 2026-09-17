@@ -1,4 +1,4 @@
-﻿export interface ServiceItem {
+export interface ServiceItem {
   id: string;
   slug: string;
   title: string;
@@ -91,6 +91,31 @@ export interface TestimonialItem {
   company: string;
   quote: string;
   rating: number;
+}
+
+export interface ClientLogoItem {
+  id: string;
+  name: string;
+  svgSrc: string;
+  category: string;
+  width?: number;
+  height?: number;
+  headline?: string;
+  summary?: string;
+  metrics?: { label: string; value: string }[];
+  caseStudySlug?: string;
+}
+
+export interface ClientTestimonialItem {
+  id: string;
+  name: string;
+  role: string;
+  company: string;
+  imageSrc: string;
+  badgeRole: string;
+  badgeCompany: string;
+  quote: string;
+  linkedinUrl: string;
 }
 
 export interface LeadItem {
