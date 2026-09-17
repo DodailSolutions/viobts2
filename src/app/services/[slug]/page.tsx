@@ -22,6 +22,7 @@ import { AccordionFAQ } from "@/components/sections/AccordionFAQ";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { TechnologyWorkforcePageContent } from "@/components/sections/TechnologyWorkforcePageContent";
 import { BigDataAnalyticsPageContent } from "@/components/sections/BigDataAnalyticsPageContent";
+import { OpenSourceIntegrationPageContent } from "@/components/sections/OpenSourceIntegrationPageContent";
 
 interface ServiceDetailPageProps {
   params: { slug: string };
@@ -151,6 +152,18 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <BigDataAnalyticsPageContent />
+      </>
+    );
+  }
+
+  if (srv.slug === "open-source-integration") {
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <OpenSourceIntegrationPageContent />
       </>
     );
   }

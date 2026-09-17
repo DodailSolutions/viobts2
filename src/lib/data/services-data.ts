@@ -81,22 +81,36 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     id: "srv-3",
     slug: "open-source-integration",
     title: "Open-source Integration",
-    eyebrow: "Enterprise Open Architecture",
-    subtitle: "Leverage best-of-breed open-source frameworks without vendor lock-in.",
-    description: "Architect flexible, cost-effective digital infrastructures powered by proven open-source ecosystems. We harden, customize, and orchestrate open-source solutions to deliver maximum autonomy, security, and lower total cost of ownership.",
+    eyebrow: "Enterprise Open Architecture & Autonomy",
+    subtitle: "Eliminate vendor lock-in, slash licensing fees, and build adaptable systems with hardened open-source frameworks.",
+    description: "Architect flexible, secure, and cost-effective digital infrastructures powered by proven open-source ecosystems. We harden, customize, and orchestrate enterprise open-source solutions across databases (PostgreSQL), container orchestration (Kubernetes), and event streaming (Apache Kafka). Our end-to-end integration ensures continuous peer-reviewed security, seamless data flow between hybrid systems, and complete code ownership.",
     icon: "GitBranch",
-    businessOutcome: "Decreases software licensing dependencies by up to 45% while preserving enterprise-grade SLAs.",
+    businessOutcome: "Decreases software licensing dependencies by 45%+, eliminates single-vendor lock-in, and achieves 99.9% enterprise production availability.",
     capabilities: [
-      "Open-Source Stack Auditing & Hardening",
-      "Custom Extension & Plugin Engineering",
-      "License Compliance & Vulnerability Scanning",
-      "Enterprise Support & 24/7 SLA Backing"
+      "Proprietary-to-Open-Source Migration & Modernization (Oracle to PostgreSQL, VMware to K8s)",
+      "Enterprise Stack Hardening, CVE Patching & Container Signing",
+      "Custom Extension, Plugin, Driver & Connector Engineering",
+      "Open-Source License Compliance & IP Risk Auditing (GPL, AGPL, Apache 2.0)",
+      "High-Availability Clustering & Disaster Recovery Orchestration",
+      "24/7 Production SLA & Enterprise Upstream Support"
     ],
-    technologies: ["Linux Foundation Stacks", "PostgreSQL", "Apache Ecosystem", "Kubernetes", "Redis", "Elasticsearch"],
+    technologies: ["PostgreSQL", "Kubernetes", "Apache Kafka", "Linux Foundation", "CNCF Ecosystem", "Redis", "Prometheus", "Grafana", "OpenTelemetry", "ArgoCD", "Kong Gateway", "Elasticsearch"],
     faqs: [
       {
-        question: "How do you guarantee enterprise security with open-source tools?",
-        answer: "We perform automated vulnerability scanning, container signing, CVE monitoring, and implement strict RBAC policies."
+        question: "How does VIO guarantee enterprise security with open-source software?",
+        answer: "We employ defense-in-depth hardening: automated vulnerability scanning (Trivy, Snyk), container image signing, automated CVE patch governance, zero-trust network policies, and hardened baselines (CIS Benchmarks)."
+      },
+      {
+        question: "How do you protect enterprises from license compliance risks (e.g., GPL / AGPL)?",
+        answer: "We perform comprehensive software bill-of-materials (SBOM) audits and license dependency scanning using automated compliance tooling to ensure complete immunity from restrictive copyleft licenses."
+      },
+      {
+        question: "Can VIO replace proprietary enterprise databases like Oracle or Microsoft SQL Server?",
+        answer: "Yes. We have structured migration frameworks to transition mission-critical relational schemas, stored procedures, and triggers from Oracle and SQL Server to PostgreSQL or distributed PostgreSQL (Citus/YugabyteDB) with zero data loss."
+      },
+      {
+        question: "Does VIO provide ongoing enterprise SLAs for open-source systems?",
+        answer: "Yes. We back open-source production deployments with tailored enterprise SLAs (up to 24/7/365 four-hour response times), proactive uptime monitoring, and managed patch management."
       }
     ],
     orderIndex: 3
