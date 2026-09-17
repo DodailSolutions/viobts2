@@ -17,6 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/careers`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.75 },
     { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/book-a-call`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/technology-workforce`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/technology-workforce-2`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
   ];
 
   // Dynamic Service routes

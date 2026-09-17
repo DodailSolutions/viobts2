@@ -1,30 +1,40 @@
-﻿import { ServiceItem } from "./types";
+import { ServiceItem } from "./types";
 
 export const INITIAL_SERVICES: ServiceItem[] = [
   {
     id: "srv-1",
     slug: "technology-workforce",
     title: "Technology Workforce",
-    eyebrow: "Elite Technical Talent",
-    subtitle: "High-caliber engineering squads that integrate seamlessly into your engineering culture.",
-    description: "Accelerate mission-critical software initiatives with pre-vetted, high-impact technical talent. From cloud architects and data engineers to full-stack squads, we eliminate recruitment friction and elevate delivery velocity.",
+    eyebrow: "Elite Technical Talent Solutions",
+    subtitle: "Customized staffing solutions: Full-Time Placements, Contract Staffing, and Project-Based Teams.",
+    description: "Accelerate mission-critical initiatives with pre-vetted, high-caliber technology professionals. VIO connects enterprises and government agencies with specialized engineers across software development, cloud computing, cybersecurity, and emerging technologies to fill talent gaps and elevate delivery velocity.",
     icon: "Users",
-    businessOutcome: "Reduces time-to-hire by 65% and scales engineering velocity without internal hiring overhead.",
+    businessOutcome: "Reduces time-to-hire by 65% and slashes recruitment overhead while achieving 99.8% retention.",
     capabilities: [
-      "Staff Augmentation & Dedicated Pods",
-      "Full-Stack & Distributed Cloud Engineering",
-      "DevSecOps & Platform Engineers",
-      "Specialized Domain Architects"
+      "Full-Time Strategic Placements",
+      "Agile Contract Staffing & Surge Capacity",
+      "Project-Based Managed Engineering Pods",
+      "AI-Driven Strategic Sourcing & Vetting",
+      "DevSecOps, Cloud & Data Engineering Talent",
+      "VA-SWaM Certified Public Sector Staffing"
     ],
-    technologies: ["React", "Next.js", "Node.js", "Go", "Python", "Kubernetes", "AWS", "GCP"],
+    technologies: ["Full-Stack", "AWS", "GCP", "Azure", "Kubernetes", "Python", "Go", "React", "Snowflake", "Terraform"],
     faqs: [
       {
-        question: "How quickly can VIO deploy engineering resources?",
-        answer: "Our pre-vetted technical talent can be onboarded and active in your sprints in as little as 5 to 10 business days."
+        question: "What staffing models does VIO offer for Technology Workforce?",
+        answer: "We provide three flexible staffing models: Full-Time Placements for permanent hires, Contract Staffing for project surges and temporary needs, and Project-Based Teams (managed pods) led by delivery leads to execute complete roadmaps."
       },
       {
-        question: "Do you support both contract staffing and managed pods?",
-        answer: "Yes, we support both individual high-velocity augmentation and autonomous managed pods led by a delivery lead."
+        question: "How does VIO screen and vet technical talent?",
+        answer: "We utilize an end-to-end recruitment process combining AI-driven strategic sourcing with rigorous technical evaluations, live coding architecture assessments, and cultural alignment checks by senior engineering leads."
+      },
+      {
+        question: "How quickly can VIO deploy engineering resources?",
+        answer: "Our pre-vetted talent pool allows engineers to be onboarded and active in your sprints in as little as 5 to 10 business days."
+      },
+      {
+        question: "Is VIO certified for government and public sector staffing?",
+        answer: "Yes, VIO is a certified woman-owned Small, Women-owned, and Minority-owned (VA-SWaM) enterprise in the Commonwealth of Virginia with extensive experience serving state agencies (such as ODGA) and USAID."
       }
     ],
     orderIndex: 1

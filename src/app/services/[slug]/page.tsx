@@ -20,6 +20,7 @@ import {
 import { cmsStore } from "@/lib/data";
 import { AccordionFAQ } from "@/components/sections/AccordionFAQ";
 import { CTABanner } from "@/components/sections/CTABanner";
+import { TechnologyWorkforcePageContent } from "@/components/sections/TechnologyWorkforcePageContent";
 
 interface ServiceDetailPageProps {
   params: { slug: string };
@@ -128,6 +129,18 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
       }] : [])
     ]
   };
+
+  if (srv.slug === "technology-workforce") {
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <TechnologyWorkforcePageContent />
+      </>
+    );
+  }
 
   return (
     <div className="pt-28 pb-20 bg-white min-h-screen">
