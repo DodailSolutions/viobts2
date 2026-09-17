@@ -73,22 +73,8 @@ export function HeroBanner({
               {headline.includes(highlightText) ? (
                 <>
                   {headline.split(highlightText)[0]}
-                  <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500">
                     {highlightText}
-                    {/* Artistic Accent Wave Underline */}
-                    <svg
-                      className="absolute -bottom-2 left-0 w-full h-3 text-cyan-400/70"
-                      viewBox="0 0 100 20"
-                      preserveAspectRatio="none"
-                      fill="none"
-                    >
-                      <path
-                        d="M0 15 Q 25 5, 50 15 T 100 15"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                        strokeLinecap="round"
-                      />
-                    </svg>
                   </span>
                   {headline.split(highlightText)[1]}
                 </>
