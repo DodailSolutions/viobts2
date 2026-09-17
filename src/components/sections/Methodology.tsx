@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Gauge, LineChart, Zap, CheckCircle2, ArrowRight, Activity, RefreshCw } from "lucide-react";
+import { Gauge, LineChart, Zap, CheckCircle2, ArrowRight, RefreshCw } from "lucide-react";
 
 interface Stage {
   step: string;
@@ -24,7 +24,7 @@ const STAGE_CONFIGS = [
     color: "blue",
     bg: "bg-blue-50",
     border: "border-blue-200",
-    text: "text-blue-600",
+    text: "text-[#0066cc]",
     deliverables: [
       "Empirical Architecture Baseline Audit",
       "Telemetry & Metric Instrumentation",
@@ -83,21 +83,21 @@ export function Methodology({
   ],
 }: MethodologyProps) {
   return (
-    <section className="relative py-24 bg-white overflow-hidden border-t border-slate-200">
+    <section className="relative py-20 sm:py-24 bg-white overflow-hidden border-t border-slate-100">
       {/* Background Decor */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:28px_28px] opacity-35 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[350px] bg-blue-500/5 blur-[140px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           {eyebrow && (
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold text-blue-700 uppercase tracking-widest mb-4">
-              <RefreshCw className="w-3.5 h-3.5 text-blue-600 animate-spin-slow" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-bold text-[#0066cc] uppercase tracking-widest mb-3.5 shadow-2xs">
+              <RefreshCw className="w-3.5 h-3.5 text-blue-600" />
               <span>{eyebrow}</span>
             </div>
           )}
-          <h2 className="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight leading-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#071739] tracking-tight leading-tight mb-4">
             {heading}
           </h2>
           {subheading && (
@@ -110,7 +110,7 @@ export function Methodology({
         {/* 3 Steps Connected Grid */}
         <div className="relative">
           {/* Desktop Connecting Line */}
-          <div className="hidden lg:block absolute top-1/2 left-10 right-10 h-0.5 bg-gradient-to-r from-blue-200 via-cyan-200 to-indigo-200 -translate-y-12 z-0" />
+          <div className="hidden lg:block absolute top-[68px] left-20 right-20 h-0.5 bg-gradient-to-r from-blue-300 via-cyan-300 to-indigo-300 z-0" />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
             {stages.map((stage, idx) => {
@@ -121,25 +121,25 @@ export function Methodology({
               return (
                 <div
                   key={idx}
-                  className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xs hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+                  className="p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-blue-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
                 >
                   <div>
                     {/* Top Step Number & Icon */}
                     <div className="flex items-center justify-between mb-6">
-                      <span className="text-3xl font-black text-slate-900 tracking-tighter group-hover:text-blue-600 transition-colors">
+                      <span className="text-3xl sm:text-4xl font-black text-[#071739] tracking-tighter group-hover:text-[#0066cc] transition-colors font-mono">
                         {stage.step}
                       </span>
-                      <div className={`p-4 rounded-2xl ${config.bg} ${config.text} border ${config.border} shadow-xs group-hover:scale-110 transition-transform`}>
+                      <div className={`w-12 h-12 rounded-2xl ${config.bg} ${config.text} border ${config.border} flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform duration-300`}>
                         <Icon className="w-6 h-6" />
                       </div>
                     </div>
 
                     {/* Stage Title */}
                     <div className="mb-4">
-                      <span className="text-[10px] font-extrabold tracking-widest text-blue-600 uppercase bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60">
+                      <span className="text-[10px] font-extrabold tracking-widest text-[#0066cc] uppercase bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60">
                         PHASE {stage.step}
                       </span>
-                      <h3 className="text-2xl font-black text-slate-950 tracking-tight mt-2">
+                      <h3 className="text-2xl font-black text-[#071739] tracking-tight mt-2">
                         {stage.title}
                       </h3>
                       <p className="text-xs font-bold text-slate-700 mt-1">
@@ -148,7 +148,7 @@ export function Methodology({
                     </div>
 
                     {/* Description */}
-                    <p className="text-xs text-slate-600 leading-relaxed mb-6 font-normal">
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed mb-6 font-normal">
                       {stage.description}
                     </p>
 
@@ -160,7 +160,7 @@ export function Methodology({
                       <ul className="space-y-2">
                         {deliverables.map((item, dIdx) => (
                           <li key={dIdx} className="flex items-start gap-2 text-[11px] text-slate-700 font-medium">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[#0066cc] shrink-0 mt-0.5" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -169,8 +169,8 @@ export function Methodology({
                   </div>
 
                   <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-[11px] font-semibold text-slate-400">Phase Output</span>
-                    <span className="text-xs font-bold text-blue-600 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    <span className="text-[11px] font-medium text-slate-400">Phase Outcome</span>
+                    <span className="text-xs font-bold text-[#0066cc] inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                       <span>Explore Deliverables</span>
                       <ArrowRight className="w-3 h-3" />
                     </span>

@@ -1,6 +1,7 @@
-﻿"use client";
+"use client";
 
 import React from "react";
+import { Award, ShieldCheck, Users, ThumbsUp } from "lucide-react";
 
 interface StatItem {
   label: string;
@@ -14,54 +15,72 @@ interface StatsCounterProps {
   stats?: StatItem[];
 }
 
+const STAT_ICONS = [Award, Users, ShieldCheck, ThumbsUp];
+
 export function StatsCounter({
   eyebrow = "PROVEN TRACK RECORD",
   heading = "Enterprise Scale with Verified Impact",
   stats = [
     { label: "Years of Excellence", value: "10+", description: "Founder-led engineering track record" },
-    { label: "Public & Enterprise Clients", value: "50+", description: "Tier-1 banks, state agencies & global firms" },
+    { label: "Enterprise & State Clients", value: "50+", description: "Tier-1 banks, federal & state agencies" },
     { label: "VA-SWaM Certified", value: "100%", description: "Woman-owned business enterprise" },
     { label: "Client Satisfaction", value: "99.8%", description: "Measurable business outcomes delivered" },
   ],
 }: StatsCounterProps) {
   return (
-    <section className="relative py-20 bg-slate-50/80 border-y border-slate-200/80">
+    <section className="relative py-16 sm:py-20 bg-gradient-to-b from-[#fcfdff] via-slate-50/60 to-white border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {(eyebrow || heading) && (
-          <div className="text-center mb-14">
+          <div className="text-center mb-12 sm:mb-14">
             {eyebrow && (
-              <p className="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-3">
+              <p className="text-xs font-extrabold tracking-[0.25em] text-[#0066cc] uppercase mb-2.5">
                 {eyebrow}
               </p>
             )}
             {heading && (
-              <h2 className="text-2xl sm:text-4xl font-bold text-slate-950 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#071739] tracking-tight">
                 {heading}
               </h2>
             )}
           </div>
         )}
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {stats.map((stat, idx) => (
-            <div
-              key={idx}
-              className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md hover:border-blue-300 transition-all text-center relative overflow-hidden group"
-            >
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <p className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-2 text-gradient-cyan">
-                {stat.value}
-              </p>
-              <h3 className="text-sm sm:text-base font-bold text-slate-800 mb-1">
-                {stat.label}
-              </h3>
-              {stat.description && (
-                <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                  {stat.description}
-                </p>
-              )}
-            </div>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {stats.map((stat, idx) => {
+            const Icon = STAT_ICONS[idx % STAT_ICONS.length];
+            return (
+              <div
+                key={idx}
+                className="group relative p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+              >
+                {/* Top accent line */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-2xl bg-blue-50 border border-blue-100/80 flex items-center justify-center text-blue-600 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-2xs">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">
+                    0{idx + 1}
+                  </span>
+                </div>
+
+                <div>
+                  <p className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#071739] group-hover:text-blue-600 transition-colors mb-2">
+                    {stat.value}
+                  </p>
+                  <h3 className="text-sm sm:text-base font-bold text-slate-800 leading-snug mb-1">
+                    {stat.label}
+                  </h3>
+                  {stat.description && (
+                    <p className="text-xs text-slate-500 leading-relaxed font-normal">
+                      {stat.description}
+                    </p>
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
