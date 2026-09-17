@@ -24,6 +24,7 @@ import { TechnologyWorkforcePageContent } from "@/components/sections/Technology
 import { BigDataAnalyticsPageContent } from "@/components/sections/BigDataAnalyticsPageContent";
 import { OpenSourceIntegrationPageContent } from "@/components/sections/OpenSourceIntegrationPageContent";
 import { CloudEnablementPageContent } from "@/components/sections/CloudEnablementPageContent";
+import { ApiMicroservicesPageContent } from "@/components/sections/ApiMicroservicesPageContent";
 
 interface ServiceDetailPageProps {
   params: { slug: string };
@@ -177,6 +178,18 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <CloudEnablementPageContent />
+      </>
+    );
+  }
+
+  if (srv.slug === "api-microservices") {
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <ApiMicroservicesPageContent />
       </>
     );
   }

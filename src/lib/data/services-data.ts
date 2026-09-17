@@ -157,22 +157,36 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     id: "srv-5",
     slug: "api-microservices",
     title: "API & Microservices",
-    eyebrow: "Composable Micro-Architecture",
-    subtitle: "High-throughput, resilient API ecosystems that decouple monolithic bottlenecks.",
-    description: "Break free from monolithic constraints with event-driven, domain-driven microservices. We build secure, rate-limited, and self-documenting APIs that connect legacy core systems with modern digital consumer touchpoints.",
+    eyebrow: "Modular Micro-Architecture & Integration",
+    subtitle: "Build scalable, modular systems with independent component scaling, fault isolation, and enterprise API gateways.",
+    description: "Break free from monolithic constraints. VIO designs and implements modular microservices architectures that enhance system interoperability, provide fault isolation, and enable independent scaling of critical business components. By establishing robust, secure API layers (REST, gRPC, GraphQL) and asynchronous event-driven messaging, we accelerate engineering velocity, eliminate single points of failure, and connect legacy enterprise systems with modern consumer platforms.",
     icon: "Cpu",
-    businessOutcome: "Eliminates single points of failure and empowers independent feature deployment across teams.",
+    businessOutcome: "Accelerates feature release velocity by 3x, isolates operational faults to prevent system-wide outages, and scales critical hot components 10x without monolithic overhead.",
     capabilities: [
-      "Domain-Driven API Architecture & Gateway Design",
-      "Event-Driven Pub/Sub & Message Queuing",
-      "Zero-Trust API Security & OAuth2/mTLS",
-      "Legacy Monolith Deconstruction & Strangler Fig"
+      "Domain-Driven Microservices Architecture & Monolith Deconstruction",
+      "Enterprise API Gateway Engineering, Rate Limiting & Traffic Routing (Kong, Apigee)",
+      "High-Throughput Binary & Federated API Protocols (REST, gRPC, GraphQL)",
+      "Asynchronous Event-Driven Messaging & Distributed Sagas (Apache Kafka, RabbitMQ)",
+      "Microservice Fault Isolation, Circuit Breaking & Bulkheads (Resilience4j, Envoy)",
+      "Zero-Trust API Security, mTLS & Identity Governance (OAuth2, OIDC, Vault)"
     ],
-    technologies: ["gRPC", "GraphQL", "REST", "Kong", "Apigee", "RabbitMQ", "Kafka", "Node.js", "Go"],
+    technologies: ["REST", "gRPC", "GraphQL", "Kong Gateway", "Apigee", "Apache Kafka", "RabbitMQ", "Node.js / NestJS", "Go (Golang)", "Java / Spring Boot", "Istio", "OpenTelemetry"],
     faqs: [
       {
-        question: "What is your approach to breaking down monoliths?",
-        answer: "We employ the Strangler Fig pattern to progressively migrate high-value domains into microservices with zero system downtime."
+        question: "How does microservices architecture prevent system-wide outages (fault isolation)?",
+        answer: "By decoupling services into isolated containers with dedicated databases, circuit breakers, and asynchronous message queues, an error or traffic spike in one component (e.g. notifications) never cascades into core operations (e.g. checkout or account processing)."
+      },
+      {
+        question: "What is VIO's strategy for deconstructing legacy monolithic systems?",
+        answer: "We employ domain-driven design and progressive decomposition patterns. We identify bounded contexts, establish an API gateway proxy layer, and systematically extract microservices domain-by-domain with zero application downtime."
+      },
+      {
+        question: "How do you handle distributed data consistency without two-phase commit?",
+        answer: "We implement the Saga pattern (orchestration or choreography) paired with transactional outbox patterns and event sourcing via Apache Kafka, ensuring eventual data consistency across independent microservice databases."
+      },
+      {
+        question: "What API protocols does VIO recommend for high-performance microservices?",
+        answer: "We use gRPC with binary Protocol Buffers for ultra-fast, low-latency inter-service communication (East-West traffic), REST with OpenAPI specs for public external clients, and federated GraphQL for flexible frontend data composition (North-South traffic)."
       }
     ],
     orderIndex: 5

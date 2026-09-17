@@ -25,6 +25,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/open-source-integration-2`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/cloud-enablement`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/cloud-enablement-and-ci-cd-pipelines`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/api-and-microservices`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/api-and-microservices-2`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
   ];
 
   // Dynamic Service routes
