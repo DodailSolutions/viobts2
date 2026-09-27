@@ -201,22 +201,22 @@ export function TechnologyWorkforcePageContent() {
       <section className="relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-center">
         {/* Breadcrumbs */}
         <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 text-xs font-semibold text-slate-500 mb-8">
-          <Link href="/" className="hover:text-[#0066cc] transition-colors">Home</Link>
+          <Link href="/" className="hover:text-[#0c34cd] transition-colors">Home</Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <Link href="/services" className="hover:text-[#0066cc] transition-colors">Services</Link>
+          <Link href="/services" className="hover:text-[#0c34cd] transition-colors">Services</Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <span className="text-[#0066cc] font-bold">Technology Workforce</span>
+          <span className="text-[#0c34cd] font-bold">Technology Workforce</span>
         </nav>
 
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 mb-6">
-          <ShieldCheck className="w-4 h-4 text-[#0066cc]" />
-          <span className="text-xs font-bold tracking-[0.2em] text-[#0066cc] uppercase">
+          <ShieldCheck className="w-4 h-4 text-[#0c34cd]" />
+          <span className="text-xs font-bold tracking-[0.2em] text-[#0c34cd] uppercase">
             CUSTOMIZED IT STAFFING & TALENT SOLUTIONS
           </span>
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-black text-[#071739] tracking-tight leading-[1.12] mb-6">
-          Technology <span className="text-[#0066cc]">Workforce Solutions</span>
+          Technology <span className="text-[#0c34cd]">Workforce Solutions</span>
         </h1>
 
         <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-normal mb-10">
@@ -226,7 +226,7 @@ export function TechnologyWorkforcePageContent() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="#request-talent"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-white bg-[#0066cc] hover:bg-[#0052a3] transition-all shadow-md shadow-blue-500/20 hover:-translate-y-0.5"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-white bg-[#0c34cd] hover:bg-[#0a2cb0] transition-all shadow-md shadow-blue-500/20 hover:-translate-y-0.5"
           >
             <Users className="w-4 h-4" />
             <span>Request Talent Scoping</span>
@@ -246,19 +246,19 @@ export function TechnologyWorkforcePageContent() {
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 p-6 sm:p-8 rounded-3xl bg-[#f8fafc] border border-slate-200/90 shadow-xs">
           <div className="p-4 rounded-2xl bg-white border border-slate-200/70 text-center">
-            <p className="text-3xl sm:text-4xl font-black text-[#0066cc]">65%</p>
+            <p className="text-3xl sm:text-4xl font-black text-[#0c34cd]">65%</p>
             <p className="text-xs text-slate-500 font-bold uppercase tracking-wider mt-1">Faster Time-to-Hire</p>
           </div>
           <div className="p-4 rounded-2xl bg-white border border-slate-200/70 text-center">
-            <p className="text-3xl sm:text-4xl font-black text-[#0066cc]">50+</p>
+            <p className="text-3xl sm:text-4xl font-black text-[#0c34cd]">50+</p>
             <p className="text-xs text-slate-500 font-bold uppercase tracking-wider mt-1">Enterprise Deployments</p>
           </div>
           <div className="p-4 rounded-2xl bg-white border border-slate-200/70 text-center">
-            <p className="text-3xl sm:text-4xl font-black text-[#0066cc]">99.8%</p>
+            <p className="text-3xl sm:text-4xl font-black text-[#0c34cd]">99.8%</p>
             <p className="text-xs text-slate-500 font-bold uppercase tracking-wider mt-1">Retention & Satisfaction</p>
           </div>
           <div className="p-4 rounded-2xl bg-white border border-slate-200/70 text-center">
-            <p className="text-3xl sm:text-4xl font-black text-[#0066cc]">10+ Yrs</p>
+            <p className="text-3xl sm:text-4xl font-black text-[#0c34cd]">10+ Yrs</p>
             <p className="text-xs text-slate-500 font-bold uppercase tracking-wider mt-1">Founder-Led Track Record</p>
           </div>
         </div>
@@ -267,7 +267,7 @@ export function TechnologyWorkforcePageContent() {
       {/* 3 Core Staffing Models */}
       <section id="staffing-models" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-slate-100">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-xs font-bold text-[#0066cc] uppercase tracking-widest block mb-2">
+          <span className="text-xs font-bold text-[#0c34cd] uppercase tracking-widest block mb-2">
             FLEXIBLE ENGAGEMENT ARCHITECTURES
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-[#071739] tracking-tight">
@@ -285,7 +285,7 @@ export function TechnologyWorkforcePageContent() {
               className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-[#0066cc] border border-blue-100 mb-4">
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-[#0c34cd] border border-blue-100 mb-4">
                   {model.badge}
                 </span>
                 <h3 className="text-2xl font-black text-[#071739] tracking-tight mb-3">
@@ -301,7 +301,7 @@ export function TechnologyWorkforcePageContent() {
                 <ul className="space-y-2.5 mb-6">
                   {model.highlights.map((h, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-xs text-slate-700 leading-normal">
-                      <CheckCircle2 className="w-4 h-4 text-[#0066cc] shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-[#0c34cd] shrink-0 mt-0.5" />
                       <span>{h}</span>
                     </li>
                   ))}
@@ -314,7 +314,7 @@ export function TechnologyWorkforcePageContent() {
                 </p>
                 <a
                   href="#request-talent"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0066cc] hover:text-[#0052a3]"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0c34cd] hover:text-[#0a2cb0]"
                 >
                   <span>Select {model.title}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -328,7 +328,7 @@ export function TechnologyWorkforcePageContent() {
       {/* Technical Disciplines */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-[#f8fafc]/70 rounded-3xl border border-slate-200/80 my-12">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-xs font-bold text-[#0066cc] uppercase tracking-widest block mb-2">
+          <span className="text-xs font-bold text-[#0c34cd] uppercase tracking-widest block mb-2">
             CROSS-FUNCTIONAL EXPERTISE
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-[#071739] tracking-tight">
@@ -347,7 +347,7 @@ export function TechnologyWorkforcePageContent() {
                 key={idx}
                 className="p-7 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md transition-all"
               >
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0066cc] flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0c34cd] flex items-center justify-center mb-4">
                   <Icon className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-bold text-[#071739] mb-2">{d.title}</h3>
@@ -371,7 +371,7 @@ export function TechnologyWorkforcePageContent() {
       {/* 4-Step Vetting & Delivery Process */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-xs font-bold text-[#0066cc] uppercase tracking-widest block mb-2">
+          <span className="text-xs font-bold text-[#0c34cd] uppercase tracking-widest block mb-2">
             METHODICAL EXECUTION
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-[#071739] tracking-tight">
@@ -388,7 +388,7 @@ export function TechnologyWorkforcePageContent() {
               key={step.step}
               className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-xs relative"
             >
-              <span className="text-3xl font-black text-[#0066cc]/20 block mb-3 font-mono">
+              <span className="text-3xl font-black text-[#0c34cd]/20 block mb-3 font-mono">
                 {step.step}
               </span>
               <h3 className="text-lg font-bold text-[#071739] mb-2">
@@ -406,7 +406,7 @@ export function TechnologyWorkforcePageContent() {
       <section id="request-talent" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl shadow-blue-950/5">
           <div className="text-center max-w-2xl mx-auto mb-8">
-            <span className="text-xs font-bold text-[#0066cc] uppercase tracking-widest block mb-1">
+            <span className="text-xs font-bold text-[#0c34cd] uppercase tracking-widest block mb-1">
               REQUEST TECHNICAL TALENT
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-[#071739] tracking-tight">
@@ -436,7 +436,7 @@ export function TechnologyWorkforcePageContent() {
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                     placeholder="Jane Doe"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0066cc] focus:bg-white"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0c34cd] focus:bg-white"
                   />
                 </div>
                 <div>
@@ -447,7 +447,7 @@ export function TechnologyWorkforcePageContent() {
                     value={formState.email}
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                     placeholder="jane@company.com"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0066cc] focus:bg-white"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0c34cd] focus:bg-white"
                   />
                 </div>
               </div>
@@ -461,7 +461,7 @@ export function TechnologyWorkforcePageContent() {
                     value={formState.company}
                     onChange={(e) => setFormState({ ...formState, company: e.target.value })}
                     placeholder="Enterprise or Agency"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0066cc] focus:bg-white"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0c34cd] focus:bg-white"
                   />
                 </div>
                 <div>
@@ -471,7 +471,7 @@ export function TechnologyWorkforcePageContent() {
                     value={formState.phone}
                     onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
                     placeholder="+1 (804) 000-0000"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0066cc] focus:bg-white"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0c34cd] focus:bg-white"
                   />
                 </div>
               </div>
@@ -482,7 +482,7 @@ export function TechnologyWorkforcePageContent() {
                   <select
                     value={formState.model}
                     onChange={(e) => setFormState({ ...formState, model: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0066cc] focus:bg-white"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0c34cd] focus:bg-white"
                   >
                     <option value="Contract Staffing">Contract Staffing (Surge & Temporary)</option>
                     <option value="Full-Time Placements">Full-Time Placements (Direct Hire)</option>
@@ -495,7 +495,7 @@ export function TechnologyWorkforcePageContent() {
                   <select
                     value={formState.timeline}
                     onChange={(e) => setFormState({ ...formState, timeline: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0066cc] focus:bg-white"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0c34cd] focus:bg-white"
                   >
                     <option value="Immediate (< 2 weeks)">Immediate (&lt; 2 weeks)</option>
                     <option value="2-4 weeks">2 - 4 weeks</option>
@@ -513,7 +513,7 @@ export function TechnologyWorkforcePageContent() {
                   value={formState.rolesNeeded}
                   onChange={(e) => setFormState({ ...formState, rolesNeeded: e.target.value })}
                   placeholder="e.g. 2 Senior React Engineers, 1 Cloud Architect (AWS/Terraform)"
-                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0066cc] focus:bg-white"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0c34cd] focus:bg-white"
                 />
               </div>
 
@@ -524,14 +524,14 @@ export function TechnologyWorkforcePageContent() {
                   value={formState.notes}
                   onChange={(e) => setFormState({ ...formState, notes: e.target.value })}
                   placeholder="Tell us about the project context, technical stack, or special clearance/compliance requirements..."
-                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0066cc] focus:bg-white"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0c34cd] focus:bg-white"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-4 rounded-xl text-sm font-bold text-white bg-[#0066cc] hover:bg-[#0052a3] transition-all shadow-md shadow-blue-500/20 flex items-center justify-center gap-2"
+                className="w-full py-4 rounded-xl text-sm font-bold text-white bg-[#0c34cd] hover:bg-[#0a2cb0] transition-all shadow-md shadow-blue-500/20 flex items-center justify-center gap-2"
               >
                 {loading ? (
                   <>

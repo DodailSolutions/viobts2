@@ -19,7 +19,7 @@ export function CTABanner({
   heading = "Let's turn technology into measurable business impact.",
   subheading = "Schedule a complimentary consultation with our principal architects to explore how VIO can accelerate your digital roadmap.",
   primaryCtaText = "Book a Call",
-  primaryCtaLink = "/contact",
+  primaryCtaLink = "https://calendly.com/viobts/consultation",
   secondaryCtaText = "Talk to VIO",
   secondaryCtaLink = "/contact",
 }: CTABannerProps) {
@@ -31,9 +31,9 @@ export function CTABanner({
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="relative rounded-3xl bg-[#071739] text-white p-8 sm:p-14 lg:p-16 shadow-2xl shadow-blue-950/20 overflow-hidden border border-blue-900/50">
           {/* Internal gradient accent shapes */}
-          <div className="absolute -top-32 -right-32 w-80 h-80 rounded-full bg-[#0066cc]/30 blur-3xl pointer-events-none" />
+          <div className="absolute -top-32 -right-32 w-80 h-80 rounded-full bg-[#0c34cd]/30 blur-3xl pointer-events-none" />
           <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-[#00B4D8]/20 blur-3xl pointer-events-none" />
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0066cc] via-[#00B4D8] to-blue-400" />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0c34cd] via-[#00B4D8] to-blue-400" />
 
           <div className="relative z-10 max-w-4xl mx-auto text-center">
             {/* Eyebrow badge */}
@@ -63,7 +63,9 @@ export function CTABanner({
               {primaryCtaText && (
                 <Link
                   href={primaryCtaLink}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-base font-bold text-white bg-[#0066cc] hover:bg-[#0052a3] transition-all duration-300 shadow-lg shadow-blue-500/25 hover:-translate-y-0.5"
+                  target={primaryCtaLink.startsWith("http") ? "_blank" : undefined}
+                  rel={primaryCtaLink.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-base font-bold text-white bg-[#0c34cd] hover:bg-[#0a2cb0] transition-all duration-300 shadow-lg shadow-blue-500/25 hover:-translate-y-0.5"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>{primaryCtaText}</span>

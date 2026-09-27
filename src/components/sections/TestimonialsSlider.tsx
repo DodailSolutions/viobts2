@@ -57,8 +57,8 @@ export function TestimonialsSlider({
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           {eyebrow && (
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/60 mb-3.5 mx-auto">
-              <Sparkles className="w-3.5 h-3.5 text-[#0066cc]" />
-              <span className="text-[11px] font-bold tracking-[0.2em] text-[#0066cc] uppercase">
+              <Sparkles className="w-3.5 h-3.5 text-[#0c34cd]" />
+              <span className="text-[11px] font-bold tracking-[0.2em] text-[#0c34cd] uppercase">
                 {eyebrow}
               </span>
             </div>
@@ -94,7 +94,7 @@ export function TestimonialsSlider({
         <div className="max-w-4xl mx-auto">
           <div className="relative p-8 sm:p-12 lg:p-14 rounded-3xl bg-gradient-to-b from-white to-slate-50/50 border border-slate-200/90 shadow-xl shadow-slate-900/5 overflow-hidden">
             {/* Ambient Background Accent Lines */}
-            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#0066cc] via-[#00B4D8] to-blue-400" />
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#0c34cd] via-[#00B4D8] to-blue-400" />
 
             <Quote className="w-20 h-20 text-blue-100/60 absolute top-8 right-8 pointer-events-none -scale-x-100" />
 
@@ -109,8 +109,8 @@ export function TestimonialsSlider({
                 <span className="text-xs font-bold text-amber-900 ml-1">5.0 Star Rating</span>
               </div>
 
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60 text-[#0066cc] text-xs font-bold">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#0066cc]" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60 text-[#0c34cd] text-xs font-bold">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#0c34cd]" />
                 <span>{itemMeta.badge}</span>
               </div>
             </div>
@@ -122,21 +122,21 @@ export function TestimonialsSlider({
 
             {/* Outcome Highlight Pill */}
             <div className="mb-8 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-100/80 border border-slate-200 text-xs font-medium text-slate-700">
-              <span className="w-2 h-2 rounded-full bg-[#0066cc]" />
+              <span className="w-2 h-2 rounded-full bg-[#0c34cd]" />
               <span>Key Impact: <strong>{itemMeta.highlight}</strong></span>
             </div>
 
             {/* Author & Controls Footer */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-slate-100">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#0066cc]/10 border border-[#0066cc]/20 flex items-center justify-center text-[#0066cc] font-black text-lg">
+                <div className="w-12 h-12 rounded-2xl bg-[#0c34cd]/10 border border-[#0c34cd]/20 flex items-center justify-center text-[#0c34cd] font-black text-lg">
                   <Building className="w-6 h-6" />
                 </div>
                 <div>
                   <p className="text-base sm:text-lg font-extrabold text-[#071739]">
                     {item.clientName}
                   </p>
-                  <p className="text-xs sm:text-sm text-[#0066cc] font-semibold">
+                  <p className="text-xs sm:text-sm text-[#0c34cd] font-semibold">
                     {item.designation}
                   </p>
                   <p className="text-xs text-slate-500 font-medium mt-0.5">
@@ -159,7 +159,7 @@ export function TestimonialsSlider({
                 </div>
                 <button
                   onClick={next}
-                  className="w-11 h-11 rounded-full bg-[#0066cc] hover:bg-[#0052a3] text-white transition-all shadow-md shadow-blue-500/20 flex items-center justify-center hover:scale-105 active:scale-95 focus:outline-none"
+                  className="w-11 h-11 rounded-full bg-[#0c34cd] hover:bg-[#0a2cb0] text-white transition-all shadow-md shadow-blue-500/20 flex items-center justify-center hover:scale-105 active:scale-95 focus:outline-none"
                   aria-label="Next testimonial"
                 >
                   <ChevronRight className="w-5 h-5 stroke-[2.5]" />

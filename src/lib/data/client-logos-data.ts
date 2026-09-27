@@ -2,9 +2,37 @@ import { ClientLogoItem, ClientTestimonialItem } from "./types";
 
 export const DEFAULT_CLIENT_LOGOS: ClientLogoItem[] = [
   {
+    id: "wells-fargo",
+    name: "Wells Fargo",
+    svgSrc: "/images/clients/wells-fargo-official.png",
+    websiteUrl: "https://www.wellsfargo.com/",
+    category: "Banking & Financial Services",
+    headline: "Regulatory Audit Automation & High-Throughput Ledger",
+    summary: "Delivered automated compliance screening, transactional audit trails, and high-security API gateways for commercial banking.",
+    metrics: [
+      { label: "Audit Prep Time", value: "-80%" },
+      { label: "Security Verification", value: "SOC2 Type II" }
+    ]
+  },
+  {
+    id: "vdh",
+    name: "Virginia Dept of Health",
+    svgSrc: "/images/clients/vdh-official.png",
+    websiteUrl: "https://www.vdh.virginia.gov/",
+    category: "Government & Public Health",
+    headline: "Public Health Interoperability & Real-Time Case Surveillance",
+    summary: "Engineered secure epidemiological tracking and citizen health reporting infrastructure for the Commonwealth of Virginia.",
+    metrics: [
+      { label: "Citizens Protected", value: "8.6M+" },
+      { label: "System Availability", value: "99.99%" }
+    ],
+    caseStudySlug: "virginia-state-agencies-odga"
+  },
+  {
     id: "usaid",
     name: "USAID",
-    svgSrc: "/images/clients/usaid.svg",
+    svgSrc: "/images/clients/usaid-official.png",
+    websiteUrl: "https://www.usaid.gov/",
     category: "Government & Public Sector",
     headline: "Global Humanitarian Analytics & Alerting Engine",
     summary: "Engineered automated data ingestion and real-time geospatial alerting frameworks across 30+ international mission locations.",
@@ -16,7 +44,8 @@ export const DEFAULT_CLIENT_LOGOS: ClientLogoItem[] = [
   {
     id: "merck",
     name: "MERCK",
-    svgSrc: "/images/clients/merck.svg",
+    svgSrc: "/images/clients/merck-official.png",
+    websiteUrl: "https://www.merck.com/",
     category: "Healthcare & Life Sciences",
     headline: "Global Life Sciences Data & Regulatory Analytics",
     summary: "Modernized clinical trials data pipeline and regulatory compliance workflows for enterprise pharmaceutical research.",
@@ -28,7 +57,8 @@ export const DEFAULT_CLIENT_LOGOS: ClientLogoItem[] = [
   {
     id: "fda",
     name: "FDA",
-    svgSrc: "/images/clients/fda.svg",
+    svgSrc: "/images/clients/fda-official.png",
+    websiteUrl: "https://www.fda.gov/",
     category: "Government & Healthcare",
     headline: "Food & Drug Administration Compliance Systems",
     summary: "Built secure verification workflows and data exchange frameworks adhering to rigorous federal standards.",
@@ -40,7 +70,8 @@ export const DEFAULT_CLIENT_LOGOS: ClientLogoItem[] = [
   {
     id: "delta-dental",
     name: "Delta Dental",
-    svgSrc: "/images/clients/delta-dental.svg",
+    svgSrc: "/images/clients/delta-dental-official.png",
+    websiteUrl: "https://www.deltadental.com/",
     category: "Healthcare & Insurance",
     headline: "Claims Processing & High-Velocity API Modernization",
     summary: "Accelerated digital claims adjudication with scalable microservices and real-time eligibility lookup.",
@@ -52,7 +83,8 @@ export const DEFAULT_CLIENT_LOGOS: ClientLogoItem[] = [
   {
     id: "capital-one",
     name: "Capital One",
-    svgSrc: "/images/clients/capital-one.svg",
+    svgSrc: "/images/clients/capital-one-official.png",
+    websiteUrl: "https://www.capitalone.com/",
     category: "Banking & Financial Services",
     headline: "Cloud-Native Financial APIs & Transactional Data Mesh",
     summary: "Engineered event-driven streaming infrastructure and resilient microservices for high-volume banking workflows.",
@@ -64,7 +96,8 @@ export const DEFAULT_CLIENT_LOGOS: ClientLogoItem[] = [
   {
     id: "advance-auto",
     name: "Advance Auto Parts",
-    svgSrc: "/images/clients/advance-auto.svg",
+    svgSrc: "/images/clients/advance-auto-official.png",
+    websiteUrl: "https://corp.advanceautoparts.com/home/default.aspx",
     category: "Enterprise & Retail",
     headline: "Enterprise Catalog & Supply Chain Modernization",
     summary: "Re-platformed monolithic retail inventory systems into event-driven microservices across 4,500+ commercial store locations.",
@@ -75,82 +108,10 @@ export const DEFAULT_CLIENT_LOGOS: ClientLogoItem[] = [
     caseStudySlug: "advance-auto-parts-supply-chain"
   },
   {
-    id: "virginia-odga",
-    name: "Commonwealth of Virginia (ODGA)",
-    svgSrc: "/images/clients/virginia-odga.svg",
-    category: "Government & Public Sector",
-    headline: "Unified State Portal & NIST GovCloud Modernization",
-    summary: "Consolidated disparate legacy state agency portals into a secure, NIST-compliant microservices platform serving millions of Virginia residents.",
-    metrics: [
-      { label: "Citizens Served", value: "4M+" },
-      { label: "NIST Compliance", value: "100%" }
-    ],
-    caseStudySlug: "virginia-state-agencies-odga"
-  },
-  {
-    id: "drivewealth",
-    name: "DriveWealth",
-    svgSrc: "/images/clients/drivewealth.png",
-    category: "Banking & FinTech",
-    headline: "High-Velocity Embedded Investing & Data Architecture",
-    summary: "Provided data management, distributed streaming, and architecture consulting that boosted customer retention by 15% and accelerated revenue growth.",
-    metrics: [
-      { label: "Customer Retention", value: "+15%" },
-      { label: "Execution Speed", value: "Sub-second" }
-    ]
-  },
-  {
-    id: "focalcxm",
-    name: "FocalCXM",
-    svgSrc: "/images/clients/focalcxm-dark.svg",
-    category: "Enterprise Applications & CRM",
-    headline: "Life Sciences CX & Enterprise Data Modernization",
-    summary: "Partnered to implement modern data ecosystems, driving advanced analytics, regulatory compliance, and operational efficiency for global pharmaceutical leaders.",
-    metrics: [
-      { label: "Pharma Sales Growth", value: "+5%" },
-      { label: "Ecosystem Efficiency", value: "3x Faster" }
-    ]
-  },
-  {
-    id: "dominion-energy",
-    name: "Dominion Energy",
-    svgSrc: "/images/clients/dominion-energy.svg",
-    category: "Energy & Infrastructure",
-    headline: "Smart Grid Telemetry & Operational Analytics",
-    summary: "Built petabyte-scale streaming pipelines to ingest and analyze multi-source smart meter and power substation sensor telemetry.",
-    metrics: [
-      { label: "Data Volume", value: "Petabytes" },
-      { label: "Uptime", value: "99.99%" }
-    ]
-  },
-  {
-    id: "wells-fargo",
-    name: "Wells Fargo",
-    svgSrc: "/images/clients/wells-fargo.svg",
-    category: "Banking & Financial Services",
-    headline: "Regulatory Audit Automation & High-Throughput Ledger",
-    summary: "Delivered automated compliance screening, transactional audit trails, and high-security API gateways for commercial banking.",
-    metrics: [
-      { label: "Audit Prep Time", value: "-80%" },
-      { label: "Security Verification", value: "SOC2 Type II" }
-    ]
-  },
-  {
-    id: "carmax",
-    name: "CarMax",
-    svgSrc: "/images/clients/carmax.svg",
-    category: "Enterprise & Automotive",
-    headline: "Omnichannel Digital Retailing & Cloud Pod Augmentation",
-    summary: "Deployed pre-vetted senior cloud engineering squads to accelerate customer appraisal algorithms and financing microservices.",
-    metrics: [
-      { label: "Engineering Velocity", value: "+45%" },
-      { label: "Sprint Completion", value: "98.5%" }
-    ]
-  },
-  {
     id: "walmart",
-    name: "Walmart",
+    name: "Walmart Global Tech",
     svgSrc: "/images/clients/walmart.svg",
+    websiteUrl: "https://tech.walmart.com/",
     category: "Retail & Marketplace Tech",
     headline: "Omnichannel Marketplace Catalog & Assortment Expansion",
     summary: "Partnered with Walmart Global Tech to enhance omnichannel catalog capabilities, accelerating marketplace seller assortment expansion and streamlining inventory operations.",
@@ -160,9 +121,62 @@ export const DEFAULT_CLIENT_LOGOS: ClientLogoItem[] = [
     ]
   },
   {
+    id: "focalcxm",
+    name: "FocalCXM",
+    svgSrc: "/images/clients/focalcxm-dark.svg",
+    websiteUrl: "https://focalcxm.com/",
+    category: "Enterprise Applications & CRM",
+    headline: "Life Sciences CX & Enterprise Data Modernization",
+    summary: "Partnered to implement modern data ecosystems, driving advanced analytics, regulatory compliance, and operational efficiency for global pharmaceutical leaders.",
+    metrics: [
+      { label: "Pharma Sales Growth", value: "+5%" },
+      { label: "Ecosystem Efficiency", value: "3x Faster" }
+    ]
+  },
+  {
+    id: "drivewealth",
+    name: "DriveWealth",
+    svgSrc: "/images/clients/drivewealth.png",
+    websiteUrl: "https://www.drivewealth.com/",
+    category: "Banking & FinTech",
+    headline: "High-Velocity Embedded Investing & Data Architecture",
+    summary: "Provided data management, distributed streaming, and architecture consulting that boosted customer retention by 15% and accelerated revenue growth.",
+    metrics: [
+      { label: "Customer Retention", value: "+15%" },
+      { label: "Execution Speed", value: "Sub-second" }
+    ]
+  },
+  {
+    id: "dominion-energy",
+    name: "Dominion Energy",
+    svgSrc: "/images/clients/dominion-energy.svg",
+    websiteUrl: "https://www.dominionenergy.com/",
+    category: "Energy & Infrastructure",
+    headline: "Smart Grid Telemetry & Operational Analytics",
+    summary: "Built petabyte-scale streaming pipelines to ingest and analyze multi-source smart meter and power substation sensor telemetry.",
+    metrics: [
+      { label: "Data Volume", value: "Petabytes" },
+      { label: "Uptime", value: "99.99%" }
+    ]
+  },
+  {
+    id: "carmax",
+    name: "CarMax",
+    svgSrc: "/images/clients/carmax.svg",
+    websiteUrl: "https://www.carmax.com/",
+    category: "Enterprise & Automotive",
+    headline: "Omnichannel Digital Retailing & Cloud Pod Augmentation",
+    summary: "Deployed pre-vetted senior cloud engineering squads to accelerate customer appraisal algorithms and financing microservices.",
+    metrics: [
+      { label: "Engineering Velocity", value: "+45%" },
+      { label: "Sprint Completion", value: "98.5%" }
+    ]
+  },
+  {
     id: "vcu-health",
     name: "VCU Health System",
     svgSrc: "/images/clients/vcu-health.svg",
+    websiteUrl: "https://www.vcuhealth.org/",
     category: "Healthcare & Life Sciences",
     headline: "HIPAA-Compliant Patient Data Lake & Clinical Insights",
     summary: "Engineered secure FHIR interoperability pipelines connecting EHR silos with advanced clinical research modeling.",
@@ -216,7 +230,7 @@ export const DEFAULT_CLIENT_TESTIMONIALS: ClientTestimonialItem[] = [
     badgeRole: "FOUNDER",
     badgeCompany: "LOKMART",
     quote: "VIO delivered high-performance scalable systems that streamlined our customer checkout and commerce workflows, accelerating our launch timeline by months.",
-    linkedinUrl: "https://www.linkedin.com"
+    linkedinUrl: "https://www.linkedin.com/company/viobts/"
   },
   {
     id: "harrison-rogers",
@@ -227,7 +241,7 @@ export const DEFAULT_CLIENT_TESTIMONIALS: ClientTestimonialItem[] = [
     badgeRole: "BUSINESS MANAGER",
     badgeCompany: "COMMERCE OPS",
     quote: "Partnering with VIO gave us the agility, technical caliber, and disciplined delivery required to scale our operations seamlessly.",
-    linkedinUrl: "https://www.linkedin.com"
+    linkedinUrl: "https://www.linkedin.com/company/viobts/"
   },
   {
     id: "molly-gallagher",
@@ -238,6 +252,6 @@ export const DEFAULT_CLIENT_TESTIMONIALS: ClientTestimonialItem[] = [
     badgeRole: "CEO",
     badgeCompany: "MOKAMOKA",
     quote: "The dedication, transparency, and deep engineering knowledge that VIO brings to every sprint has made them an essential partner in our technology ecosystem.",
-    linkedinUrl: "https://www.linkedin.com"
+    linkedinUrl: "https://www.linkedin.com/company/viobts/"
   }
 ];

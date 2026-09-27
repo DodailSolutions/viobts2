@@ -218,16 +218,16 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
       <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         {/* Breadcrumb navigation */}
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-8">
-          <Link href="/" className="hover:text-[#0066cc] transition-colors">Home</Link>
+          <Link href="/" className="hover:text-[#0c34cd] transition-colors">Home</Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <Link href="/services" className="hover:text-[#0066cc] transition-colors">Services</Link>
+          <Link href="/services" className="hover:text-[#0c34cd] transition-colors">Services</Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <span className="text-[#0066cc] font-bold">{srv.title}</span>
+          <span className="text-[#0c34cd] font-bold">{srv.title}</span>
         </nav>
 
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 mb-6">
-          <Icon className="w-4 h-4 text-[#0066cc]" />
-          <span className="text-[11px] font-bold text-[#0066cc] uppercase tracking-widest">
+          <Icon className="w-4 h-4 text-[#0c34cd]" />
+          <span className="text-[11px] font-bold text-[#0c34cd] uppercase tracking-widest">
             {srv.eyebrow} • Pillar 0{srv.orderIndex}
           </span>
         </div>
@@ -243,7 +243,7 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <Link
             href="/contact"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-white bg-[#0066cc] hover:bg-[#0052a3] transition-all shadow-md shadow-blue-500/20 hover:-translate-y-0.5"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-white bg-[#0c34cd] hover:bg-[#0a2cb0] transition-all shadow-md shadow-blue-500/20 hover:-translate-y-0.5"
           >
             <Calendar className="w-4 h-4" />
             <span>Consult on {srv.title}</span>
@@ -274,14 +274,14 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
             </div>
 
             <div>
-              <h3 className="text-xs font-bold text-[#0066cc] uppercase tracking-wider mb-4 flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#0066cc]" />
+              <h3 className="text-xs font-bold text-[#0c34cd] uppercase tracking-wider mb-4 flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#0c34cd]" />
                 <span>Key Capabilities Delivered</span>
               </h3>
               <div className="space-y-3">
                 {srv.capabilities.map((cap, i) => (
                   <div key={i} className="flex items-start gap-3 p-4 rounded-2xl bg-[#f8fafc] border border-slate-200/80">
-                    <CheckCircle2 className="w-4 h-4 text-[#0066cc] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#0c34cd] shrink-0 mt-0.5" />
                     <span className="text-sm text-slate-800 font-medium">{cap}</span>
                   </div>
                 ))}
@@ -290,9 +290,9 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
 
             {/* Target Business Outcome */}
             <div className="p-6 rounded-2xl bg-blue-50/60 border border-blue-200/70 flex items-start gap-3.5">
-              <TrendingUp className="w-5 h-5 text-[#0066cc] shrink-0 mt-0.5" />
+              <TrendingUp className="w-5 h-5 text-[#0c34cd] shrink-0 mt-0.5" />
               <div>
-                <p className="text-xs font-bold text-[#0066cc] uppercase tracking-wider mb-1">
+                <p className="text-xs font-bold text-[#0c34cd] uppercase tracking-wider mb-1">
                   Target Business Outcome:
                 </p>
                 <p className="text-sm text-slate-900 font-semibold leading-relaxed">
@@ -324,15 +324,15 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
             {/* VA-SWaM Certified Badge */}
             <div className="p-8 rounded-3xl bg-gradient-to-br from-blue-50/60 to-slate-50 border border-blue-200/80">
               <div className="flex items-center gap-2 mb-3">
-                <ShieldCheck className="w-5 h-5 text-[#0066cc]" />
-                <h3 className="text-xs font-bold text-[#0066cc] uppercase tracking-wider">
+                <ShieldCheck className="w-5 h-5 text-[#0c34cd]" />
+                <h3 className="text-xs font-bold text-[#0c34cd] uppercase tracking-wider">
                   VA-SWaM Certified Delivery
                 </h3>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed mb-4">
                 Headquartered in Richmond, Virginia. All VIO engagements are led by seasoned principal architects adhering to strict governance and security compliance standards.
               </p>
-              <div className="inline-flex items-center gap-2 text-xs text-[#0066cc] font-bold">
+              <div className="inline-flex items-center gap-2 text-xs text-[#0c34cd] font-bold">
                 <Sparkles className="w-4 h-4" />
                 <span>10+ Years Enterprise Track Record</span>
               </div>

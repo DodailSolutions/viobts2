@@ -33,7 +33,7 @@ export function HeroBanner({
   subheading = "Cutting-Edge Technology Solutions To Deliver Excellence Applying Best Practices, Scalable AI, Data Solutions And Expert Talent. Measure → Analyse → Improve.",
   badge = "VA-SWaM Certified • Richmond, Virginia • 10+ Years Track Record",
   primaryCtaText = "Book a Call",
-  primaryCtaLink = "/contact",
+  primaryCtaLink = "https://calendly.com/viobts/consultation",
   secondaryCtaText = "Explore Capabilities",
   secondaryCtaLink = "/services",
   imageSrc = "/images/hero-graphic.png",
@@ -95,7 +95,9 @@ export function HeroBanner({
               {primaryCtaText && (
                 <Link
                   href={primaryCtaLink}
-                  className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl text-sm font-bold text-white bg-gradient-to-r from-[#0066cc] to-[#0052a3] hover:from-[#0052a3] hover:to-[#003d7a] transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/35 hover:-translate-y-0.5"
+                  target={primaryCtaLink.startsWith("http") ? "_blank" : undefined}
+                  rel={primaryCtaLink.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl text-sm font-bold text-white bg-gradient-to-r from-[#0c34cd] to-[#0a2cb0] hover:from-[#0a2cb0] hover:to-[#003d7a] transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/35 hover:-translate-y-0.5"
                 >
                   <Calendar className="w-4 h-4 text-blue-200" />
                   <span>{primaryCtaText}</span>

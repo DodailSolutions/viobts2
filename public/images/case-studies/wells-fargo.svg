@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480" fill="none">
+  <defs>
+    <linearGradient id="bg-wf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071739"/>
+      <stop offset="45%" stop-color="#0c34cd"/>
+      <stop offset="85%" stop-color="#78350f"/>
+      <stop offset="100%" stop-color="#2a1205"/>
+    </linearGradient>
+    <linearGradient id="card-grad-wf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03"/>
+    </linearGradient>
+    <pattern id="grid-wf" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.75" stroke-opacity="0.08"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#bg-wf)"/>
+  <rect width="800" height="480" fill="url(#grid-wf)"/>
+
+  <circle cx="700" cy="140" r="190" fill="#f59e0b" fill-opacity="0.15" filter="blur(70px)"/>
+  <circle cx="130" cy="360" r="160" fill="#0c34cd" fill-opacity="0.35" filter="blur(55px)"/>
+
+  <!-- Top Badge -->
+  <g transform="translate(50, 48)">
+    <rect width="360" height="34" rx="17" fill="#ffffff" fill-opacity="0.15" stroke="#ffffff" stroke-width="1" stroke-opacity="0.25"/>
+    <circle cx="18" cy="17" r="5" fill="#f59e0b"/>
+    <text x="32" y="22" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="11" fill="#ffffff" letter-spacing="1.5">WELLS FARGO • RISK &amp; COMPLIANCE</text>
+  </g>
+
+  <!-- Title -->
+  <text x="50" y="135" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="36" fill="#ffffff" letter-spacing="-0.5">
+    Regulatory Audit Lineage &amp; Analytics
+  </text>
+  <text x="50" y="172" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="17" fill="#fde68a">
+    Petabyte Compliance Lakehouse &amp; Automated Financial Anomaly Detection
+  </text>
+
+  <!-- Metrics Grid -->
+  <g transform="translate(50, 215)">
+    <!-- Card 1 -->
+    <rect x="0" y="0" width="215" height="135" rx="18" fill="url(#card-grad-wf)" stroke="#ffffff" stroke-width="1" stroke-opacity="0.18"/>
+    <text x="24" y="44" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" fill="#fcd34d">12,000+</text>
+    <text x="24" y="74" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="12" fill="#ffffff" letter-spacing="1">AUDIT HOURS SAVED</text>
+    <text x="24" y="100" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="11" fill="#94a3b8">Manual review elimination</text>
+
+    <!-- Card 2 -->
+    <rect x="235" y="0" width="215" height="135" rx="18" fill="url(#card-grad-wf)" stroke="#ffffff" stroke-width="1" stroke-opacity="0.18"/>
+    <text x="259" y="44" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" fill="#38bdf8">100%</text>
+    <text x="259" y="74" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="12" fill="#ffffff" letter-spacing="1">LINEAGE COVERAGE</text>
+    <text x="259" y="100" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="11" fill="#94a3b8">End-to-end ledger tracing</text>
+
+    <!-- Card 3 -->
+    <rect x="470" y="0" width="230" height="135" rx="18" fill="url(#card-grad-wf)" stroke="#ffffff" stroke-width="1" stroke-opacity="0.18"/>
+    <text x="494" y="44" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" fill="#4ade80">98.4%</text>
+    <text x="494" y="74" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="12" fill="#ffffff" letter-spacing="1">ANOMALY PRECISION</text>
+    <text x="494" y="100" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="11" fill="#94a3b8">Federal compliance passed</text>
+  </g>
+
+  <!-- Tech Strip -->
+  <g transform="translate(50, 415)">
+    <rect width="700" height="34" rx="8" fill="#000000" fill-opacity="0.3"/>
+    <text x="20" y="22" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="12" fill="#e2e8f0">
+      TECH STACK: Databricks • Apache Spark • Python • PostgreSQL • AWS • SOC2 Type II
+    </text>
+  </g>
+</svg>

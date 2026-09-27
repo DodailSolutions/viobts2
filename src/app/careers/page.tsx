@@ -74,14 +74,14 @@ export default function CareersPage() {
       {/* Hero */}
       <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 mb-4">
-          <ShieldCheck className="w-4 h-4 text-[#0066cc]" />
-          <span className="text-xs font-bold tracking-[0.2em] text-[#0066cc] uppercase">
+          <ShieldCheck className="w-4 h-4 text-[#0c34cd]" />
+          <span className="text-xs font-bold tracking-[0.2em] text-[#0c34cd] uppercase">
             JOIN VIO ENGINEERING SQUADS
           </span>
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-black text-[#071739] tracking-tight leading-[1.12] mb-6">
-          Build for the <span className="text-[#0066cc]">Next Decade</span>
+          Build for the <span className="text-[#0c34cd]">Next Decade</span>
         </h1>
         
         <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-normal">
@@ -93,7 +93,7 @@ export default function CareersPage() {
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-14">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-xs">
-            <span className="text-[11px] font-bold text-[#0066cc] uppercase tracking-widest block mb-2">
+            <span className="text-[11px] font-bold text-[#0c34cd] uppercase tracking-widest block mb-2">
               01 • AMBITION
             </span>
             <h2 className="text-xl font-extrabold text-[#071739] mb-2">Think Bigger</h2>
@@ -103,17 +103,17 @@ export default function CareersPage() {
           </div>
 
           <div className="p-8 rounded-3xl bg-blue-50/50 border border-blue-200/80 shadow-xs">
-            <span className="text-[11px] font-bold text-[#0066cc] uppercase tracking-widest block mb-2">
+            <span className="text-[11px] font-bold text-[#0c34cd] uppercase tracking-widest block mb-2">
               02 • CRAFT
             </span>
-            <h2 className="text-xl font-extrabold text-[#0066cc] mb-2">Build Smarter</h2>
+            <h2 className="text-xl font-extrabold text-[#0c34cd] mb-2">Build Smarter</h2>
             <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
               Prioritizing automated GitOps pipelines, domain-driven boundaries, zero architectural bloat, and empirical measurement.
             </p>
           </div>
 
           <div className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-xs">
-            <span className="text-[11px] font-bold text-[#0066cc] uppercase tracking-widest block mb-2">
+            <span className="text-[11px] font-bold text-[#0c34cd] uppercase tracking-widest block mb-2">
               03 • TENACITY
             </span>
             <h2 className="text-xl font-extrabold text-[#071739] mb-2">Solve Harder</h2>
@@ -135,7 +135,7 @@ export default function CareersPage() {
               Richmond, Virginia Headquarters • Hybrid & Remote Available
             </p>
           </div>
-          <span className="px-3 py-1 rounded-full bg-blue-50 text-xs font-bold text-[#0066cc] border border-blue-200">
+          <span className="px-3 py-1 rounded-full bg-blue-50 text-xs font-bold text-[#0c34cd] border border-blue-200">
             {careers.length} Active Openings
           </span>
         </div>

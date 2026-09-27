@@ -110,16 +110,16 @@ export default function IndustryDetailPage({ params }: IndustryDetailPageProps) 
       {/* Industry Hero */}
       <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-8">
-          <Link href="/" className="hover:text-[#0066cc] transition-colors">Home</Link>
+          <Link href="/" className="hover:text-[#0c34cd] transition-colors">Home</Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <Link href="/industries" className="hover:text-[#0066cc] transition-colors">Industries</Link>
+          <Link href="/industries" className="hover:text-[#0c34cd] transition-colors">Industries</Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <span className="text-[#0066cc] font-bold">{ind.title}</span>
+          <span className="text-[#0c34cd] font-bold">{ind.title}</span>
         </nav>
 
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 mb-6">
-          <Building2 className="w-4 h-4 text-[#0066cc]" />
-          <span className="text-[11px] font-bold text-[#0066cc] uppercase tracking-widest">
+          <Building2 className="w-4 h-4 text-[#0c34cd]" />
+          <span className="text-[11px] font-bold text-[#0c34cd] uppercase tracking-widest">
             {ind.eyebrow} • Sector Practice
           </span>
         </div>
@@ -135,7 +135,7 @@ export default function IndustryDetailPage({ params }: IndustryDetailPageProps) 
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <Link
             href={`/contact?industry=${ind.slug}`}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-white bg-[#0066cc] hover:bg-[#0052a3] transition-all shadow-md shadow-blue-500/20 hover:-translate-y-0.5"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-white bg-[#0c34cd] hover:bg-[#0a2cb0] transition-all shadow-md shadow-blue-500/20 hover:-translate-y-0.5"
           >
             <Calendar className="w-4 h-4" />
             <span>Consult Sector Specialist</span>
@@ -145,7 +145,7 @@ export default function IndustryDetailPage({ params }: IndustryDetailPageProps) 
             href="/case-studies"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl text-sm font-semibold text-slate-700 bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-colors"
           >
-            <Sparkles className="w-4 h-4 text-[#0066cc]" />
+            <Sparkles className="w-4 h-4 text-[#0c34cd]" />
             <span>View Related Case Studies</span>
           </Link>
         </div>
@@ -177,7 +177,7 @@ export default function IndustryDetailPage({ params }: IndustryDetailPageProps) 
           {/* Transformation Trends */}
           <div className="p-8 sm:p-10 rounded-3xl bg-blue-50/40 border border-blue-200/80 shadow-xs">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2.5 rounded-xl bg-blue-100 text-[#0066cc]">
+              <div className="p-2.5 rounded-xl bg-blue-100 text-[#0c34cd]">
                 <TrendingUp className="w-5 h-5" />
               </div>
               <h2 className="text-lg font-bold text-[#071739] uppercase tracking-wider">
@@ -187,7 +187,7 @@ export default function IndustryDetailPage({ params }: IndustryDetailPageProps) 
             <div className="space-y-4">
               {ind.transformationTrends.map((tr, i) => (
                 <div key={i} className="flex items-start gap-3 p-4 rounded-2xl bg-white border border-blue-200/60 shadow-2xs">
-                  <div className="w-2 h-2 rounded-full bg-[#0066cc] mt-2 shrink-0" />
+                  <div className="w-2 h-2 rounded-full bg-[#0c34cd] mt-2 shrink-0" />
                   <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium">{tr}</p>
                 </div>
               ))}
@@ -198,8 +198,8 @@ export default function IndustryDetailPage({ params }: IndustryDetailPageProps) 
         {/* VIO Tailored Solutions */}
         <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-sm">
           <div className="flex items-center gap-2.5 mb-2">
-            <ShieldCheck className="w-5 h-5 text-[#0066cc]" />
-            <span className="text-xs font-bold text-[#0066cc] uppercase tracking-wider">
+            <ShieldCheck className="w-5 h-5 text-[#0c34cd]" />
+            <span className="text-xs font-bold text-[#0c34cd] uppercase tracking-wider">
               ENGINEERED DELIVERABLES
             </span>
           </div>
@@ -209,7 +209,7 @@ export default function IndustryDetailPage({ params }: IndustryDetailPageProps) 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {ind.capabilities.map((cap, i) => (
               <div key={i} className="p-6 rounded-2xl bg-[#f8fafc] border border-slate-200 flex items-start gap-3.5">
-                <CheckCircle2 className="w-5 h-5 text-[#0066cc] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-[#0c34cd] shrink-0 mt-0.5" />
                 <span className="text-sm font-bold text-slate-800 leading-snug">{cap}</span>
               </div>
             ))}

@@ -5,6 +5,7 @@ import { DesktopHeader } from "@/components/layout/DesktopHeader";
 import { MobileHeader } from "@/components/layout/MobileHeader";
 import { MobileNavDock } from "@/components/layout/MobileNavDock";
 import { DesktopFooter } from "@/components/layout/DesktopFooter";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -146,22 +147,30 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap"
+          rel="stylesheet"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className="min-h-screen bg-white text-slate-900 font-sans antialiased flex flex-col selection:bg-blue-100 selection:text-blue-900">
-        <MobileHeader />
-        <DesktopHeader />
-        
-        {/* Main Content with Mobile Top and Bottom Clearance */}
-        <main className="flex-1 pt-14 md:pt-0 pb-20 md:pb-0">
-          {children}
-        </main>
+        <ThemeProvider>
+          <MobileHeader />
+          <DesktopHeader />
+          
+          {/* Main Content with Mobile Top and Bottom Clearance */}
+          <main className="flex-1 pt-14 md:pt-0 pb-20 md:pb-0">
+            {children}
+          </main>
 
-        <DesktopFooter />
-        <MobileNavDock />
+          <DesktopFooter />
+          <MobileNavDock />
+        </ThemeProvider>
       </body>
     </html>
   );

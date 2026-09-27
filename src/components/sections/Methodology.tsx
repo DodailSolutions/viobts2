@@ -24,7 +24,7 @@ const STAGE_CONFIGS = [
     color: "blue",
     bg: "bg-blue-50",
     border: "border-blue-200",
-    text: "text-[#0066cc]",
+    text: "text-[#0c34cd]",
     deliverables: [
       "Empirical Architecture Baseline Audit",
       "Telemetry & Metric Instrumentation",
@@ -92,7 +92,7 @@ export function Methodology({
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           {eyebrow && (
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-bold text-[#0066cc] uppercase tracking-widest mb-3.5 shadow-2xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-bold text-[#0c34cd] uppercase tracking-widest mb-3.5 shadow-2xs">
               <RefreshCw className="w-3.5 h-3.5 text-blue-600" />
               <span>{eyebrow}</span>
             </div>
@@ -126,7 +126,7 @@ export function Methodology({
                   <div>
                     {/* Top Step Number & Icon */}
                     <div className="flex items-center justify-between mb-6">
-                      <span className="text-3xl sm:text-4xl font-black text-[#071739] tracking-tighter group-hover:text-[#0066cc] transition-colors font-mono">
+                      <span className="text-3xl sm:text-4xl font-black text-[#071739] tracking-tighter group-hover:text-[#0c34cd] transition-colors font-mono">
                         {stage.step}
                       </span>
                       <div className={`w-12 h-12 rounded-2xl ${config.bg} ${config.text} border ${config.border} flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform duration-300`}>
@@ -136,7 +136,7 @@ export function Methodology({
 
                     {/* Stage Title */}
                     <div className="mb-4">
-                      <span className="text-[10px] font-extrabold tracking-widest text-[#0066cc] uppercase bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60">
+                      <span className="text-[10px] font-extrabold tracking-widest text-[#0c34cd] uppercase bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60">
                         PHASE {stage.step}
                       </span>
                       <h3 className="text-2xl font-black text-[#071739] tracking-tight mt-2">
@@ -160,7 +160,7 @@ export function Methodology({
                       <ul className="space-y-2">
                         {deliverables.map((item, dIdx) => (
                           <li key={dIdx} className="flex items-start gap-2 text-[11px] text-slate-700 font-medium">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-[#0066cc] shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[#0c34cd] shrink-0 mt-0.5" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -170,7 +170,7 @@ export function Methodology({
 
                   <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                     <span className="text-[11px] font-medium text-slate-400">Phase Outcome</span>
-                    <span className="text-xs font-bold text-[#0066cc] inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    <span className="text-xs font-bold text-[#0c34cd] inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                       <span>Explore Deliverables</span>
                       <ArrowRight className="w-3 h-3" />
                     </span>

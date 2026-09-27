@@ -8,20 +8,38 @@ import {
   ChevronDown, 
   ArrowRight, 
   Sparkles, 
-  ShieldCheck 
+  ShieldCheck,
+  Calendar,
+  ExternalLink
 } from "lucide-react";
-import { INITIAL_SERVICES, INITIAL_INDUSTRIES } from "@/lib/data";
+import { 
+  cmsStore, 
+  INITIAL_SERVICES, 
+  INITIAL_INDUSTRIES,
+  NavigationMenu,
+  MenuItem
+} from "@/lib/data";
 
 export function DesktopHeader() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [headerMenu, setHeaderMenu] = useState<NavigationMenu | null>(null);
+  const [ctaMenu, setCtaMenu] = useState<NavigationMenu | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
+
+    // Load active navigation menu assigned to header_main
+    const loadedMain = cmsStore.getMenuByPlacement("header_main");
+    if (loadedMain) setHeaderMenu(loadedMain);
+
+    const loadedCta = cmsStore.getMenuByPlacement("header_cta");
+    if (loadedCta) setCtaMenu(loadedCta);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -32,214 +50,262 @@ export function DesktopHeader() {
 
   const services = INITIAL_SERVICES;
   const industries = INITIAL_INDUSTRIES;
+  const ctaItem = ctaMenu?.items?.[0];
 
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 hidden md:block h-20 ${
         scrolled
-          ? "bg-[#071739]/95 backdrop-blur-md border-b border-blue-900/60 shadow-xl shadow-black/20"
-          : "bg-[#071739] border-b border-blue-900/40"
+          ? "bg-[#0c34cd]/95 backdrop-blur-md border-b border-white/20 shadow-xl shadow-[#0c34cd]/20"
+          : "bg-[#0c34cd] border-b border-white/15"
       }`}
       onMouseLeave={() => setActiveMenu(null)}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-        {/* VIO Official Brand Logo (White logo on Corporate Blue) */}
-        <Link href="/" className="flex items-center group">
-          <div className="relative h-11 w-36 flex items-center">
-            <Image
-              src="/images/vio-logo.png"
-              alt="VIO - The Technology Accelerator"
-              width={140}
-              height={68}
-              className="h-10 w-auto object-contain object-left group-hover:opacity-90 transition-opacity"
-              priority
-            />
-          </div>
+        {/* Brand Logo */}
+        <Link href="/" className="flex items-center group py-2">
+          <Image
+            src="/images/vio-logo.png"
+            alt="VIO - The Technology Accelerator"
+            width={140}
+            height={68}
+            className="h-10 w-auto object-contain group-hover:opacity-90 transition-opacity"
+            priority
+          />
         </Link>
 
-        {/* Center Navigation with Mega Menus */}
-        <nav className="flex items-center gap-1 lg:gap-2">
-          {/* Services Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setActiveMenu("services")}
-          >
-            <button
-              className={`px-3.5 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition-colors ${
-                pathname.startsWith("/services")
-                  ? "text-cyan-400 bg-blue-950/80 border border-cyan-500/30"
-                  : "text-slate-200 hover:text-white hover:bg-white/10"
-              }`}
-            >
-              <span>Services</span>
-              <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${
-                  activeMenu === "services" ? "rotate-180 text-cyan-400" : "text-slate-400"
-                }`}
-              />
-            </button>
+        {/* Center Navigation with Dynamic CMS Menus & Mega Menus */}
+        <nav className="flex items-center gap-1 lg:gap-1.5">
+          {headerMenu && headerMenu.items.length > 0 ? (
+            headerMenu.items.map((item) => {
+              const hasChildren = item.children && item.children.length > 0;
+              const isServicesDropdown = item.href.includes("services");
+              const isIndustriesDropdown = item.href.includes("industries");
+              const isCurrentActive =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.href);
 
-            {activeMenu === "services" && (
-              <div className="absolute top-full -left-20 w-[680px] pt-3 animate-fade-in">
-                <div className="p-6 rounded-2xl shadow-2xl border border-blue-800/80 bg-[#0B1B3D] text-white">
-                  <div className="flex items-center justify-between pb-4 mb-4 border-b border-blue-900/60">
-                    <p className="text-xs font-bold text-cyan-400 uppercase tracking-widest">
-                      6 Core Technology Pillars
-                    </p>
-                    <Link
-                      href="/services"
-                      className="text-xs font-semibold text-slate-300 hover:text-cyan-300 flex items-center gap-1"
-                      onClick={() => setActiveMenu(null)}
+              if (hasChildren) {
+                return (
+                  <div
+                    key={item.id}
+                    className="relative"
+                    onMouseEnter={() => setActiveMenu(item.id)}
+                  >
+                    <button
+                      className={`px-3.5 py-2 rounded-xl text-sm font-semibold flex items-center gap-1.5 transition-all ${
+                        isCurrentActive
+                          ? "text-white bg-white/20 border border-white/30 shadow-xs"
+                          : "text-white/90 hover:text-white hover:bg-white/15"
+                      }`}
                     >
-                      <span>View All Services</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </Link>
+                      <span>{item.label}</span>
+                      {item.badge && (
+                        <span className="px-1.5 py-0.2 rounded-full text-[9px] font-black uppercase bg-cyan-300 text-[#0c34cd]">
+                          {item.badge}
+                        </span>
+                      )}
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform duration-200 ${
+                          activeMenu === item.id ? "rotate-180 text-cyan-200" : "text-white/70"
+                        }`}
+                      />
+                    </button>
+
+                    {activeMenu === item.id && (
+                      <div className={`absolute top-full -left-10 pt-3 animate-fade-in ${
+                        isServicesDropdown || isIndustriesDropdown ? "w-[680px]" : "w-64"
+                      }`}>
+                        <div className="p-6 rounded-2xl shadow-2xl border border-white/20 bg-gradient-to-b from-[#0a2cb0] to-[#071e7b] text-white backdrop-blur-xl">
+                          <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/15">
+                            <p className="text-xs font-bold text-cyan-300 uppercase tracking-widest flex items-center gap-1.5">
+                              {isServicesDropdown ? (
+                                <>
+                                  <Sparkles className="w-3.5 h-3.5" />
+                                  <span>6 Core Technology Pillars</span>
+                                </>
+                              ) : isIndustriesDropdown ? (
+                                <>
+                                  <ShieldCheck className="w-3.5 h-3.5" />
+                                  <span>Enterprise Industry Verticals</span>
+                                </>
+                              ) : (
+                                <span>{item.label} Overview</span>
+                              )}
+                            </p>
+                            <Link
+                              href={item.href}
+                              className="text-xs font-semibold text-white/80 hover:text-white flex items-center gap-1 hover:underline"
+                              onClick={() => setActiveMenu(null)}
+                            >
+                              <span>View All</span>
+                              <ArrowRight className="w-3 h-3" />
+                            </Link>
+                          </div>
+
+                          {isServicesDropdown || isIndustriesDropdown ? (
+                            <div className="grid grid-cols-2 gap-3">
+                              {item.children!.map((child) => (
+                                <Link
+                                  key={child.id}
+                                  href={child.href}
+                                  className="p-3.5 rounded-xl bg-white/5 hover:bg-white/15 border border-white/5 hover:border-white/20 transition-all group"
+                                  onClick={() => setActiveMenu(null)}
+                                >
+                                  <p className="text-sm font-bold text-white group-hover:text-cyan-200 transition-colors mb-1 flex items-center justify-between">
+                                    <span>{child.label}</span>
+                                    {child.badge && (
+                                      <span className="px-1.5 py-0.5 rounded text-[8px] font-bold bg-cyan-400 text-blue-950">
+                                        {child.badge}
+                                      </span>
+                                    )}
+                                  </p>
+                                  <p className="text-xs text-white/70 leading-snug line-clamp-2">
+                                    Explore specialized enterprise architecture & capability
+                                  </p>
+                                </Link>
+                              ))}
+                            </div>
+                          ) : (
+                            <div className="space-y-1.5">
+                              {item.children!.map((child) => (
+                                <Link
+                                  key={child.id}
+                                  href={child.href}
+                                  className="p-2.5 rounded-xl bg-white/5 hover:bg-white/15 transition-all flex items-center justify-between text-xs font-semibold text-white"
+                                  onClick={() => setActiveMenu(null)}
+                                >
+                                  <span>{child.label}</span>
+                                  <ArrowRight className="w-3 h-3 text-white/50" />
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
+                );
+              }
 
-                  <div className="grid grid-cols-2 gap-4">
-                    {services.map((srv) => (
-                      <Link
-                        key={srv.id}
-                        href={`/services/${srv.slug}`}
-                        className="p-3 rounded-xl hover:bg-white/10 transition-colors group"
-                        onClick={() => setActiveMenu(null)}
-                      >
-                        <p className="text-sm font-bold text-white group-hover:text-cyan-400 transition-colors mb-1">
-                          {srv.title}
-                        </p>
-                        <p className="text-xs text-slate-300 leading-snug line-clamp-2">
-                          {srv.subtitle}
-                        </p>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Industries Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setActiveMenu("industries")}
-          >
-            <button
-              className={`px-3.5 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition-colors ${
-                pathname.startsWith("/industries")
-                  ? "text-cyan-400 bg-blue-950/80 border border-cyan-500/30"
-                  : "text-slate-200 hover:text-white hover:bg-white/10"
-              }`}
-            >
-              <span>Industries</span>
-              <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${
-                  activeMenu === "industries" ? "rotate-180 text-cyan-400" : "text-slate-400"
-                }`}
-              />
-            </button>
-
-            {activeMenu === "industries" && (
-              <div className="absolute top-full -left-20 w-[640px] pt-3 animate-fade-in">
-                <div className="p-6 rounded-2xl shadow-2xl border border-blue-800/80 bg-[#0B1B3D] text-white">
-                  <div className="flex items-center justify-between pb-4 mb-4 border-b border-blue-900/60">
-                    <p className="text-xs font-bold text-cyan-400 uppercase tracking-widest">
-                      Tailored Industry Solutions
-                    </p>
-                    <Link
-                      href="/industries"
-                      className="text-xs font-semibold text-slate-300 hover:text-cyan-300 flex items-center gap-1"
-                      onClick={() => setActiveMenu(null)}
-                    >
-                      <span>View All Industries</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </Link>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    {industries.map((ind) => (
-                      <Link
-                        key={ind.id}
-                        href={`/industries/${ind.slug}`}
-                        className="p-3 rounded-xl hover:bg-white/10 transition-colors group"
-                        onClick={() => setActiveMenu(null)}
-                      >
-                        <p className="text-sm font-bold text-white group-hover:text-cyan-400 transition-colors mb-1">
-                          {ind.title}
-                        </p>
-                        <p className="text-xs text-slate-300 leading-snug line-clamp-2">
-                          {ind.eyebrow}
-                        </p>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Who We Are */}
-          <Link
-            href="/who-we-are"
-            className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition-colors ${
-              pathname === "/who-we-are"
-                ? "text-cyan-400 bg-blue-950/80 border border-cyan-500/30"
-                : "text-slate-200 hover:text-white hover:bg-white/10"
-            }`}
-          >
-            Who We Are
-          </Link>
-
-          {/* Case Studies */}
-          <Link
-            href="/case-studies"
-            className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition-colors ${
-              pathname.startsWith("/case-studies")
-                ? "text-cyan-400 bg-blue-950/80 border border-cyan-500/30"
-                : "text-slate-200 hover:text-white hover:bg-white/10"
-            }`}
-          >
-            Case Studies
-          </Link>
-
-          {/* Insights */}
-          <Link
-            href="/insights"
-            className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition-colors ${
-              pathname.startsWith("/insights") || pathname.startsWith("/blogs")
-                ? "text-cyan-400 bg-blue-950/80 border border-cyan-500/30"
-                : "text-slate-200 hover:text-white hover:bg-white/10"
-            }`}
-          >
-            Insights
-          </Link>
-
-          {/* Careers */}
-          <Link
-            href="/careers"
-            className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition-colors ${
-              pathname === "/careers"
-                ? "text-cyan-400 bg-blue-950/80 border border-cyan-500/30"
-                : "text-slate-200 hover:text-white hover:bg-white/10"
-            }`}
-          >
-            Careers
-          </Link>
+              return (
+                <Link
+                  key={item.id}
+                  href={item.href}
+                  target={item.target || "_self"}
+                  rel={item.target === "_blank" ? "noopener noreferrer" : undefined}
+                  className={`px-3.5 py-2 rounded-xl text-sm font-semibold transition-all inline-flex items-center gap-1.5 ${
+                    isCurrentActive
+                      ? "text-white bg-white/20 border border-white/30"
+                      : "text-white/90 hover:text-white hover:bg-white/15"
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  {item.badge && (
+                    <span className="px-1.5 py-0.2 rounded-full text-[9px] font-black uppercase bg-cyan-300 text-[#0c34cd]">
+                      {item.badge}
+                    </span>
+                  )}
+                  {item.target === "_blank" && (
+                    <ExternalLink className="w-3 h-3 text-white/60" />
+                  )}
+                </Link>
+              );
+            })
+          ) : (
+            // Default Fallback Navigation
+            <>
+              <Link
+                href="/services"
+                className={`px-3.5 py-2 rounded-xl text-sm font-semibold text-white/90 hover:text-white hover:bg-white/15`}
+              >
+                Services
+              </Link>
+              <Link
+                href="/industries"
+                className={`px-3.5 py-2 rounded-xl text-sm font-semibold text-white/90 hover:text-white hover:bg-white/15`}
+              >
+                Industries
+              </Link>
+              <Link
+                href="/who-we-are"
+                className={`px-3.5 py-2 rounded-xl text-sm font-semibold text-white/90 hover:text-white hover:bg-white/15`}
+              >
+                Who We Are
+              </Link>
+              <Link
+                href="/case-studies"
+                className={`px-3.5 py-2 rounded-xl text-sm font-semibold text-white/90 hover:text-white hover:bg-white/15`}
+              >
+                Case Studies
+              </Link>
+              <Link
+                href="/insights"
+                className={`px-3.5 py-2 rounded-xl text-sm font-semibold text-white/90 hover:text-white hover:bg-white/15`}
+              >
+                Insights
+              </Link>
+              <Link
+                href="/careers"
+                className={`px-3.5 py-2 rounded-xl text-sm font-semibold text-white/90 hover:text-white hover:bg-white/15`}
+              >
+                Careers
+              </Link>
+            </>
+          )}
         </nav>
 
-        {/* Right Action CTAs */}
-        <div className="flex items-center gap-3">
+        {/* Right Actions: LinkedIn, Admin & Dynamic CTA Button */}
+        <div className="flex items-center gap-2.5">
+          {/* Official VIO Company LinkedIn Link */}
+          <a
+            href="https://www.linkedin.com/company/viobts/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-xl text-white/90 hover:text-white hover:bg-white/20 border border-white/20 transition-all flex items-center justify-center"
+            title="Follow VIO on LinkedIn"
+            aria-label="VIO Official LinkedIn"
+          >
+            <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+
           <Link
             href="/admin"
-            className="text-xs font-semibold px-3 py-1.5 rounded-lg text-slate-300 hover:text-white border border-blue-800/80 hover:border-cyan-400/50 bg-white/5 transition-all"
+            className="text-xs font-semibold px-3 py-2 rounded-xl text-white/90 hover:text-white border border-white/20 hover:border-white/40 bg-white/10 hover:bg-white/15 transition-all"
           >
             Admin CMS
           </Link>
-          <Link
-            href="/contact"
-            className="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 transition-all duration-300 shadow-md shadow-cyan-500/20 hover:scale-105"
-          >
-            Book a Call
-          </Link>
+
+          {/* Dynamic Right CTA Action Button */}
+          {ctaItem ? (
+            <Link
+              href={ctaItem.href}
+              target={ctaItem.target || "_blank"}
+              rel={ctaItem.target === "_blank" ? "noopener noreferrer" : undefined}
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-extrabold text-[#0c34cd] bg-white hover:bg-cyan-50 transition-all duration-300 shadow-lg shadow-black/15 hover:shadow-cyan-400/25 hover:scale-105 active:scale-95"
+            >
+              <Calendar className="w-3.5 h-3.5 text-[#0c34cd]" />
+              <span>{ctaItem.label}</span>
+              {ctaItem.badge && (
+                <span className="px-1.5 py-0.2 rounded-full text-[9px] font-black uppercase bg-blue-100 text-[#0c34cd]">
+                  {ctaItem.badge}
+                </span>
+              )}
+            </Link>
+          ) : (
+            <Link
+              href="https://calendly.com/viobts/consultation"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-extrabold text-[#0c34cd] bg-white hover:bg-cyan-50 transition-all duration-300 shadow-lg shadow-black/15 hover:shadow-cyan-400/25 hover:scale-105 active:scale-95"
+            >
+              <Calendar className="w-3.5 h-3.5 text-[#0c34cd]" />
+              <span>Book a Call</span>
+            </Link>
+          )}
         </div>
       </div>
     </header>

@@ -54,7 +54,7 @@ const SECTOR_CONFIGS: Record<string, {
   "banking-financial-services": {
     icon: Landmark,
     badge: "FINRA • SOC2 • PCI-DSS",
-    accent: "text-[#0066cc]",
+    accent: "text-[#0c34cd]",
     bg: "bg-blue-50"
   },
   "healthcare-life-sciences-insurance": {
@@ -119,14 +119,14 @@ export default function IndustriesPage() {
       {/* Hero */}
       <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 mb-4">
-          <ShieldCheck className="w-4 h-4 text-[#0066cc]" />
-          <span className="text-xs font-bold tracking-[0.2em] text-[#0066cc] uppercase">
+          <ShieldCheck className="w-4 h-4 text-[#0c34cd]" />
+          <span className="text-xs font-bold tracking-[0.2em] text-[#0c34cd] uppercase">
             SECTOR EXPERTISE & REGULATORY EXCELLENCE
           </span>
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-black text-[#071739] tracking-tight leading-[1.12] mb-6">
-          Engineered for Highly <span className="text-[#0066cc]">Regulated Sectors</span>
+          Engineered for Highly <span className="text-[#0c34cd]">Regulated Sectors</span>
         </h1>
         
         <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-normal">
@@ -141,7 +141,7 @@ export default function IndustriesPage() {
             const cfg = SECTOR_CONFIGS[ind.slug] || {
               icon: Building2,
               badge: "Enterprise",
-              accent: "text-[#0066cc]",
+              accent: "text-[#0c34cd]",
               bg: "bg-blue-50"
             };
             const SectorIcon = cfg.icon;
@@ -165,7 +165,7 @@ export default function IndustriesPage() {
                     <span>{cfg.badge}</span>
                   </div>
 
-                  <h2 className="text-xl sm:text-2xl font-extrabold text-[#071739] mb-3 group-hover:text-[#0066cc] transition-colors tracking-tight">
+                  <h2 className="text-xl sm:text-2xl font-extrabold text-[#071739] mb-3 group-hover:text-[#0c34cd] transition-colors tracking-tight">
                     {ind.title}
                   </h2>
 
@@ -180,7 +180,7 @@ export default function IndustriesPage() {
                     <ul className="space-y-2">
                       {ind.keyChallenges.slice(0, 2).map((ch, i) => (
                         <li key={i} className="flex items-start gap-2 text-xs text-slate-600 leading-normal">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#0066cc] mt-1.5 shrink-0" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#0c34cd] mt-1.5 shrink-0" />
                           <span>{ch}</span>
                         </li>
                       ))}
@@ -191,7 +191,7 @@ export default function IndustriesPage() {
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                   <Link
                     href={`/industries/${ind.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0066cc] hover:text-[#0052a3] transition-colors group-hover:translate-x-0.5"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0c34cd] hover:text-[#0a2cb0] transition-colors group-hover:translate-x-0.5"
                   >
                     <span>Explore Industry Practice</span>
                     <ArrowRight className="w-3.5 h-3.5" />

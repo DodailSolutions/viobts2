@@ -106,15 +106,15 @@ export default function CaseStudyDetailPage({ params }: CaseStudyDetailPageProps
       {/* Hero */}
       <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-8">
-          <Link href="/" className="hover:text-[#0066cc] transition-colors">Home</Link>
+          <Link href="/" className="hover:text-[#0c34cd] transition-colors">Home</Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <Link href="/case-studies" className="hover:text-[#0066cc] transition-colors">Case Studies</Link>
+          <Link href="/case-studies" className="hover:text-[#0c34cd] transition-colors">Case Studies</Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <span className="text-[#0066cc] font-bold">{cs.client}</span>
+          <span className="text-[#0c34cd] font-bold">{cs.client}</span>
         </nav>
 
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 mb-6">
-          <span className="text-xs font-bold text-[#0066cc] uppercase tracking-wider">
+          <span className="text-xs font-bold text-[#0c34cd] uppercase tracking-wider">
             {cs.industry} • Verified Client Proof
           </span>
         </div>
@@ -131,7 +131,7 @@ export default function CaseStudyDetailPage({ params }: CaseStudyDetailPageProps
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 p-6 sm:p-8 rounded-3xl bg-[#f8fafc] border border-slate-200/90 mb-8 shadow-xs">
           {cs.metrics.map((m, idx) => (
             <div key={idx} className="text-center sm:text-left">
-              <p className="text-3xl sm:text-5xl font-black text-[#0066cc]">
+              <p className="text-3xl sm:text-5xl font-black text-[#0c34cd]">
                 {m.value}
               </p>
               <p className="text-xs text-slate-500 uppercase font-bold tracking-wider mt-1">
@@ -145,12 +145,10 @@ export default function CaseStudyDetailPage({ params }: CaseStudyDetailPageProps
       {/* Featured Banner Image */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="relative h-[320px] sm:h-[480px] rounded-3xl overflow-hidden bg-slate-100 border border-slate-200 shadow-md">
-          <Image
+          <img
             src={cs.imageUrl}
             alt={cs.title}
-            fill
-            className="object-cover"
-            priority
+            className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#071739]/60 via-transparent to-transparent" />
         </div>
@@ -169,7 +167,7 @@ export default function CaseStudyDetailPage({ params }: CaseStudyDetailPageProps
           </div>
 
           <div className="p-8 sm:p-10 rounded-3xl bg-blue-50/40 border border-blue-200/80 shadow-xs">
-            <h2 className="text-sm font-bold text-[#0066cc] uppercase tracking-wider mb-4">
+            <h2 className="text-sm font-bold text-[#0c34cd] uppercase tracking-wider mb-4">
               VIO's Engineered Solution
             </h2>
             <p className="text-sm sm:text-base text-slate-800 leading-relaxed font-normal">
@@ -186,7 +184,7 @@ export default function CaseStudyDetailPage({ params }: CaseStudyDetailPageProps
           <div className="space-y-4">
             {cs.results.map((res, i) => (
               <div key={i} className="flex items-start gap-3.5 p-4 rounded-2xl bg-[#f8fafc] border border-slate-200/70">
-                <CheckCircle2 className="w-5 h-5 text-[#0066cc] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-[#0c34cd] shrink-0 mt-0.5" />
                 <span className="text-sm sm:text-base text-slate-800 font-medium leading-relaxed">{res}</span>
               </div>
             ))}
@@ -196,13 +194,13 @@ export default function CaseStudyDetailPage({ params }: CaseStudyDetailPageProps
         {/* Testimonial if present */}
         {cs.testimonial && (
           <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-blue-50/60 to-slate-50 border border-blue-200/80 mb-12 relative shadow-sm">
-            <Quote className="w-14 h-14 text-[#0066cc]/20 absolute top-6 right-8 pointer-events-none" />
+            <Quote className="w-14 h-14 text-[#0c34cd]/20 absolute top-6 right-8 pointer-events-none" />
             <blockquote className="text-lg sm:text-2xl text-[#071739] italic font-medium leading-relaxed mb-6">
               &ldquo;{cs.testimonial.quote}&rdquo;
             </blockquote>
             <div className="pt-4 border-t border-blue-100">
               <p className="text-base font-extrabold text-[#071739]">{cs.testimonial.author}</p>
-              <p className="text-xs font-semibold text-[#0066cc] mt-0.5">{cs.testimonial.role}</p>
+              <p className="text-xs font-semibold text-[#0c34cd] mt-0.5">{cs.testimonial.role}</p>
             </div>
           </div>
         )}

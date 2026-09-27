@@ -38,10 +38,10 @@ const INDUSTRY_CONFIGS: Record<string, {
   "banking-financial-services": {
     icon: Landmark,
     badge: "FINRA • SOC2 • PCI-DSS",
-    color: "#0066cc",
+    color: "#0c34cd",
     lightBg: "bg-blue-50/70",
     borderActive: "border-blue-500",
-    accentText: "text-[#0066cc]"
+    accentText: "text-[#0c34cd]"
   },
   "healthcare-life-sciences-insurance": {
     icon: HeartPulse,
@@ -99,10 +99,10 @@ export function IndustryExplorer({
   const currentConfig = INDUSTRY_CONFIGS[activeIndustry.slug] || {
     icon: Building2,
     badge: "Enterprise Grade",
-    color: "#0066cc",
+    color: "#0c34cd",
     lightBg: "bg-blue-50/70",
     borderActive: "border-blue-500",
-    accentText: "text-[#0066cc]"
+    accentText: "text-[#0c34cd]"
   };
 
   const CurrentIcon = currentConfig.icon;
@@ -118,8 +118,8 @@ export function IndustryExplorer({
           <div className="max-w-2xl">
             {eyebrow && (
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60 mb-3.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0066cc] animate-pulse" />
-                <span className="text-[11px] font-bold tracking-[0.2em] text-[#0066cc] uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0c34cd] animate-pulse" />
+                <span className="text-[11px] font-bold tracking-[0.2em] text-[#0c34cd] uppercase">
                   {eyebrow}
                 </span>
               </div>
@@ -136,7 +136,7 @@ export function IndustryExplorer({
           {ctaText && (
             <Link
               href={ctaLink}
-              className="inline-flex items-center gap-2 text-sm font-bold text-[#0066cc] hover:text-[#004f9e] transition-colors group shrink-0"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#0c34cd] hover:text-[#004f9e] transition-colors group shrink-0"
             >
               <span>{ctaText}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -152,10 +152,10 @@ export function IndustryExplorer({
               const cfg = INDUSTRY_CONFIGS[ind.slug] || {
                 icon: Building2,
                 badge: "Enterprise",
-                color: "#0066cc",
+                color: "#0c34cd",
                 lightBg: "bg-blue-50",
                 borderActive: "border-blue-500",
-                accentText: "text-[#0066cc]"
+                accentText: "text-[#0c34cd]"
               };
               const TabIcon = cfg.icon;
               const isActive = activeIdx === idx;
@@ -172,7 +172,7 @@ export function IndustryExplorer({
                 >
                   {/* Left Active Accent Indicator */}
                   {isActive && (
-                    <span className="absolute left-0 top-3 bottom-3 w-1.5 rounded-r-full bg-[#0066cc]" />
+                    <span className="absolute left-0 top-3 bottom-3 w-1.5 rounded-r-full bg-[#0c34cd]" />
                   )}
 
                   <div className="flex items-center gap-3.5 pl-1.5">
@@ -198,7 +198,7 @@ export function IndustryExplorer({
                   <ChevronRight
                     className={`w-4 h-4 transition-all duration-300 ${
                       isActive
-                        ? "text-[#0066cc] translate-x-0.5 opacity-100"
+                        ? "text-[#0c34cd] translate-x-0.5 opacity-100"
                         : "text-slate-300 group-hover:text-slate-500 group-hover:translate-x-0.5 opacity-60"
                     }`}
                   />
@@ -216,7 +216,7 @@ export function IndustryExplorer({
                   <CurrentIcon className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold text-[#0066cc] uppercase tracking-wider block">
+                  <span className="text-xs font-bold text-[#0c34cd] uppercase tracking-wider block">
                     {activeIndustry.eyebrow}
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-[#071739] tracking-tight">
@@ -225,7 +225,7 @@ export function IndustryExplorer({
                 </div>
               </div>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#0066cc]" />
+                <ShieldCheck className="w-3.5 h-3.5 text-[#0c34cd]" />
                 {currentConfig.badge}
               </span>
             </div>
@@ -261,15 +261,15 @@ export function IndustryExplorer({
               <div className="p-6 rounded-2xl bg-blue-50/40 border border-blue-200/70 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-2 mb-4">
-                    <Sparkles className="w-4 h-4 text-[#0066cc] shrink-0" />
-                    <h4 className="text-xs font-bold text-[#0066cc] uppercase tracking-wider">
+                    <Sparkles className="w-4 h-4 text-[#0c34cd] shrink-0" />
+                    <h4 className="text-xs font-bold text-[#0c34cd] uppercase tracking-wider">
                       VIO Engineered Solutions
                     </h4>
                   </div>
                   <div className="space-y-3">
                     {activeIndustry.capabilities.map((cap, i) => (
                       <div key={i} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-[#0066cc] mt-0.5 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-[#0c34cd] mt-0.5 shrink-0" />
                         <p className="text-xs sm:text-sm text-slate-800 font-medium leading-snug">{cap}</p>
                       </div>
                     ))}
@@ -299,14 +299,14 @@ export function IndustryExplorer({
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
               <Link
                 href={`/industries/${activeIndustry.slug}`}
-                className="inline-flex items-center justify-center gap-2 text-sm font-bold text-white px-7 py-3.5 rounded-xl bg-[#0066cc] hover:bg-[#0052a3] transition-all shadow-md shadow-blue-500/20 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 text-sm font-bold text-white px-7 py-3.5 rounded-xl bg-[#0c34cd] hover:bg-[#0a2cb0] transition-all shadow-md shadow-blue-500/20 hover:-translate-y-0.5"
               >
                 <span>Explore {activeIndustry.title} Practice</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href={`/contact?industry=${activeIndustry.slug}`}
-                className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-slate-700 hover:text-[#0066cc] px-6 py-3.5 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors border border-slate-200"
+                className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-slate-700 hover:text-[#0c34cd] px-6 py-3.5 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors border border-slate-200"
               >
                 <span>Consult a Specialist</span>
               </Link>

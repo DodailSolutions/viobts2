@@ -55,7 +55,7 @@ const ICON_MAP: Record<string, any> = {
 };
 
 const PILLAR_COLORS: Record<string, { bg: string; text: string; border: string; glow: string }> = {
-  "technology-workforce": { bg: "bg-blue-50", text: "text-[#0066cc]", border: "border-blue-200", glow: "hover:border-blue-400" },
+  "technology-workforce": { bg: "bg-blue-50", text: "text-[#0c34cd]", border: "border-blue-200", glow: "hover:border-blue-400" },
   "big-data-analytics": { bg: "bg-indigo-50", text: "text-indigo-600", border: "border-indigo-200", glow: "hover:border-indigo-400" },
   "open-source-integration": { bg: "bg-emerald-50", text: "text-emerald-600", border: "border-emerald-200", glow: "hover:border-emerald-400" },
   "cloud-enablement": { bg: "bg-sky-50", text: "text-sky-600", border: "border-sky-200", glow: "hover:border-sky-400" },
@@ -97,14 +97,14 @@ export default function ServicesPage() {
       {/* Hero */}
       <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 mb-4">
-          <ShieldCheck className="w-4 h-4 text-[#0066cc]" />
-          <span className="text-xs font-bold tracking-[0.2em] text-[#0066cc] uppercase">
+          <ShieldCheck className="w-4 h-4 text-[#0c34cd]" />
+          <span className="text-xs font-bold tracking-[0.2em] text-[#0c34cd] uppercase">
             6 CORE TECHNOLOGY PILLARS
           </span>
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-black text-[#071739] tracking-tight leading-[1.12] mb-6">
-          Technology Capabilities Built Around <span className="text-[#0066cc]">Your Goals</span>
+          Technology Capabilities Built Around <span className="text-[#0c34cd]">Your Goals</span>
         </h1>
         
         <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-normal mb-10">
@@ -117,7 +117,7 @@ export default function ServicesPage() {
             <a
               key={srv.id}
               href={`#${srv.slug}`}
-              className="px-3.5 py-1.5 rounded-full bg-white hover:bg-blue-50 border border-slate-200/90 hover:border-blue-300 text-xs font-semibold text-slate-700 hover:text-[#0066cc] transition-all shadow-xs"
+              className="px-3.5 py-1.5 rounded-full bg-white hover:bg-blue-50 border border-slate-200/90 hover:border-blue-300 text-xs font-semibold text-slate-700 hover:text-[#0c34cd] transition-all shadow-xs"
             >
               {srv.title}
             </a>
@@ -132,7 +132,7 @@ export default function ServicesPage() {
             const Icon = ICON_MAP[srv.icon] || Cpu;
             const theme = PILLAR_COLORS[srv.slug] || {
               bg: "bg-blue-50",
-              text: "text-[#0066cc]",
+              text: "text-[#0c34cd]",
               border: "border-blue-200",
               glow: "hover:border-blue-400"
             };
@@ -144,7 +144,7 @@ export default function ServicesPage() {
                 className={`p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl ${theme.glow} transition-all duration-300 relative overflow-hidden`}
               >
                 {/* Subtle top indicator bar */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0066cc] via-[#00B4D8] to-blue-400 opacity-80" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0c34cd] via-[#00B4D8] to-blue-400 opacity-80" />
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                   {/* Left Overview Column */}
@@ -177,9 +177,9 @@ export default function ServicesPage() {
 
                     {/* Measurable Outcome Box */}
                     <div className="p-4 sm:p-5 rounded-2xl bg-blue-50/50 border border-blue-200/70 flex items-start gap-3">
-                      <TrendingUp className="w-5 h-5 text-[#0066cc] shrink-0 mt-0.5" />
+                      <TrendingUp className="w-5 h-5 text-[#0c34cd] shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-xs text-[#0066cc] font-bold uppercase tracking-wider mb-1">
+                        <p className="text-xs text-[#0c34cd] font-bold uppercase tracking-wider mb-1">
                           Measurable Business Outcome:
                         </p>
                         <p className="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
@@ -191,7 +191,7 @@ export default function ServicesPage() {
                     <div className="pt-2">
                       <Link
                         href={`/services/${srv.slug}`}
-                        className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs font-bold text-white bg-[#0066cc] hover:bg-[#0052a3] transition-all shadow-md shadow-blue-500/20 hover:-translate-y-0.5"
+                        className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs font-bold text-white bg-[#0c34cd] hover:bg-[#0a2cb0] transition-all shadow-md shadow-blue-500/20 hover:-translate-y-0.5"
                       >
                         <span>Explore {srv.title} Blueprint</span>
                         <ArrowRight className="w-4 h-4" />
@@ -205,13 +205,13 @@ export default function ServicesPage() {
                     <div className="p-6 rounded-2xl bg-[#f8fafc] border border-slate-200/80 flex flex-col justify-between">
                       <div>
                         <h3 className="text-xs font-bold text-[#071739] uppercase tracking-wider mb-4 flex items-center gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-[#0066cc]" />
+                          <CheckCircle2 className="w-4 h-4 text-[#0c34cd]" />
                           <span>Core Capabilities</span>
                         </h3>
                         <ul className="space-y-3">
                           {srv.capabilities.map((cap, i) => (
                             <li key={i} className="flex items-start gap-2.5 text-xs text-slate-700 leading-normal">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#0066cc] mt-1.5 shrink-0" />
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#0c34cd] mt-1.5 shrink-0" />
                               <span className="font-medium">{cap}</span>
                             </li>
                           ))}
@@ -223,7 +223,7 @@ export default function ServicesPage() {
                     <div className="p-6 rounded-2xl bg-[#f8fafc] border border-slate-200/80 flex flex-col justify-between">
                       <div>
                         <h3 className="text-xs font-bold text-[#071739] uppercase tracking-wider mb-4 flex items-center gap-2">
-                          <Zap className="w-4 h-4 text-[#0066cc]" />
+                          <Zap className="w-4 h-4 text-[#0c34cd]" />
                           <span>Enterprise Toolchain</span>
                         </h3>
                         <div className="flex flex-wrap gap-2">

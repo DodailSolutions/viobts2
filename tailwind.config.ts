@@ -19,11 +19,25 @@ const config: Config = {
           border: "#E2E8F0",
           text: "#0F172A",
           muted: "#64748B",
-          blue: "#0066FF",
-          blueHover: "#0052CC",
+          blue: "#0c34cd",
+          blueHover: "#0a2cb0",
           cyan: "#00B4D8",
           accent: "#0284C7",
           navy: "#0A101D",
+        },
+        primary: {
+          DEFAULT: "#0c34cd",
+          hover: "#0a2cb0",
+          50: "#eef2ff",
+          100: "#e0e7ff",
+          200: "#c7d2fe",
+          300: "#a5b4fc",
+          400: "#818cf8",
+          500: "#4f46e5",
+          600: "#0c34cd",
+          700: "#0a2cb0",
+          800: "#082182",
+          900: "#06185f",
         },
       },
       fontFamily: {
@@ -31,8 +45,8 @@ const config: Config = {
       },
       boxShadow: {
         card: "0 2px 10px -2px rgba(0, 0, 0, 0.05), 0 10px 25px -5px rgba(0, 0, 0, 0.03)",
-        "card-hover": "0 12px 30px -10px rgba(0, 102, 255, 0.15), 0 4px 12px -2px rgba(0, 0, 0, 0.05)",
-        glow: "0 4px 20px -2px rgba(0, 102, 255, 0.25)",
+        "card-hover": "0 12px 30px -10px rgba(12, 52, 205, 0.15), 0 4px 12px -2px rgba(0, 0, 0, 0.05)",
+        glow: "0 4px 20px -2px rgba(12, 52, 205, 0.25)",
       },
       keyframes: {
         float: {

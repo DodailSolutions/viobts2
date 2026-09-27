@@ -39,6 +39,24 @@ export const INITIAL_PAGES: PageItem[] = [
     updatedAt: new Date().toISOString()
   },
   {
+    id: "pg-our-mission",
+    slug: "our-mission",
+    title: "Our Mission",
+    metaTitle: "Our Mission | Provide the Smartest Techniques in the Business | VIO",
+    metaDescription: "At VIO, we transform industries with specialized data intelligence, cutting-edge insights, and results-driven strategies.",
+    status: "published",
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: "pg-vision",
+    slug: "vision",
+    title: "Our Vision",
+    metaTitle: "Our Vision | Make a Future Where Innovation Drives Progress | VIO",
+    metaDescription: "Building an ecosystem where businesses are free from limitations to explore their true potential through innovation, integrity, and sustainability.",
+    status: "published",
+    updatedAt: new Date().toISOString()
+  },
+  {
     id: "pg-case-studies",
     slug: "case-studies",
     title: "Case Studies",
@@ -63,7 +81,7 @@ export const INITIAL_HOMEPAGE_SECTIONS: PageSectionItem[] = [
       subheading: "Cutting-Edge Technology Solutions To Deliver Excellence Applying Best Practices, Scalable AI, Data Solutions And Expert Talent. Measure → Analyse → Improve.",
       badge: "VA-SWaM Certified • Richmond, Virginia • 10+ Years Track Record",
       primaryCtaText: "Book a Call",
-      primaryCtaLink: "/contact",
+      primaryCtaLink: "https://calendly.com/viobts/consultation",
       secondaryCtaText: "Explore Capabilities",
       secondaryCtaLink: "/services",
       imageSrc: "/images/hero-graphic.png"
@@ -233,7 +251,7 @@ export const INITIAL_HOMEPAGE_SECTIONS: PageSectionItem[] = [
       heading: "Let's turn technology into measurable business impact.",
       subheading: "Schedule a complimentary consultation with our principal architects to explore how VIO can accelerate your digital roadmap.",
       primaryCtaText: "Book a Call",
-      primaryCtaLink: "/contact",
+      primaryCtaLink: "https://calendly.com/viobts/consultation",
       secondaryCtaText: "Talk to VIO",
       secondaryCtaLink: "/contact"
     }

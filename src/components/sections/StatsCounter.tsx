@@ -33,7 +33,7 @@ export function StatsCounter({
         {(eyebrow || heading) && (
           <div className="text-center mb-12 sm:mb-14">
             {eyebrow && (
-              <p className="text-xs font-extrabold tracking-[0.25em] text-[#0066cc] uppercase mb-2.5">
+              <p className="text-xs font-extrabold tracking-[0.25em] text-[#0c34cd] uppercase mb-2.5">
                 {eyebrow}
               </p>
             )}
@@ -54,10 +54,10 @@ export function StatsCounter({
                 className="group relative p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden"
               >
                 {/* Top accent line */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0c34cd] via-sky-500 to-[#092699] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-2xl bg-blue-50 border border-blue-100/80 flex items-center justify-center text-blue-600 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-2xs">
+                  <div className="w-10 h-10 rounded-2xl bg-blue-50 border border-blue-100/80 flex items-center justify-center text-[#0c34cd] group-hover:scale-110 group-hover:bg-[#0c34cd] group-hover:text-white transition-all duration-300 shadow-2xs">
                     <Icon className="w-5 h-5" />
                   </div>
                   <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">
@@ -66,7 +66,7 @@ export function StatsCounter({
                 </div>
 
                 <div>
-                  <p className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#071739] group-hover:text-blue-600 transition-colors mb-2">
+                  <p className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#071739] group-hover:text-[#0c34cd] transition-colors mb-2">
                     {stat.value}
                   </p>
                   <h3 className="text-sm sm:text-base font-bold text-slate-800 leading-snug mb-1">

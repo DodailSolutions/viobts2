@@ -36,7 +36,7 @@ export function CareersClient({ careers }: CareersClientProps) {
             className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-300 transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6"
           >
             <div className="space-y-3">
-              <span className="text-[11px] font-bold text-[#0066cc] uppercase tracking-wider block">
+              <span className="text-[11px] font-bold text-[#0c34cd] uppercase tracking-wider block">
                 {job.department} • VIO Practice Pod
               </span>
               <h3 className="text-2xl font-extrabold text-[#071739] tracking-tight">
@@ -47,15 +47,15 @@ export function CareersClient({ careers }: CareersClientProps) {
               </p>
               <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 pt-1">
                 <span className="inline-flex items-center gap-1.5 font-medium">
-                  <MapPin className="w-3.5 h-3.5 text-[#0066cc]" />
+                  <MapPin className="w-3.5 h-3.5 text-[#0c34cd]" />
                   {job.location}
                 </span>
                 <span className="inline-flex items-center gap-1.5 font-medium">
-                  <Clock className="w-3.5 h-3.5 text-[#0066cc]" />
+                  <Clock className="w-3.5 h-3.5 text-[#0c34cd]" />
                   {job.employmentType}
                 </span>
                 <span className="inline-flex items-center gap-1.5 font-medium">
-                  <Award className="w-3.5 h-3.5 text-[#0066cc]" />
+                  <Award className="w-3.5 h-3.5 text-[#0c34cd]" />
                   {job.experienceLevel}
                 </span>
               </div>
@@ -63,7 +63,7 @@ export function CareersClient({ careers }: CareersClientProps) {
 
             <button
               onClick={() => setSelectedJob(job)}
-              className="px-7 py-3.5 rounded-xl bg-[#0066cc] hover:bg-[#0052a3] text-white font-bold text-xs transition-all shadow-md shadow-blue-500/20 hover:-translate-y-0.5 shrink-0 flex items-center justify-center gap-2"
+              className="px-7 py-3.5 rounded-xl bg-[#0c34cd] hover:bg-[#0a2cb0] text-white font-bold text-xs transition-all shadow-md shadow-blue-500/20 hover:-translate-y-0.5 shrink-0 flex items-center justify-center gap-2"
             >
               <span>View Role & Apply</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -84,7 +84,7 @@ export function CareersClient({ careers }: CareersClientProps) {
               <X className="w-5 h-5" />
             </button>
 
-            <span className="text-[11px] font-bold text-[#0066cc] uppercase tracking-widest block mb-1">
+            <span className="text-[11px] font-bold text-[#0c34cd] uppercase tracking-widest block mb-1">
               {selectedJob.department}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#071739] tracking-tight mb-2">
@@ -115,7 +115,7 @@ export function CareersClient({ careers }: CareersClientProps) {
                   <ul className="space-y-2.5">
                     {selectedJob.requirements.map((req, i) => (
                       <li key={i} className="flex items-start gap-2.5 text-xs text-slate-700 leading-normal">
-                        <CheckCircle2 className="w-4 h-4 text-[#0066cc] shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-[#0c34cd] shrink-0 mt-0.5" />
                         <span>{req}</span>
                       </li>
                     ))}
@@ -129,7 +129,7 @@ export function CareersClient({ careers }: CareersClientProps) {
                   <ul className="space-y-2.5">
                     {selectedJob.responsibilities.map((resp, i) => (
                       <li key={i} className="flex items-start gap-2.5 text-xs text-slate-700 leading-normal">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#0066cc] mt-1.5 shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#0c34cd] mt-1.5 shrink-0" />
                         <span>{resp}</span>
                       </li>
                     ))}
@@ -143,7 +143,7 @@ export function CareersClient({ careers }: CareersClientProps) {
                   <ul className="space-y-2.5">
                     {selectedJob.benefits.map((ben, i) => (
                       <li key={i} className="flex items-start gap-2.5 text-xs text-slate-700 leading-normal">
-                        <Sparkles className="w-3.5 h-3.5 text-[#0066cc] shrink-0 mt-0.5" />
+                        <Sparkles className="w-3.5 h-3.5 text-[#0c34cd] shrink-0 mt-0.5" />
                         <span>{ben}</span>
                       </li>
                     ))}
@@ -158,13 +158,13 @@ export function CareersClient({ careers }: CareersClientProps) {
                       type="text"
                       placeholder="Your Full Name *"
                       required
-                      className="px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0066cc] focus:bg-white transition-colors"
+                      className="px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0c34cd] focus:bg-white transition-colors"
                     />
                     <input
                       type="email"
                       placeholder="Corporate or Personal Email *"
                       required
-                      className="px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0066cc] focus:bg-white transition-colors"
+                      className="px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0c34cd] focus:bg-white transition-colors"
                     />
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -172,25 +172,25 @@ export function CareersClient({ careers }: CareersClientProps) {
                       type="tel"
                       placeholder="Phone Number *"
                       required
-                      className="px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0066cc] focus:bg-white transition-colors"
+                      className="px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0c34cd] focus:bg-white transition-colors"
                     />
                     <input
                       type="url"
                       placeholder="LinkedIn Profile or Portfolio URL *"
                       required
-                      className="px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0066cc] focus:bg-white transition-colors"
+                      className="px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0c34cd] focus:bg-white transition-colors"
                     />
                   </div>
                   <textarea
                     rows={3}
                     placeholder="Briefly describe your experience and why you're interested in joining VIO *"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0066cc] focus:bg-white transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0c34cd] focus:bg-white transition-colors"
                   />
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full py-3.5 rounded-xl bg-[#0066cc] hover:bg-[#0052a3] text-white font-bold text-xs transition-all shadow-md shadow-blue-500/20 flex items-center justify-center gap-2"
+                    className="w-full py-3.5 rounded-xl bg-[#0c34cd] hover:bg-[#0a2cb0] text-white font-bold text-xs transition-all shadow-md shadow-blue-500/20 flex items-center justify-center gap-2"
                   >
                     {submitting ? (
                       <span>Submitting...</span>

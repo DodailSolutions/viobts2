@@ -50,8 +50,8 @@ export function ContactClient() {
       {/* Left Info Column */}
       <div className="lg:col-span-5 space-y-6">
         <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[11px] font-bold text-[#0066cc] uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-[#0066cc]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[11px] font-bold text-[#0c34cd] uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-[#0c34cd]" />
             <span>DIRECT CHANNELS</span>
           </div>
 
@@ -65,7 +65,7 @@ export function ContactClient() {
 
           <div className="space-y-4 pt-2 border-t border-slate-100">
             <div className="flex items-start gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0066cc] flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0c34cd] flex items-center justify-center shrink-0">
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
@@ -75,24 +75,24 @@ export function ContactClient() {
             </div>
 
             <div className="flex items-start gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0066cc] flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0c34cd] flex items-center justify-center shrink-0">
                 <Phone className="w-5 h-5" />
               </div>
               <div>
                 <p className="text-xs font-bold text-[#071739]">Direct Telephone</p>
-                <a href="tel:+18048216588" className="text-xs text-[#0066cc] font-semibold hover:underline mt-0.5 block">
+                <a href="tel:+18048216588" className="text-xs text-[#0c34cd] font-semibold hover:underline mt-0.5 block">
                   +1 804 821 6588
                 </a>
               </div>
             </div>
 
             <div className="flex items-start gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0066cc] flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0c34cd] flex items-center justify-center shrink-0">
                 <Mail className="w-5 h-5" />
               </div>
               <div>
                 <p className="text-xs font-bold text-[#071739]">Corporate Inquiries & RFPs</p>
-                <a href="mailto:info@viobts.com" className="text-xs text-[#0066cc] font-semibold hover:underline mt-0.5 block">
+                <a href="mailto:info@viobts.com" className="text-xs text-[#0c34cd] font-semibold hover:underline mt-0.5 block">
                   info@viobts.com
                 </a>
               </div>
@@ -100,7 +100,7 @@ export function ContactClient() {
           </div>
 
           <div className="pt-4 border-t border-slate-100">
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-[#0066cc]">
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-[#0c34cd]">
               <ShieldCheck className="w-4 h-4" />
               <span>VA-SWaM Certified Woman-Owned Enterprise</span>
             </div>
@@ -109,20 +109,20 @@ export function ContactClient() {
 
         <div className="p-6 sm:p-8 rounded-3xl bg-[#f8fafc] border border-slate-200/80 shadow-2xs">
           <h3 className="text-xs font-bold text-[#071739] uppercase tracking-wider mb-3 flex items-center gap-2">
-            <Clock className="w-4 h-4 text-[#0066cc]" />
+            <Clock className="w-4 h-4 text-[#0c34cd]" />
             <span>What to expect next:</span>
           </h3>
           <ul className="space-y-2.5 text-xs text-slate-700">
             <li className="flex items-center gap-2.5">
-              <CheckCircle2 className="w-4 h-4 text-[#0066cc] shrink-0" />
+              <CheckCircle2 className="w-4 h-4 text-[#0c34cd] shrink-0" />
               <span>Immediate Non-Disclosure Agreement (NDA) on request</span>
             </li>
             <li className="flex items-center gap-2.5">
-              <CheckCircle2 className="w-4 h-4 text-[#0066cc] shrink-0" />
+              <CheckCircle2 className="w-4 h-4 text-[#0c34cd] shrink-0" />
               <span>Architecture scoping session within 24 business hours</span>
             </li>
             <li className="flex items-center gap-2.5">
-              <CheckCircle2 className="w-4 h-4 text-[#0066cc] shrink-0" />
+              <CheckCircle2 className="w-4 h-4 text-[#0c34cd] shrink-0" />
               <span>Direct discussion with a Principal Enterprise Architect</span>
             </li>
           </ul>
@@ -188,7 +188,7 @@ export function ContactClient() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="e.g. Sarah Jenkins"
-                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0066cc] focus:bg-white transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0c34cd] focus:bg-white transition-colors"
                 />
               </div>
 
@@ -202,7 +202,7 @@ export function ContactClient() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="sarah@enterprise.com"
-                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0066cc] focus:bg-white transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0c34cd] focus:bg-white transition-colors"
                 />
               </div>
             </div>
@@ -217,7 +217,7 @@ export function ContactClient() {
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                   placeholder="Organization or State Agency"
-                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0066cc] focus:bg-white transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0c34cd] focus:bg-white transition-colors"
                 />
               </div>
 
@@ -230,7 +230,7 @@ export function ContactClient() {
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   placeholder="+1 (804) 000-0000"
-                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0066cc] focus:bg-white transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0c34cd] focus:bg-white transition-colors"
                 />
               </div>
             </div>
@@ -243,7 +243,7 @@ export function ContactClient() {
                 <select
                   value={formData.serviceInterest}
                   onChange={(e) => setFormData({ ...formData, serviceInterest: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0066cc] focus:bg-white transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0c34cd] focus:bg-white transition-colors"
                 >
                   {INITIAL_SERVICES.map((s) => (
                     <option key={s.id} value={s.title}>
@@ -260,7 +260,7 @@ export function ContactClient() {
                 <select
                   value={formData.industryInterest}
                   onChange={(e) => setFormData({ ...formData, industryInterest: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0066cc] focus:bg-white transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0c34cd] focus:bg-white transition-colors"
                 >
                   {INITIAL_INDUSTRIES.map((ind) => (
                     <option key={ind.id} value={ind.title}>
@@ -279,7 +279,7 @@ export function ContactClient() {
                 <select
                   value={formData.budget}
                   onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0066cc] focus:bg-white transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0c34cd] focus:bg-white transition-colors"
                 >
                   <option value="Under $50k">Under $50,000</option>
                   <option value="$50k - $100k">$50,000 - $100,000</option>
@@ -295,7 +295,7 @@ export function ContactClient() {
                 <select
                   value={formData.timeline}
                   onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0066cc] focus:bg-white transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-[#0c34cd] focus:bg-white transition-colors"
                 >
                   <option value="Immediate (< 1 month)">Immediate (&lt; 1 month)</option>
                   <option value="1-3 months">1 - 3 months</option>
@@ -315,14 +315,14 @@ export function ContactClient() {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 placeholder="Outline your architectural challenge, technical stack requirements, or team augmentation needs..."
-                className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0066cc] focus:bg-white transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0c34cd] focus:bg-white transition-colors"
               />
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 rounded-xl text-sm font-bold text-white bg-[#0066cc] hover:bg-[#0052a3] transition-all duration-300 shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 hover:-translate-y-0.5"
+              className="w-full py-4 rounded-xl text-sm font-bold text-white bg-[#0c34cd] hover:bg-[#0a2cb0] transition-all duration-300 shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 hover:-translate-y-0.5"
             >
               {loading ? (
                 <>

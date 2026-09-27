@@ -64,7 +64,7 @@ export function BusinessProblems({
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           {eyebrow && (
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-bold text-[#0066cc] uppercase tracking-widest mb-3.5 shadow-2xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-bold text-[#0c34cd] uppercase tracking-widest mb-3.5 shadow-2xs">
               <Zap className="w-3.5 h-3.5 text-blue-600" />
               <span>{eyebrow}</span>
             </div>
@@ -94,7 +94,7 @@ export function BusinessProblems({
                     <span className="text-[10px] font-extrabold tracking-widest text-slate-600 uppercase bg-slate-100/90 px-3 py-1 rounded-full border border-slate-200/60">
                       {meta.tag}
                     </span>
-                    <span className="text-xs font-mono font-bold text-[#0066cc]">
+                    <span className="text-xs font-mono font-bold text-[#0c34cd]">
                       0{idx + 1}
                     </span>
                   </div>
@@ -105,7 +105,7 @@ export function BusinessProblems({
                       <AlertCircle className="w-3.5 h-3.5" />
                       <span>Friction Point</span>
                     </div>
-                    <h3 className="text-lg sm:text-xl font-extrabold text-[#071739] leading-snug group-hover:text-[#0066cc] transition-colors">
+                    <h3 className="text-lg sm:text-xl font-extrabold text-[#071739] leading-snug group-hover:text-[#0c34cd] transition-colors">
                       “{card.quote}”
                     </h3>
                   </div>
@@ -126,7 +126,7 @@ export function BusinessProblems({
                   <span className="text-[11px] text-slate-400 font-medium">Overcome This Bottleneck</span>
                   <Link
                     href={ctaLink}
-                    className="text-xs font-bold text-[#0066cc] hover:text-blue-800 transition-colors inline-flex items-center gap-1 group-hover:translate-x-1 duration-200"
+                    className="text-xs font-bold text-[#0c34cd] hover:text-blue-800 transition-colors inline-flex items-center gap-1 group-hover:translate-x-1 duration-200"
                   >
                     <span>Consult An Architect</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -137,14 +137,14 @@ export function BusinessProblems({
           })}
         </div>
 
-        {/* High-Impact Bottom CTA Banner */}
-        <div className="rounded-3xl bg-gradient-to-r from-[#071739] via-[#0b2559] to-[#071739] p-8 sm:p-12 text-center text-white shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        {/* High-Impact Bottom CTA Banner in Primary Color #0c34cd */}
+        <div className="rounded-3xl bg-gradient-to-r from-[#0c34cd] via-[#092699] to-[#0c34cd] p-8 sm:p-12 text-center text-white shadow-2xl shadow-blue-700/25 relative overflow-hidden border border-white/20">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-400/20 rounded-full blur-3xl pointer-events-none" />
           
           <div className="relative z-10 max-w-3xl mx-auto space-y-5">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-400/20 text-cyan-300 text-xs font-extrabold tracking-widest uppercase border border-cyan-400/30">
-              <Zap className="w-3 h-3" />
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/15 text-white text-xs font-black tracking-widest uppercase border border-white/25 backdrop-blur-xs shadow-xs">
+              <Zap className="w-3.5 h-3.5 text-cyan-200" />
               <span>MEASURE → ANALYSE → IMPROVE</span>
             </span>
 
@@ -152,21 +152,23 @@ export function BusinessProblems({
               {ctaText}
             </h3>
 
-            <p className="text-sm sm:text-base text-blue-100/90 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-cyan-100 max-w-2xl mx-auto leading-relaxed font-normal">
               Skip recruitment delays and architectural trial-and-error. Let our principal architects evaluate your current systems and architect a high-velocity roadmap.
             </p>
 
             <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href={ctaLink}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white text-[#071739] font-extrabold text-sm hover:bg-blue-50 transition-all shadow-md hover:scale-[1.02]"
+              <a
+                href={ctaLink.startsWith("http") ? ctaLink : "https://calendly.com/viobts/consultation"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white text-[#0c34cd] font-black text-sm hover:bg-cyan-50 transition-all shadow-lg shadow-blue-950/20 hover:scale-105 active:scale-95"
               >
                 <span>Book Free Architecture Assessment</span>
-                <ArrowRight className="w-4 h-4 text-[#0066cc]" />
-              </Link>
+                <ArrowRight className="w-4 h-4 text-[#0c34cd]" />
+              </a>
               <Link
                 href="/services"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-sm border border-white/20 transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white/15 hover:bg-white/25 text-white font-bold text-sm border border-white/30 backdrop-blur-xs transition-all hover:scale-105"
               >
                 <span>View Full Services Portfolio</span>
               </Link>

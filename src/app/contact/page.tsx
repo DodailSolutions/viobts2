@@ -67,14 +67,14 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 mb-4">
-          <ShieldCheck className="w-4 h-4 text-[#0066cc]" />
-          <span className="text-xs font-bold tracking-[0.2em] text-[#0066cc] uppercase">
+          <ShieldCheck className="w-4 h-4 text-[#0c34cd]" />
+          <span className="text-xs font-bold tracking-[0.2em] text-[#0c34cd] uppercase">
             START A TECHNICAL CONVERSATION
           </span>
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-black text-[#071739] tracking-tight leading-[1.12] mb-6">
-          Let's Build <span className="text-[#0066cc]">What's Next</span>
+          Let's Build <span className="text-[#0c34cd]">What's Next</span>
         </h1>
         
         <p className="text-base sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">

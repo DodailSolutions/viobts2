@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480" fill="none">
+  <defs>
+    <linearGradient id="bg-dw" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071739"/>
+      <stop offset="50%" stop-color="#0c34cd"/>
+      <stop offset="90%" stop-color="#064e3b"/>
+      <stop offset="100%" stop-color="#021c14"/>
+    </linearGradient>
+    <linearGradient id="card-grad-dw" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03"/>
+    </linearGradient>
+    <pattern id="grid-dw" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.75" stroke-opacity="0.08"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#bg-dw)"/>
+  <rect width="800" height="480" fill="url(#grid-dw)"/>
+
+  <circle cx="700" cy="150" r="180" fill="#10b981" fill-opacity="0.15" filter="blur(65px)"/>
+  <circle cx="150" cy="350" r="170" fill="#0c34cd" fill-opacity="0.35" filter="blur(55px)"/>
+
+  <!-- Top Badge -->
+  <g transform="translate(50, 48)">
+    <rect width="330" height="34" rx="17" fill="#ffffff" fill-opacity="0.15" stroke="#ffffff" stroke-width="1" stroke-opacity="0.25"/>
+    <circle cx="18" cy="17" r="5" fill="#10b981"/>
+    <text x="32" y="22" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="11" fill="#ffffff" letter-spacing="1.5">DRIVEWEALTH • EMBEDDED INVESTING</text>
+  </g>
+
+  <!-- Title -->
+  <text x="50" y="135" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="36" fill="#ffffff" letter-spacing="-0.5">
+    FinTech Brokerage API &amp; Cloud Velocity
+  </text>
+  <text x="50" y="172" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="17" fill="#6ee7b7">
+    High-Throughput Partitioned Event Queues &amp; Real-time Ledger Cache
+  </text>
+
+  <!-- Metrics Grid -->
+  <g transform="translate(50, 215)">
+    <!-- Card 1 -->
+    <rect x="0" y="0" width="215" height="135" rx="18" fill="url(#card-grad-dw)" stroke="#ffffff" stroke-width="1" stroke-opacity="0.18"/>
+    <text x="24" y="44" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" fill="#34d399">10x</text>
+    <text x="24" y="74" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="12" fill="#ffffff" letter-spacing="1">SURGE CAPACITY</text>
+    <text x="24" y="100" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="11" fill="#94a3b8">Market volatility proof</text>
+
+    <!-- Card 2 -->
+    <rect x="235" y="0" width="215" height="135" rx="18" fill="url(#card-grad-dw)" stroke="#ffffff" stroke-width="1" stroke-opacity="0.18"/>
+    <text x="259" y="44" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" fill="#38bdf8">&lt; 20ms</text>
+    <text x="259" y="74" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="12" fill="#ffffff" letter-spacing="1">API LATENCY</text>
+    <text x="259" y="100" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="11" fill="#94a3b8">Sub-second trade execution</text>
+
+    <!-- Card 3 -->
+    <rect x="470" y="0" width="230" height="135" rx="18" fill="url(#card-grad-dw)" stroke="#ffffff" stroke-width="1" stroke-opacity="0.18"/>
+    <text x="494" y="44" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" fill="#fbbf24">99.999%</text>
+    <text x="494" y="74" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="12" fill="#ffffff" letter-spacing="1">RELIABILITY</text>
+    <text x="494" y="100" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="11" fill="#94a3b8">Zero dropped transactions</text>
+  </g>
+
+  <!-- Tech Strip -->
+  <g transform="translate(50, 415)">
+    <rect width="700" height="34" rx="8" fill="#000000" fill-opacity="0.3"/>
+    <text x="20" y="22" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="12" fill="#e2e8f0">
+      TECH STACK: Node.js • Go • AWS • Apache Kafka • Redis Enterprise • PostgreSQL
+    </text>
+  </g>
+</svg>

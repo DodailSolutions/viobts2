@@ -58,14 +58,14 @@ export default function PodcastPage() {
       {/* Hero */}
       <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 mb-4">
-          <Radio className="w-4 h-4 text-[#0066cc] animate-pulse" />
-          <span className="text-xs font-bold tracking-[0.2em] text-[#0066cc] uppercase">
+          <Radio className="w-4 h-4 text-[#0c34cd] animate-pulse" />
+          <span className="text-xs font-bold tracking-[0.2em] text-[#0c34cd] uppercase">
             EXECUTIVE AUDIO & VIDEO PERSPECTIVES
           </span>
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-black text-[#071739] tracking-tight leading-[1.12] mb-6">
-          Voices of <span className="text-[#0066cc]">AI Leadership</span>
+          Voices of <span className="text-[#0c34cd]">AI Leadership</span>
         </h1>
         
         <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-normal mb-6">
@@ -89,11 +89,11 @@ export default function PodcastPage() {
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-100">
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0066cc] flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0c34cd] flex items-center justify-center shrink-0">
                   <Mic className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold text-[#0066cc] uppercase tracking-wider block">
+                  <span className="text-xs font-bold text-[#0c34cd] uppercase tracking-wider block">
                     Hosted by Malathi Vakkalanka
                   </span>
                   <div className="flex items-center gap-3 text-xs text-slate-500 mt-0.5">
@@ -145,7 +145,7 @@ export default function PodcastPage() {
 
             <div className="p-4 rounded-2xl bg-[#f8fafc] border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[#0066cc] font-black text-sm">
+                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[#0c34cd] font-black text-sm">
                   {p.guestName.charAt(0)}
                 </div>
                 <div>
@@ -158,7 +158,7 @@ export default function PodcastPage() {
                 href={p.youtubeUrl || p.spotifyUrl || "#"}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#0066cc] hover:bg-[#0052a3] text-white font-bold text-xs transition-all shadow-xs"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#0c34cd] hover:bg-[#0a2cb0] text-white font-bold text-xs transition-all shadow-xs"
               >
                 <Play className="w-3.5 h-3.5 fill-white" />
                 <span>Play Episode</span>

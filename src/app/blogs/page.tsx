@@ -67,14 +67,14 @@ export default function BlogsPage() {
       {/* Hero */}
       <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 mb-4">
-          <ShieldCheck className="w-4 h-4 text-[#0066cc]" />
-          <span className="text-xs font-bold tracking-[0.2em] text-[#0066cc] uppercase">
+          <ShieldCheck className="w-4 h-4 text-[#0c34cd]" />
+          <span className="text-xs font-bold tracking-[0.2em] text-[#0c34cd] uppercase">
             TECHNICAL ARTICLES & BLUEPRINTS
           </span>
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-black text-[#071739] tracking-tight leading-[1.12] mb-6">
-          Architectural <span className="text-[#0066cc]">Blueprints</span>
+          Architectural <span className="text-[#0c34cd]">Blueprints</span>
         </h1>
         
         <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-normal">
@@ -100,7 +100,7 @@ export default function BlogsPage() {
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/95 text-[#0066cc] shadow-xs">
+                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/95 text-[#0c34cd] shadow-xs">
                       {b.category}
                     </span>
                   </div>
@@ -118,7 +118,7 @@ export default function BlogsPage() {
                     </span>
                   </div>
 
-                  <h2 className="text-xl font-bold text-[#071739] group-hover:text-[#0066cc] transition-colors mb-3 leading-snug">
+                  <h2 className="text-xl font-bold text-[#071739] group-hover:text-[#0c34cd] transition-colors mb-3 leading-snug">
                     {b.title}
                   </h2>
                   <p className="text-xs text-slate-600 leading-relaxed line-clamp-3 mb-4 font-normal">
@@ -129,7 +129,7 @@ export default function BlogsPage() {
 
               <div className="px-7 pb-7 pt-2 border-t border-slate-100 flex items-center justify-between">
                 <span className="text-xs font-semibold text-slate-500">{b.authorName}</span>
-                <span className="text-xs font-bold text-[#0066cc] flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                <span className="text-xs font-bold text-[#0c34cd] flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
                   Read Article <ArrowRight className="w-3 h-3" />
                 </span>
               </div>

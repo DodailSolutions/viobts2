@@ -1,4 +1,4 @@
-﻿import { CaseStudyItem } from "./types";
+import { CaseStudyItem } from "./types";
 
 export const INITIAL_CASE_STUDIES: CaseStudyItem[] = [
   {
@@ -25,7 +25,7 @@ export const INITIAL_CASE_STUDIES: CaseStudyItem[] = [
       author: "Program Director",
       role: "Virginia State Agency Systems"
     },
-    imageUrl: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80",
+    imageUrl: "/images/case-studies/odga.svg",
     orderIndex: 1
   },
   {
@@ -52,7 +52,7 @@ export const INITIAL_CASE_STUDIES: CaseStudyItem[] = [
       author: "Senior Systems Lead",
       role: "Global Mission Technology"
     },
-    imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+    imageUrl: "/images/case-studies/usaid.svg",
     orderIndex: 2
   },
   {
@@ -79,7 +79,7 @@ export const INITIAL_CASE_STUDIES: CaseStudyItem[] = [
       author: "VP of Engineering",
       role: "Capital Markets"
     },
-    imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+    imageUrl: "/images/case-studies/drivewealth.svg",
     orderIndex: 3
   },
   {
@@ -101,7 +101,7 @@ export const INITIAL_CASE_STUDIES: CaseStudyItem[] = [
       { label: "Planning Time Saved", value: "4 hrs/day" },
       { label: "Store Coverage", value: "4,000+" }
     ],
-    imageUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+    imageUrl: "/images/case-studies/advance-auto.svg",
     orderIndex: 4
   },
   {
@@ -123,7 +123,7 @@ export const INITIAL_CASE_STUDIES: CaseStudyItem[] = [
       { label: "Lineage Coverage", value: "100%" },
       { label: "Anomaly Precision", value: "98.4%" }
     ],
-    imageUrl: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+    imageUrl: "/images/case-studies/wells-fargo.svg",
     orderIndex: 5
   }
 ];
