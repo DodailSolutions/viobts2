@@ -199,8 +199,8 @@ export function TechnologyWorkforcePageContent() {
     <div className="pt-28 pb-20 bg-white min-h-screen">
       {/* Hero Section */}
       <section className="relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-center">
-        {/* Breadcrumbs */}
-        <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 text-xs font-semibold text-slate-500 mb-8">
+        {/* Breadcrumbs - Leftside Top */}
+        <nav aria-label="Breadcrumb" className="flex items-center justify-start gap-2 text-xs font-semibold text-slate-500 mb-8 text-left">
           <Link href="/" className="hover:text-[#0c34cd] transition-colors">Home</Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
           <Link href="/services" className="hover:text-[#0c34cd] transition-colors">Services</Link>

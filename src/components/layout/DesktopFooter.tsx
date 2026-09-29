@@ -27,17 +27,29 @@ export function DesktopFooter() {
   const [subscribed, setSubscribed] = useState(false);
   const [openAccordions, setOpenAccordions] = useState<Record<string, boolean>>({});
 
-  // Sync config when client mounts
+  // Sync config when client mounts and on CMS storage updates
   useEffect(() => {
     setIsMounted(true);
-    try {
-      const liveConfig = cmsStore.getFooterConfig();
-      if (liveConfig) {
-        setConfig(liveConfig);
+    const refreshFooter = () => {
+      try {
+        cmsStore.hydrateFromStorage();
+        const liveConfig = cmsStore.getFooterConfig();
+        if (liveConfig) {
+          setConfig(liveConfig);
+        }
+      } catch {
+        // fallback to initial
       }
-    } catch {
-      // fallback to initial
-    }
+    };
+
+    refreshFooter();
+    window.addEventListener("cms-storage-update", refreshFooter);
+    window.addEventListener("storage", refreshFooter);
+
+    return () => {
+      window.removeEventListener("cms-storage-update", refreshFooter);
+      window.removeEventListener("storage", refreshFooter);
+    };
   }, []);
 
   const handleSubscribe = (e: React.FormEvent) => {

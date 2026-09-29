@@ -12,7 +12,8 @@ import {
   Sparkles, 
   ShieldCheck,
   Zap,
-  TrendingUp
+  TrendingUp,
+  ChevronRight
 } from "lucide-react";
 import { cmsStore } from "@/lib/data";
 import { CTABanner } from "@/components/sections/CTABanner";
@@ -95,12 +96,21 @@ export default function ServicesPage() {
       />
 
       {/* Hero */}
-      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 mb-4">
-          <ShieldCheck className="w-4 h-4 text-[#0c34cd]" />
-          <span className="text-xs font-bold tracking-[0.2em] text-[#0c34cd] uppercase">
-            6 CORE TECHNOLOGY PILLARS
-          </span>
+      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        {/* Breadcrumbs - Leftside Top */}
+        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-8">
+          <Link href="/" className="hover:text-[#0c34cd] transition-colors">Home</Link>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-[#0c34cd] font-bold">Services</span>
+        </nav>
+
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 mb-4">
+            <ShieldCheck className="w-4 h-4 text-[#0c34cd]" />
+            <span className="text-xs font-bold tracking-[0.2em] text-[#0c34cd] uppercase">
+              6 CORE TECHNOLOGY PILLARS
+            </span>
+          </div>
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-black text-[#071739] tracking-tight leading-[1.12] mb-6">

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { 
   ArrowRight, 
@@ -17,7 +17,7 @@ import {
   TrendingUp,
   Sparkles
 } from "lucide-react";
-import { INITIAL_INDUSTRIES } from "@/lib/data";
+import { cmsStore, IndustryItem } from "@/lib/data";
 
 interface IndustryExplorerProps {
   eyebrow?: string;
@@ -140,7 +140,21 @@ export function IndustryExplorer({
   ctaText = "Discover All Industries",
   ctaLink = "/industries",
 }: IndustryExplorerProps) {
-  const industries = INITIAL_INDUSTRIES;
+  const [industries, setIndustries] = useState<IndustryItem[]>(() => cmsStore.getIndustries());
+
+  useEffect(() => {
+    setIndustries(cmsStore.getIndustries());
+    const handleUpdate = () => {
+      setIndustries([...cmsStore.getIndustries()]);
+    };
+    window.addEventListener("cms-storage-update", handleUpdate);
+    window.addEventListener("storage", handleUpdate);
+    return () => {
+      window.removeEventListener("cms-storage-update", handleUpdate);
+      window.removeEventListener("storage", handleUpdate);
+    };
+  }, []);
+
   const [activeIdx, setActiveIdx] = useState(0);
   const activeIndustry = industries[activeIdx] || industries[0];
 

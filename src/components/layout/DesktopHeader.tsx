@@ -14,8 +14,8 @@ import {
 } from "lucide-react";
 import { 
   cmsStore, 
-  INITIAL_SERVICES, 
-  INITIAL_INDUSTRIES,
+  ServiceItem,
+  IndustryItem,
   NavigationMenu,
   MenuItem
 } from "@/lib/data";
@@ -26,6 +26,8 @@ export function DesktopHeader() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [headerMenu, setHeaderMenu] = useState<NavigationMenu | null>(null);
   const [ctaMenu, setCtaMenu] = useState<NavigationMenu | null>(null);
+  const [services, setServices] = useState<ServiceItem[]>(() => cmsStore.getServices());
+  const [industries, setIndustries] = useState<IndustryItem[]>(() => cmsStore.getIndustries());
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,14 +35,31 @@ export function DesktopHeader() {
     };
     window.addEventListener("scroll", handleScroll);
 
-    // Load active navigation menu assigned to header_main
-    const loadedMain = cmsStore.getMenuByPlacement("header_main");
-    if (loadedMain) setHeaderMenu(loadedMain);
+    const refreshData = () => {
+      try {
+        cmsStore.hydrateFromStorage();
+        const loadedMain = cmsStore.getMenuByPlacement("header_main");
+        if (loadedMain) setHeaderMenu(loadedMain);
 
-    const loadedCta = cmsStore.getMenuByPlacement("header_cta");
-    if (loadedCta) setCtaMenu(loadedCta);
+        const loadedCta = cmsStore.getMenuByPlacement("header_cta");
+        if (loadedCta) setCtaMenu(loadedCta);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+        setServices([...cmsStore.getServices()]);
+        setIndustries([...cmsStore.getIndustries()]);
+      } catch {
+        // Fallback
+      }
+    };
+
+    refreshData();
+    window.addEventListener("cms-storage-update", refreshData);
+    window.addEventListener("storage", refreshData);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("cms-storage-update", refreshData);
+      window.removeEventListener("storage", refreshData);
+    };
   }, []);
 
   // Do not render public header on admin CMS routes
@@ -48,8 +67,6 @@ export function DesktopHeader() {
     return null;
   }
 
-  const services = INITIAL_SERVICES;
-  const industries = INITIAL_INDUSTRIES;
   const ctaItem = ctaMenu?.items?.[0];
 
   return (

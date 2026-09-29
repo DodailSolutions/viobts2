@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Quote, Star, ChevronLeft, ChevronRight, ShieldCheck, Building, Sparkles } from "lucide-react";
-import { INITIAL_TESTIMONIALS } from "@/lib/data";
+import { cmsStore, TestimonialItem } from "@/lib/data";
 
 interface TestimonialsSliderProps {
   eyebrow?: string;
@@ -30,7 +30,21 @@ export function TestimonialsSlider({
   heading = "What Leaders Say About VIO",
   subheading = "Direct feedback from executive directors, engineering heads, and enterprise architects.",
 }: TestimonialsSliderProps) {
-  const testimonials = INITIAL_TESTIMONIALS;
+  const [testimonials, setTestimonials] = useState<TestimonialItem[]>(() => cmsStore.getTestimonials());
+
+  useEffect(() => {
+    setTestimonials(cmsStore.getTestimonials());
+    const handleUpdate = () => {
+      setTestimonials([...cmsStore.getTestimonials()]);
+    };
+    window.addEventListener("cms-storage-update", handleUpdate);
+    window.addEventListener("storage", handleUpdate);
+    return () => {
+      window.removeEventListener("cms-storage-update", handleUpdate);
+      window.removeEventListener("storage", handleUpdate);
+    };
+  }, []);
+
   const [currentIdx, setCurrentIdx] = useState(0);
 
   const prev = () => {

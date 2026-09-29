@@ -244,6 +244,15 @@ export function RpaMlAiPageContent() {
     <div className="pt-24 pb-20 bg-white min-h-screen">
       {/* 1. Hero Section */}
       <section className="relative pt-12 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
+        {/* Breadcrumbs - Leftside Top */}
+        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-8">
+          <Link href="/" className="hover:text-[#0c34cd] transition-colors">Home</Link>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <Link href="/services" className="hover:text-[#0c34cd] transition-colors">Services</Link>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-[#0c34cd] font-bold">RPA, ML &amp; AI</span>
+        </nav>
+
         {/* Ambient Gradient Background Glow */}
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-4xl h-80 bg-gradient-to-r from-blue-100 via-sky-50 to-indigo-100 opacity-60 blur-3xl -z-10 rounded-full pointer-events-none" />
 

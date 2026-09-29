@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { 
   Users, 
@@ -17,7 +17,7 @@ import {
   TrendingUp,
   Zap
 } from "lucide-react";
-import { INITIAL_SERVICES } from "@/lib/data";
+import { cmsStore, ServiceItem } from "@/lib/data";
 
 const ICON_MAP: Record<string, any> = {
   Users,
@@ -43,7 +43,21 @@ export function CapabilitiesGrid({
   ctaText = "View All Capabilities",
   ctaLink = "/services",
 }: CapabilitiesGridProps) {
-  const services = INITIAL_SERVICES;
+  const [services, setServices] = useState<ServiceItem[]>(() => cmsStore.getServices());
+
+  useEffect(() => {
+    setServices(cmsStore.getServices());
+    const handleUpdate = () => {
+      setServices([...cmsStore.getServices()]);
+    };
+    window.addEventListener("cms-storage-update", handleUpdate);
+    window.addEventListener("storage", handleUpdate);
+    return () => {
+      window.removeEventListener("cms-storage-update", handleUpdate);
+      window.removeEventListener("storage", handleUpdate);
+    };
+  }, []);
+
   const [selectedFilter, setSelectedFilter] = useState<string>("All");
 
   const filterTabs = [

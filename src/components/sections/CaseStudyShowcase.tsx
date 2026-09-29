@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { 
   ArrowRight, 
@@ -12,7 +12,7 @@ import {
   Sparkles,
   ExternalLink
 } from "lucide-react";
-import { INITIAL_CASE_STUDIES } from "@/lib/data";
+import { cmsStore, CaseStudyItem } from "@/lib/data";
 
 interface CaseStudyShowcaseProps {
   eyebrow?: string;
@@ -29,18 +29,33 @@ export function CaseStudyShowcase({
   ctaText = "Explore All Case Studies",
   ctaLink = "/case-studies",
 }: CaseStudyShowcaseProps) {
+  const [caseStudies, setCaseStudies] = useState<CaseStudyItem[]>(() => cmsStore.getCaseStudies());
+
+  useEffect(() => {
+    setCaseStudies(cmsStore.getCaseStudies());
+    const handleUpdate = () => {
+      setCaseStudies([...cmsStore.getCaseStudies()]);
+    };
+    window.addEventListener("cms-storage-update", handleUpdate);
+    window.addEventListener("storage", handleUpdate);
+    return () => {
+      window.removeEventListener("cms-storage-update", handleUpdate);
+      window.removeEventListener("storage", handleUpdate);
+    };
+  }, []);
+
   const [activeCategory, setActiveCategory] = useState<string>("All");
 
   const categories = [
-    { label: "All Proofs", key: "All", count: INITIAL_CASE_STUDIES.length },
-    { label: "Government", key: "Government", count: INITIAL_CASE_STUDIES.filter(c => c.industry.toLowerCase().includes("government")).length },
-    { label: "Banking & FinTech", key: "Banking", count: INITIAL_CASE_STUDIES.filter(c => c.industry.toLowerCase().includes("banking")).length },
-    { label: "Retail Logistics", key: "Retail", count: INITIAL_CASE_STUDIES.filter(c => c.industry.toLowerCase().includes("manufacturing") || c.industry.toLowerCase().includes("automotive")).length },
+    { label: "All Proofs", key: "All", count: caseStudies.length },
+    { label: "Government", key: "Government", count: caseStudies.filter(c => c.industry.toLowerCase().includes("government")).length },
+    { label: "Banking & FinTech", key: "Banking", count: caseStudies.filter(c => c.industry.toLowerCase().includes("banking")).length },
+    { label: "Retail Logistics", key: "Retail", count: caseStudies.filter(c => c.industry.toLowerCase().includes("manufacturing") || c.industry.toLowerCase().includes("automotive")).length },
   ];
 
   const filteredCaseStudies = activeCategory === "All"
-    ? INITIAL_CASE_STUDIES
-    : INITIAL_CASE_STUDIES.filter(c => {
+    ? caseStudies
+    : caseStudies.filter(c => {
         const ind = c.industry.toLowerCase();
         if (activeCategory === "Government") return ind.includes("government");
         if (activeCategory === "Banking") return ind.includes("banking") || ind.includes("fin");
