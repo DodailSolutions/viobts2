@@ -346,6 +346,11 @@ class CMSStore {
     this.persist();
   }
 
+  deletePodcast(id: string): void {
+    this.podcasts = this.podcasts.filter((p) => p.id !== id);
+    this.persist();
+  }
+
   // Careers
   getCareers(): CareerItem[] {
     this.hydrateFromStorage();

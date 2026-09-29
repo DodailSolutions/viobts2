@@ -63,6 +63,8 @@ export interface PodcastItem {
   guestName: string;
   guestCompany: string;
   guestPhoto?: string;
+  thumbnailUrl?: string;
+  coverImage?: string;
   hostName: string;
   duration: string;
   audioUrl?: string;

@@ -1,4 +1,4 @@
-﻿import { BlogItem, PodcastItem, CareerItem, TestimonialItem, LeadItem } from "./types";
+import { BlogItem, PodcastItem, CareerItem, TestimonialItem, LeadItem } from "./types";
 
 export const INITIAL_BLOGS: BlogItem[] = [
   {
@@ -54,6 +54,7 @@ export const INITIAL_PODCASTS: PodcastItem[] = [
     guestCompany: "Fortune 500 Infrastructure",
     hostName: "VIO Tech Perspectives",
     duration: "38 mins",
+    thumbnailUrl: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80",
     youtubeUrl: "https://youtube.com",
     spotifyUrl: "https://spotify.com",
     publishedAt: "2026-02-20"
@@ -66,6 +67,7 @@ export const INITIAL_PODCASTS: PodcastItem[] = [
     guestCompany: "Capital Analytics",
     hostName: "VIO Tech Perspectives",
     duration: "45 mins",
+    thumbnailUrl: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
     youtubeUrl: "https://youtube.com",
     spotifyUrl: "https://spotify.com",
     publishedAt: "2026-03-01"
