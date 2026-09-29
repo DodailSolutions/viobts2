@@ -10,8 +10,8 @@ import {
   PageItem,
   PageSectionItem,
 } from "./types";
-import { INITIAL_SERVICES } from "./services-data";
-import { INITIAL_INDUSTRIES } from "./industries-data";
+import { INITIAL_SERVICES, SERVICE_SLUG_ALIASES } from "./services-data";
+import { INITIAL_INDUSTRIES, INDUSTRY_SLUG_ALIASES } from "./industries-data";
 import { INITIAL_CASE_STUDIES } from "./case-studies-data";
 import {
   INITIAL_BLOGS,
@@ -154,7 +154,8 @@ class CMSStore {
   }
 
   getServiceBySlug(slug: string): ServiceItem | undefined {
-    return this.services.find((s) => s.slug === slug);
+    const target = SERVICE_SLUG_ALIASES[slug] || slug;
+    return this.services.find((s) => s.slug === target || s.slug === slug);
   }
 
   saveService(service: ServiceItem): void {
@@ -176,7 +177,8 @@ class CMSStore {
   }
 
   getIndustryBySlug(slug: string): IndustryItem | undefined {
-    return this.industries.find((i) => i.slug === slug);
+    const target = INDUSTRY_SLUG_ALIASES[slug] || slug;
+    return this.industries.find((i) => i.slug === target || i.slug === slug);
   }
 
   saveIndustry(industry: IndustryItem): void {

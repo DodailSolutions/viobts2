@@ -85,6 +85,7 @@ export const INITIAL_FOOTER_CONFIG: FooterConfig = {
         { id: "lnk-i3", label: "State & Public Sector", url: "/industries/public-sector-government" },
         { id: "lnk-i4", label: "Supply Chain & Logistics", url: "/industries/supply-chain-logistics" },
         { id: "lnk-i5", label: "Telecommunications", url: "/industries/telecommunications" },
+        { id: "lnk-i6", label: "Energy & Public Utilities", url: "/industries/energy-utilities" },
       ],
     },
     {

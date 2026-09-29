@@ -43,7 +43,23 @@ const INDUSTRY_CONFIGS: Record<string, {
     borderActive: "border-blue-500",
     accentText: "text-[#0c34cd]"
   },
+  "financial-services": {
+    icon: Landmark,
+    badge: "FINRA • SOC2 • PCI-DSS",
+    color: "#0c34cd",
+    lightBg: "bg-blue-50/70",
+    borderActive: "border-blue-500",
+    accentText: "text-[#0c34cd]"
+  },
   "healthcare-life-sciences-insurance": {
+    icon: HeartPulse,
+    badge: "HIPAA • HITECH • FHIR",
+    color: "#059669",
+    lightBg: "bg-emerald-50/70",
+    borderActive: "border-emerald-500",
+    accentText: "text-emerald-600"
+  },
+  "healthcare-life-sciences": {
     icon: HeartPulse,
     badge: "HIPAA • HITECH • FHIR",
     color: "#059669",
@@ -59,9 +75,25 @@ const INDUSTRY_CONFIGS: Record<string, {
     borderActive: "border-indigo-500",
     accentText: "text-indigo-600"
   },
+  "public-sector-government": {
+    icon: ShieldCheck,
+    badge: "VA-SWaM • NIST 800-53",
+    color: "#4f46e5",
+    lightBg: "bg-indigo-50/70",
+    borderActive: "border-indigo-500",
+    accentText: "text-indigo-600"
+  },
   "manufacturing-automotive": {
     icon: Factory,
     badge: "Industry 4.0 • IoT",
+    color: "#d97706",
+    lightBg: "bg-amber-50/70",
+    borderActive: "border-amber-500",
+    accentText: "text-amber-600"
+  },
+  "supply-chain-logistics": {
+    icon: Factory,
+    badge: "Industry 4.0 • Logistics",
     color: "#d97706",
     lightBg: "bg-amber-50/70",
     borderActive: "border-amber-500",
@@ -75,7 +107,23 @@ const INDUSTRY_CONFIGS: Record<string, {
     borderActive: "border-sky-500",
     accentText: "text-sky-600"
   },
+  "energy-public-utilities": {
+    icon: Zap,
+    badge: "SCADA • Grid Modernization",
+    color: "#0284c7",
+    lightBg: "bg-sky-50/70",
+    borderActive: "border-sky-500",
+    accentText: "text-sky-600"
+  },
   "communication-media": {
+    icon: Radio,
+    badge: "Ultra-Low Latency • Edge",
+    color: "#7c3aed",
+    lightBg: "bg-purple-50/70",
+    borderActive: "border-purple-500",
+    accentText: "text-purple-600"
+  },
+  "telecommunications": {
     icon: Radio,
     badge: "Ultra-Low Latency • Edge",
     color: "#7c3aed",

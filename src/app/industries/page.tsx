@@ -57,7 +57,19 @@ const SECTOR_CONFIGS: Record<string, {
     accent: "text-[#0c34cd]",
     bg: "bg-blue-50"
   },
+  "financial-services": {
+    icon: Landmark,
+    badge: "FINRA • SOC2 • PCI-DSS",
+    accent: "text-[#0c34cd]",
+    bg: "bg-blue-50"
+  },
   "healthcare-life-sciences-insurance": {
+    icon: HeartPulse,
+    badge: "HIPAA • HITECH • FHIR",
+    accent: "text-emerald-600",
+    bg: "bg-emerald-50"
+  },
+  "healthcare-life-sciences": {
     icon: HeartPulse,
     badge: "HIPAA • HITECH • FHIR",
     accent: "text-emerald-600",
@@ -69,9 +81,21 @@ const SECTOR_CONFIGS: Record<string, {
     accent: "text-indigo-600",
     bg: "bg-indigo-50"
   },
+  "public-sector-government": {
+    icon: ShieldCheck,
+    badge: "VA-SWaM • NIST 800-53",
+    accent: "text-indigo-600",
+    bg: "bg-indigo-50"
+  },
   "manufacturing-automotive": {
     icon: Factory,
     badge: "Industry 4.0 • IoT",
+    accent: "text-amber-600",
+    bg: "bg-amber-50"
+  },
+  "supply-chain-logistics": {
+    icon: Factory,
+    badge: "Industry 4.0 • Logistics",
     accent: "text-amber-600",
     bg: "bg-amber-50"
   },
@@ -81,7 +105,19 @@ const SECTOR_CONFIGS: Record<string, {
     accent: "text-sky-600",
     bg: "bg-sky-50"
   },
+  "energy-public-utilities": {
+    icon: Zap,
+    badge: "SCADA • Grid Resiliency",
+    accent: "text-sky-600",
+    bg: "bg-sky-50"
+  },
   "communication-media": {
+    icon: Radio,
+    badge: "Ultra-Low Latency • Edge",
+    accent: "text-purple-600",
+    bg: "bg-purple-50"
+  },
+  "telecommunications": {
     icon: Radio,
     badge: "Ultra-Low Latency • Edge",
     accent: "text-purple-600",

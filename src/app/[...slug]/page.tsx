@@ -1,5 +1,5 @@
 import React from "react";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { Metadata } from "next";
 import { cmsStore } from "@/lib/data";
 import { SectionRenderer } from "@/components/sections/SectionRenderer";
@@ -24,6 +24,14 @@ export default function DynamicCMSPage({ params }: DynamicPageProps) {
   const page = cmsStore.getPageBySlug(fullSlug);
 
   if (!page) {
+    const srv = cmsStore.getServiceBySlug(fullSlug);
+    if (srv) {
+      redirect(`/services/${fullSlug}`);
+    }
+    const ind = cmsStore.getIndustryBySlug(fullSlug);
+    if (ind) {
+      redirect(`/industries/${fullSlug}`);
+    }
     notFound();
   }
 

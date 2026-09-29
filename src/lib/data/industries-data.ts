@@ -1,4 +1,43 @@
-﻿import { IndustryItem } from "./types";
+import { IndustryItem } from "./types";
+
+export const INDUSTRY_SLUG_ALIASES: Record<string, string> = {
+  // Healthcare & Life Sciences
+  "healthcare-life-sciences": "healthcare-life-sciences-insurance",
+  "healthcare-life-sciences-insurance": "healthcare-life-sciences-insurance",
+  "healthcare": "healthcare-life-sciences-insurance",
+  "life-sciences": "healthcare-life-sciences-insurance",
+
+  // Financial Services & Banking
+  "financial-services": "banking-financial-services",
+  "banking-financial-services": "banking-financial-services",
+  "banking": "banking-financial-services",
+  "fintech": "banking-financial-services",
+
+  // Public Sector & Government
+  "public-sector-government": "government",
+  "government": "government",
+  "public-sector": "government",
+  "state-public-sector": "government",
+
+  // Manufacturing, Supply Chain & Logistics
+  "supply-chain-logistics": "manufacturing-automotive",
+  "manufacturing-automotive": "manufacturing-automotive",
+  "manufacturing": "manufacturing-automotive",
+  "supply-chain": "manufacturing-automotive",
+  "logistics": "manufacturing-automotive",
+
+  // Telecommunications & Media
+  "telecommunications": "communication-media",
+  "communication-media": "communication-media",
+  "telecom": "communication-media",
+  "media": "communication-media",
+
+  // Energy & Public Utilities
+  "energy-utilities": "energy-public-utilities",
+  "energy-public-utilities": "energy-public-utilities",
+  "energy": "energy-public-utilities",
+  "utilities": "energy-public-utilities",
+};
 
 export const INITIAL_INDUSTRIES: IndustryItem[] = [
   {

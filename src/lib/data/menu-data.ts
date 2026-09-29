@@ -93,6 +93,12 @@ export const INITIAL_MENUS: NavigationMenu[] = [
             href: "/industries/telecommunications",
             order: 5,
           },
+          {
+            id: "sub-energy",
+            label: "Energy & Public Utilities",
+            href: "/industries/energy-utilities",
+            order: 6,
+          },
         ],
       },
       {

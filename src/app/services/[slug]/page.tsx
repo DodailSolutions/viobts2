@@ -17,7 +17,7 @@ import {
   Calendar,
   Layers
 } from "lucide-react";
-import { cmsStore } from "@/lib/data";
+import { cmsStore, SERVICE_SLUG_ALIASES } from "@/lib/data";
 import { AccordionFAQ } from "@/components/sections/AccordionFAQ";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { TechnologyWorkforcePageContent } from "@/components/sections/TechnologyWorkforcePageContent";
@@ -29,6 +29,16 @@ import { RpaMlAiPageContent } from "@/components/sections/RpaMlAiPageContent";
 
 interface ServiceDetailPageProps {
   params: { slug: string };
+}
+
+export function generateStaticParams() {
+  const services = cmsStore.getServices();
+  const slugs = new Set<string>();
+
+  services.forEach((s) => slugs.add(s.slug));
+  Object.keys(SERVICE_SLUG_ALIASES).forEach((alias) => slugs.add(alias));
+
+  return Array.from(slugs).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: ServiceDetailPageProps): Promise<Metadata> {

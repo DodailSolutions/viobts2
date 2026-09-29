@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --background: #FFFFFF;
   --foreground: #0F172A;
   --primary: #0c34cd;

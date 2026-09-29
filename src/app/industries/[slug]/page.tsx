@@ -13,11 +13,21 @@ import {
   Calendar,
   Sparkles
 } from "lucide-react";
-import { cmsStore } from "@/lib/data";
+import { cmsStore, INDUSTRY_SLUG_ALIASES } from "@/lib/data";
 import { CTABanner } from "@/components/sections/CTABanner";
 
 interface IndustryDetailPageProps {
   params: { slug: string };
+}
+
+export function generateStaticParams() {
+  const industries = cmsStore.getIndustries();
+  const slugs = new Set<string>();
+
+  industries.forEach((ind) => slugs.add(ind.slug));
+  Object.keys(INDUSTRY_SLUG_ALIASES).forEach((alias) => slugs.add(alias));
+
+  return Array.from(slugs).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: IndustryDetailPageProps): Promise<Metadata> {

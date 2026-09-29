@@ -1,5 +1,40 @@
 import { ServiceItem } from "./types";
 
+export const SERVICE_SLUG_ALIASES: Record<string, string> = {
+  // Big Data & Lakehouse
+  "big-data-lakehouse": "big-data-analytics",
+  "big-data-and-analytics": "big-data-analytics",
+  "big-data": "big-data-analytics",
+  "data-analytics": "big-data-analytics",
+  "big-data-analytics": "big-data-analytics",
+
+  // RPA, ML & AI
+  "ai-machine-learning": "rpa-ml-ai",
+  "ai-ml-automation": "rpa-ml-ai",
+  "ai-ml": "rpa-ml-ai",
+  "ai": "rpa-ml-ai",
+  "rpa-ml-ai": "rpa-ml-ai",
+
+  // Technology Workforce
+  "technology-workforce": "technology-workforce",
+  "workforce": "technology-workforce",
+
+  // Open-Source Integration
+  "open-source-integration": "open-source-integration",
+  "open-source": "open-source-integration",
+
+  // Cloud Enablement & CI/CD
+  "cloud-enablement": "cloud-enablement",
+  "cloud-enablement-and-ci-cd-pipelines": "cloud-enablement",
+  "cloud": "cloud-enablement",
+
+  // APIs & Microservices
+  "api-microservices": "api-microservices",
+  "api-and-microservices": "api-microservices",
+  "apis-and-microservices": "api-microservices",
+  "microservices": "api-microservices",
+};
+
 export const INITIAL_SERVICES: ServiceItem[] = [
   {
     id: "srv-1",
