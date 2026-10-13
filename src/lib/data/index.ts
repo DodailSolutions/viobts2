@@ -163,14 +163,17 @@ class CMSStore {
     }
   }
   getPages(): PageItem[] {
+    this.hydrateFromStorage();
     return [...this.pages];
   }
 
   getPageBySlug(slug: string): PageItem | undefined {
+    this.hydrateFromStorage();
     return this.pages.find((p) => p.slug === slug);
   }
 
   getPageById(id: string): PageItem | undefined {
+    this.hydrateFromStorage();
     return this.pages.find((p) => p.id === id);
   }
 
@@ -182,6 +185,314 @@ class CMSStore {
       this.pages.push({ ...page, updatedAt: new Date().toISOString() });
     }
     this.persist();
+  }
+
+  deletePage(id: string): boolean {
+    if (id === "pg-home") return false; // Homepage is protected
+    this.hydrateFromStorage();
+    this.pages = this.pages.filter((p) => p.id !== id);
+    this.sections = this.sections.filter((s) => s.pageId !== id);
+    this.persist();
+    return true;
+  }
+
+  duplicatePage(id: string, newTitle?: string, newSlug?: string): PageItem | null {
+    this.hydrateFromStorage();
+    const sourcePage = this.pages.find((p) => p.id === id);
+    if (!sourcePage) return null;
+
+    const baseSlug = newSlug || `${sourcePage.slug}-copy-${Date.now().toString().slice(-4)}`;
+    const newId = `pg-${baseSlug.replace(/\//g, "-").toLowerCase()}`;
+    const cloneTitle = newTitle || `${sourcePage.title} (Copy)`;
+
+    const newPage: PageItem = {
+      ...sourcePage,
+      id: newId,
+      slug: baseSlug,
+      title: cloneTitle,
+      metaTitle: `${cloneTitle} | VIO`,
+      status: "draft",
+      updatedAt: new Date().toISOString(),
+    };
+    this.pages.push(newPage);
+
+    // Duplicate all sections from source page
+    const sourceSections = this.sections.filter((s) => s.pageId === id);
+    sourceSections.forEach((s) => {
+      this.sections.push({
+        ...JSON.parse(JSON.stringify(s)),
+        id: `sec-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
+        pageId: newId,
+      });
+    });
+
+    this.persist();
+    return newPage;
+  }
+
+  createPageWithTemplate(
+    data: { title: string; slug: string; metaTitle?: string; metaDescription?: string; status?: PageItem["status"] },
+    templateType: string = "blank"
+  ): PageItem {
+    this.hydrateFromStorage();
+    const cleanSlug = data.slug.toLowerCase().trim().replace(/^\//, "");
+    const pageId = "pg-" + cleanSlug.replace(/\//g, "-");
+    const pageTitle = data.title.trim();
+
+    const newPage: PageItem = {
+      id: pageId,
+      slug: cleanSlug,
+      title: pageTitle,
+      metaTitle: data.metaTitle?.trim() || `${pageTitle} | VIO`,
+      metaDescription: data.metaDescription?.trim() || `Enterprise solutions and capabilities by VIO LLC. Measure → Analyse → Improve.`,
+      status: data.status || "published",
+      updatedAt: new Date().toISOString(),
+    };
+
+    this.savePage(newPage);
+
+    // Populate initial modular template sections
+    if (templateType === "landing") {
+      const templateSections: PageSectionItem[] = [
+        {
+          id: `sec-${Date.now()}-1`,
+          pageId,
+          componentType: "HeroBanner",
+          orderIndex: 0,
+          isVisible: true,
+          props: {
+            eyebrow: "WE ARE YOUR TECHNOLOGY PARTNER",
+            headline: pageTitle,
+            highlightText: pageTitle.split(" ").pop() || "Excellence",
+            subheading: "Cutting-edge technology solutions to deliver excellence applying best practices, scalable architecture, and expert talent.",
+            badge: "VA-SWaM Certified • Richmond, Virginia • 10+ Years Track Record",
+            primaryCtaText: "Book a Consultation",
+            primaryCtaLink: "https://calendly.com/viobts/consultation",
+            secondaryCtaText: "Explore Capabilities",
+            secondaryCtaLink: "/services",
+            imageSrc: "/images/hero-graphic.png",
+          },
+        },
+        {
+          id: `sec-${Date.now()}-2`,
+          pageId,
+          componentType: "StatsCounter",
+          orderIndex: 1,
+          isVisible: true,
+          props: {
+            eyebrow: "PROVEN IMPACT",
+            heading: "Quantified Enterprise Velocity",
+            stats: [
+              { label: "Delivery Acceleration", value: "3.5x", description: "Sprint deployment cycle velocity" },
+              { label: "Certified Engineers", value: "100%", description: "Vetted senior architecture squad" },
+              { label: "Data Quality Score", value: "99.9%", description: "Enterprise telemetry fidelity" },
+              { label: "Client NPS Score", value: "+84", description: "Verified executive satisfaction" },
+            ],
+          },
+        },
+        {
+          id: `sec-${Date.now()}-3`,
+          pageId,
+          componentType: "MeetOurClients",
+          orderIndex: 2,
+          isVisible: true,
+          props: {},
+        },
+        {
+          id: `sec-${Date.now()}-4`,
+          pageId,
+          componentType: "BusinessProblems",
+          orderIndex: 3,
+          isVisible: true,
+          props: {
+            eyebrow: "SOLVING HIGH-FRICTION CHALLENGES",
+            heading: "Transforming Critical Enterprise Bottlenecks",
+            subheading: "How VIO bridges fragmented architectures into unified, resilient production systems.",
+          },
+        },
+        {
+          id: `sec-${Date.now()}-5`,
+          pageId,
+          componentType: "TestimonialsSlider",
+          orderIndex: 4,
+          isVisible: true,
+          props: {
+            eyebrow: "TESTIMONIALS & TRUST",
+            heading: "What Executive Leaders Say About Partnering with VIO",
+          },
+        },
+        {
+          id: `sec-${Date.now()}-6`,
+          pageId,
+          componentType: "CTABanner",
+          orderIndex: 5,
+          isVisible: true,
+          props: {
+            eyebrow: "GET STARTED WITH VIO",
+            heading: "Ready to Accelerate Your Enterprise Roadmap?",
+            subheading: "Schedule a high-impact architectural alignment session with our principal technology squad.",
+            primaryCtaText: "Schedule Call",
+            primaryCtaLink: "https://calendly.com/viobts/consultation",
+            secondaryCtaText: "Contact Us",
+            secondaryCtaLink: "/contact",
+          },
+        },
+      ];
+      templateSections.forEach((s) => this.saveSection(s));
+    } else if (templateType === "service") {
+      const templateSections: PageSectionItem[] = [
+        {
+          id: `sec-${Date.now()}-1`,
+          pageId,
+          componentType: "HeroBanner",
+          orderIndex: 0,
+          isVisible: true,
+          props: {
+            eyebrow: "ENTERPRISE CAPABILITIES",
+            headline: pageTitle,
+            highlightText: pageTitle.split(" ").pop() || "Capabilities",
+            subheading: "Architectural rigor, cloud-native scalability, and measurable ROI delivered by senior practitioners.",
+            badge: "Measure → Analyse → Improve",
+            primaryCtaText: "Engage Architecture Squad",
+            primaryCtaLink: "https://calendly.com/viobts/consultation",
+            secondaryCtaText: "View Case Studies",
+            secondaryCtaLink: "/case-studies",
+          },
+        },
+        {
+          id: `sec-${Date.now()}-2`,
+          pageId,
+          componentType: "CapabilitiesGrid",
+          orderIndex: 1,
+          isVisible: true,
+          props: {
+            eyebrow: "FULL-SPECTRUM COMPETENCIES",
+            heading: "Core Architecture & Engineering Pillars",
+            subheading: "End-to-end delivery frameworks engineered for mission-critical reliability.",
+          },
+        },
+        {
+          id: `sec-${Date.now()}-3`,
+          pageId,
+          componentType: "Methodology",
+          orderIndex: 2,
+          isVisible: true,
+          props: {
+            eyebrow: "THE VIO FORMULA",
+            heading: "Measure → Analyse → Improve",
+            subheading: "Our rigorous 3-stage visual architecture methodology guarantees verifiable outcomes.",
+          },
+        },
+        {
+          id: `sec-${Date.now()}-4`,
+          pageId,
+          componentType: "CaseStudyShowcase",
+          orderIndex: 3,
+          isVisible: true,
+          props: {
+            eyebrow: "VERIFIED CASE STUDIES",
+            heading: "Proven Results Across Tier-1 Clients",
+          },
+        },
+        {
+          id: `sec-${Date.now()}-5`,
+          pageId,
+          componentType: "AccordionFAQ",
+          orderIndex: 4,
+          isVisible: true,
+          props: {
+            eyebrow: "FREQUENTLY ASKED QUESTIONS",
+            heading: `FAQ Regarding ${pageTitle}`,
+          },
+        },
+        {
+          id: `sec-${Date.now()}-6`,
+          pageId,
+          componentType: "CTABanner",
+          orderIndex: 5,
+          isVisible: true,
+          props: {
+            eyebrow: "ACCELERATE TODAY",
+            heading: `Let's architect your next-generation solution.`,
+            primaryCtaText: "Book Architecture Call",
+            primaryCtaLink: "https://calendly.com/viobts/consultation",
+          },
+        },
+      ];
+      templateSections.forEach((s) => this.saveSection(s));
+    } else if (templateType === "about") {
+      const templateSections: PageSectionItem[] = [
+        {
+          id: `sec-${Date.now()}-1`,
+          pageId,
+          componentType: "HeroBanner",
+          orderIndex: 0,
+          isVisible: true,
+          props: {
+            eyebrow: "WHO WE ARE",
+            headline: pageTitle,
+            highlightText: "Mission",
+            subheading: "Founder-led, woman-owned VA-SWaM certified technology consulting partner with over a decade of enterprise excellence.",
+            badge: "Richmond, Virginia • VA-SWaM Certified • 10+ Years",
+            primaryCtaText: "Our Story",
+            primaryCtaLink: "/who-we-are",
+            secondaryCtaText: "Leadership Team",
+            secondaryCtaLink: "/who-we-are#team",
+          },
+        },
+        {
+          id: `sec-${Date.now()}-2`,
+          pageId,
+          componentType: "SplitImageText",
+          orderIndex: 1,
+          isVisible: true,
+          props: {
+            eyebrow: "OUR PHILOSOPHY",
+            heading: "Think Bigger, Build Smarter, Solve Harder",
+            description: "At VIO, we believe that true transformation is not about buzzwords—it is about rigorous measurement, empirical analysis, and systematic improvement. We partner with public sector pioneers and Fortune 500 enterprises to solve their most complex technical hurdles.",
+            bullets: [
+              "100% founder-led engineering accountability",
+              "Certified VA-SWaM Small, Women-owned business partner",
+              "Deep expertise across cloud, AI, microservices, and big data",
+              "Strict adherence to security, compliance, and enterprise SLAs",
+            ],
+            imagePosition: "right",
+            ctaText: "Learn More About VIO",
+            ctaLink: "/who-we-are",
+          },
+        },
+        {
+          id: `sec-${Date.now()}-3`,
+          pageId,
+          componentType: "Methodology",
+          orderIndex: 2,
+          isVisible: true,
+          props: {},
+        },
+        {
+          id: `sec-${Date.now()}-4`,
+          pageId,
+          componentType: "MeetOurClients",
+          orderIndex: 3,
+          isVisible: true,
+          props: {},
+        },
+        {
+          id: `sec-${Date.now()}-5`,
+          pageId,
+          componentType: "CTABanner",
+          orderIndex: 4,
+          isVisible: true,
+          props: {
+            heading: "Partner with VIO to Accelerate Your Enterprise",
+          },
+        },
+      ];
+      templateSections.forEach((s) => this.saveSection(s));
+    }
+
+    this.persist();
+    return newPage;
   }
 
   // Sections
@@ -207,6 +518,30 @@ class CMSStore {
       this.sections.push(section);
     }
     this.persist();
+  }
+
+  duplicateSection(sectionId: string): PageSectionItem | null {
+    this.hydrateFromStorage();
+    const secIndex = this.sections.findIndex((s) => s.id === sectionId);
+    if (secIndex === -1) return null;
+    const source = this.sections[secIndex];
+
+    const cloned: PageSectionItem = {
+      ...JSON.parse(JSON.stringify(source)),
+      id: `sec-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
+      orderIndex: source.orderIndex + 1,
+    };
+
+    // Increment subsequent order indexes
+    this.sections.forEach((s) => {
+      if (s.pageId === source.pageId && s.orderIndex > source.orderIndex) {
+        s.orderIndex += 1;
+      }
+    });
+
+    this.sections.splice(secIndex + 1, 0, cloned);
+    this.persist();
+    return cloned;
   }
 
   deleteSection(id: string): void {

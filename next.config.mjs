@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  webpack: (config, { dev }) => {
+    // Disable Webpack disk caching in development to prevent PackFileCacheStrategy snapshot corruption
+    if (dev) {
+      config.cache = false;
+    }
+    return config;
+  },
   images: {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',

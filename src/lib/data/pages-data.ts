@@ -1,6 +1,9 @@
 import { PageItem, PageSectionItem } from "./types";
 import { DEFAULT_CLIENT_LOGOS, DEFAULT_CLIENT_TESTIMONIALS } from "./client-logos-data";
 
+// Fixed timestamp so seed data is identical on server and client (avoids hydration mismatches)
+const SEED_UPDATED_AT = "2026-10-01T00:00:00.000Z";
+
 export const INITIAL_PAGES: PageItem[] = [
   {
     id: "pg-home",
@@ -9,7 +12,7 @@ export const INITIAL_PAGES: PageItem[] = [
     metaTitle: "VIO | The Technology Accelerator for Your Business",
     metaDescription: "Richmond, VA-based woman-owned enterprise technology consulting partner. Specializing in Technology Workforce, Big Data, Open-source, Cloud Enablement, APIs, and AI/ML.",
     status: "published",
-    updatedAt: new Date().toISOString()
+    updatedAt: SEED_UPDATED_AT
   },
   {
     id: "pg-services",
@@ -18,7 +21,7 @@ export const INITIAL_PAGES: PageItem[] = [
     metaTitle: "Enterprise Technology Services & Capabilities | VIO",
     metaDescription: "Explore VIO's 6 core technology pillars: Technology Workforce, Big Data & Analytics, Open-source Integration, Cloud Enablement, API & Microservices, RPA, ML & AI.",
     status: "published",
-    updatedAt: new Date().toISOString()
+    updatedAt: SEED_UPDATED_AT
   },
   {
     id: "pg-industries",
@@ -27,7 +30,7 @@ export const INITIAL_PAGES: PageItem[] = [
     metaTitle: "Industry Solutions & Transformation | VIO",
     metaDescription: "Tailored enterprise technology solutions for Banking, Healthcare, Government, Manufacturing, Energy, and Communication.",
     status: "published",
-    updatedAt: new Date().toISOString()
+    updatedAt: SEED_UPDATED_AT
   },
   {
     id: "pg-who-we-are",
@@ -36,7 +39,7 @@ export const INITIAL_PAGES: PageItem[] = [
     metaTitle: "Who We Are | 10+ Years of Enterprise Excellence | VIO",
     metaDescription: "Founder-led, woman-owned VA-SWaM certified technology accelerator headquartered in Richmond, Virginia with a 10+ year track record.",
     status: "published",
-    updatedAt: new Date().toISOString()
+    updatedAt: SEED_UPDATED_AT
   },
   {
     id: "pg-our-mission",
@@ -45,7 +48,7 @@ export const INITIAL_PAGES: PageItem[] = [
     metaTitle: "Our Mission | Provide the Smartest Techniques in the Business | VIO",
     metaDescription: "At VIO, we transform industries with specialized data intelligence, cutting-edge insights, and results-driven strategies.",
     status: "published",
-    updatedAt: new Date().toISOString()
+    updatedAt: SEED_UPDATED_AT
   },
   {
     id: "pg-vision",
@@ -54,7 +57,7 @@ export const INITIAL_PAGES: PageItem[] = [
     metaTitle: "Our Vision | Make a Future Where Innovation Drives Progress | VIO",
     metaDescription: "Building an ecosystem where businesses are free from limitations to explore their true potential through innovation, integrity, and sustainability.",
     status: "published",
-    updatedAt: new Date().toISOString()
+    updatedAt: SEED_UPDATED_AT
   },
   {
     id: "pg-case-studies",
@@ -63,7 +66,7 @@ export const INITIAL_PAGES: PageItem[] = [
     metaTitle: "Enterprise Case Studies & Client Proof | VIO",
     metaDescription: "Discover how VIO accelerates business outcomes for Virginia State Agencies (ODGA), USAID, DriveWealth, Advance Auto Parts, and Wells Fargo.",
     status: "published",
-    updatedAt: new Date().toISOString()
+    updatedAt: SEED_UPDATED_AT
   }
 ];
 
